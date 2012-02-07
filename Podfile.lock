@@ -1,0 +1,19 @@
+PODS:
+  - ASIHTTPRequest (1.8.1)
+  - ConciseKit (0.1.1)
+  - Expecta (0.1.3)
+  - OCHamcrest (1.6)
+  - OCMock (1.77.1)
+  - SBJson (3.0.4)
+  - SSKeychain (0.1.2)
+  - Specta (0.1.4)
+
+DEPENDENCIES:
+  - ASIHTTPRequest (~> 1.8.1)
+  - ConciseKit (~> 0.1.1)
+  - Expecta (~> 0.1.3)
+  - OCHamcrest (~> 1.6)
+  - OCMock (~> 1.77.1)
+  - SBJson (~> 3.0.4)
+  - SSKeychain (~> 0.1.2)
+  - Specta (~> 0.1.4)

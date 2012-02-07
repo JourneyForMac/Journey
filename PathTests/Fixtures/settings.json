@@ -1,0 +1,26 @@
+{
+  "settings": {
+    "user_primary_email": "foo@bar.com",
+    "user_first_name": "Foo",
+    "user_last_name": "Bar",
+    "path_emails_friend_req": true,
+    "path_emails_emotion": false,
+    "user_gender": "unspecified",
+    "path_notifications_emotion": true,
+    "path_emails_moment": true,
+    "user_other_emails": [
+      {
+        "created_at": "2012-01-01 00:00:00.000000",
+        "email": "foo@bar.com"
+      }
+    ],
+    "path_emails_tagged": true,
+    "path_notifications_friend_req": true,
+    "path_notifications_tagged": true,
+    "path_notifications_comment": true,
+    "user_username": "foo-bar",
+    "path_notifications_moment": true,
+    "path_emails_comment": false,
+    "path_ambient_distance_moments": true
+  }
+}
