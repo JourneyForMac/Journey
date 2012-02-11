@@ -13,6 +13,8 @@
 // Base URL
 @property (nonatomic, copy) NSString * baseURL;
 
++ (PFMPhoto *) photoFrom:(NSDictionary *)photoDict;
+
 - (NSString *) iOSLowResURL;
 - (NSString *) iOSHighResURL;
 - (NSString *) webURL;
