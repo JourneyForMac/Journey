@@ -50,11 +50,10 @@
 		E9FD376414E40C80007F90AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FD375B14E40C80007F90AF /* main.m */; };
 		F449978514E6215000306056 /* moments_feed.json in Resources */ = {isa = PBXBuildFile; fileRef = F449978414E6215000306056 /* moments_feed.json */; };
 		F449978914E6295C00306056 /* PFMMoment.m in Sources */ = {isa = PBXBuildFile; fileRef = F449978814E6295C00306056 /* PFMMoment.m */; };
-		F449978A14E6295C00306056 /* PFMMoment.m in Sources */ = {isa = PBXBuildFile; fileRef = F449978814E6295C00306056 /* PFMMoment.m */; };
 		F44997A214E6571F00306056 /* PFMPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = F44997A114E6571F00306056 /* PFMPhoto.m */; };
 		F44997A514E6582300306056 /* PFMPhotoSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F44997A414E6582300306056 /* PFMPhotoSpec.m */; };
 		F4B7F73D14E676CC005E8AF4 /* PFMComment.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B7F73C14E676CC005E8AF4 /* PFMComment.m */; };
-		F4B7F73E14E676CC005E8AF4 /* PFMComment.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B7F73C14E676CC005E8AF4 /* PFMComment.m */; };
+		F4B7F74214E68110005E8AF4 /* PFMLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B7F74114E68110005E8AF4 /* PFMLocation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +139,8 @@
 		F44997A414E6582300306056 /* PFMPhotoSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMPhotoSpec.m; sourceTree = "<group>"; };
 		F4B7F73B14E676CB005E8AF4 /* PFMComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMComment.h; sourceTree = "<group>"; };
 		F4B7F73C14E676CC005E8AF4 /* PFMComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMComment.m; sourceTree = "<group>"; };
+		F4B7F74014E68110005E8AF4 /* PFMLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMLocation.h; sourceTree = "<group>"; };
+		F4B7F74114E68110005E8AF4 /* PFMLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMLocation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,6 +335,8 @@
 				E966221114E6584A003F8861 /* NSApplication+SharedObjects.m */,
 				F4B7F73B14E676CB005E8AF4 /* PFMComment.h */,
 				F4B7F73C14E676CC005E8AF4 /* PFMComment.m */,
+				F4B7F74014E68110005E8AF4 /* PFMLocation.h */,
+				F4B7F74114E68110005E8AF4 /* PFMLocation.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				E9B9D9B614E67BA4005D5B5B /* PFMToolbarViewController.m in Sources */,
 				E9B9D9C614E68017005D5B5B /* PFMThemedWindow.m in Sources */,
 				E9B9D9CC14E68D5F005D5B5B /* PFMUnclickableImageView.m in Sources */,
+				F4B7F74214E68110005E8AF4 /* PFMLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,10 +547,8 @@
 				E9ADC81C14E41C1700E39527 /* PFMUserSpec.m in Sources */,
 				E91CCEDA14E4413100DA6E96 /* ASIHTTPRequest+Spec.m in Sources */,
 				E960810014E4DFA100127E58 /* TestHelper.m in Sources */,
-				F449978A14E6295C00306056 /* PFMMoment.m in Sources */,
 				F44997A514E6582300306056 /* PFMPhotoSpec.m in Sources */,
 				E966221414E661DA003F8861 /* PFMMainWindowControllerSpec.m in Sources */,
-				F4B7F73E14E676CC005E8AF4 /* PFMComment.m in Sources */,
 				E9B9D9B014E672D8005D5B5B /* PFMMomentListViewControllerSpec.m in Sources */,
 				E9B9D9BB14E67C15005D5B5B /* PFMToolbarViewControllerSpec.m in Sources */,
 			);

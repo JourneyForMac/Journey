@@ -4,6 +4,7 @@
 #import "PFMMoment.h"
 #import "PFMPhoto.h"
 #import "PFMComment.h"
+#import "PFMLocation.h"
 
 SpecBegin(PFMUser)
 
@@ -242,6 +243,27 @@ describe(@"-fetchMoments", ^{
         expect(moment.shared).toEqual(false);
         expect(moment.private).toEqual(false);
         expect(moment.createdAt).toEqual([NSDate dateWithTimeIntervalSince1970:1328778313]);
+      });
+
+      it(@"sets the sharedLocations dictionary with id <-> location mapping", ^{
+        doAction();
+        expect([[NSApp sharedLocations] count]).toEqual(14);
+
+        PFMLocation * location = [[NSApp sharedLocations] $for:@"4f33b224e7cf662ba2082b6b"];
+        expect(location.id).toEqual(@"4f33b224e7cf662ba2082b6b");
+        expect(location.weatherConditions).toEqual(@"Mostly cloudy");
+        expect(location.cloudCover).toEqual(@"75%");
+        expect(location.windSpeed).toEqual(@"4 meters per second");
+        expect(location.dewPoint).toEqual(@"66F");
+        expect(location.temperature).toEqual(@"83F");
+        expect(location.windDirection).toEqual(@"100 degrees");
+        expect((float)location.latitude).toEqual(1.28618792453878f);
+        expect((float)location.longitude).toEqual(103.849152707777f);
+        expect((float)location.accuracy).toEqual(76.2130243463154f);
+        expect((float)location.elevation).toEqual(41.0330467224121f);
+        expect(location.countryName).toEqual(@"Singapore");
+        expect(location.country).toEqual(@"SG");
+        expect(location.city).toEqual(@"Singapore");
       });
 
       it(@"should assign photos to moments (if they exist)", ^{

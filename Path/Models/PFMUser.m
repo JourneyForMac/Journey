@@ -5,6 +5,7 @@
 #import "SBJson.h"
 #import "SSKeychain.h"
 #import "PFMPhoto.h"
+#import "PFMLocation.h"
 
 @interface PFMUser ()
 
@@ -82,6 +83,14 @@
       // Get the Profile Photo dictionary from the users dictionary and set the profile photo
       NSDictionary * profilePhotoDictionary = [(NSDictionary *)[(NSDictionary *)$safe([dict $for:@"users"]) $for:self.id] $for:@"photo"];
       self.profilePhoto = [PFMPhoto photoFrom:profilePhotoDictionary];
+      // Get the locations map
+      NSDictionary * locationsDict = (NSDictionary *)$safe([dict $for:@"locations"]);
+
+      [locationsDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        PFMLocation * location = [PFMLocation locationFrom:(NSDictionary *)obj];
+        [[NSApp sharedLocations] setObject:location forKey:key];
+      }];
+
 
       [self.momentsDelegate didFetchMoments:[self fetchedMoments]];
     } else {
