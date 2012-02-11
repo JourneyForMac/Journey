@@ -25,7 +25,7 @@ context(@"at launch", ^{
   });
 
   after(^{
-    [windowController close];
+    [[windowController window] close];
   });
 });
 

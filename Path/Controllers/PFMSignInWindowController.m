@@ -31,11 +31,6 @@
 - (void)windowDidLoad {
   [super windowDidLoad];
 
-  NSView *contentView = [[self window] contentView];
-  NSView *themeFrame = [contentView superview];
-  PFMRedLinenView *backgroundView = [[PFMRedLinenView alloc] initWithFrame:[themeFrame frame]];
-  [themeFrame addSubview:backgroundView positioned:NSWindowBelow relativeTo:[[themeFrame subviews] objectAtIndex:0]];
-
   PFMUser *user = [NSApp sharedUser];
   user.signInDelegate = self;
   [user loadCredentials];

@@ -5,7 +5,6 @@
 - (id)initWithFrame:(NSRect)frame {
   self = [super initWithFrame:frame];
   if (self) {
-    [self setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
     self.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:@"RedLinenBg.png"]];
   }
   return self;

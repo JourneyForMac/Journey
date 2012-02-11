@@ -56,7 +56,7 @@
 				<string key="NSWindowRect">{{100, 100}, {320, 427}}</string>
 				<int key="NSWTFlags">544736256</int>
 				<string key="NSWindowTitle">Path for Mac</string>
-				<string key="NSWindowClass">NSWindow</string>
+				<string key="NSWindowClass">PFMThemedWindow</string>
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<object class="NSView" key="NSWindowView" id="1006">
@@ -882,6 +882,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/PFMSignInWindowController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">PFMThemedWindow</string>
+					<string key="superclassName">NSWindow</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/PFMThemedWindow.h</string>
 					</object>
 				</object>
 			</object>

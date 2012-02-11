@@ -39,6 +39,7 @@
 		E9B9D9B614E67BA4005D5B5B /* PFMToolbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B9D9B414E67BA4005D5B5B /* PFMToolbarViewController.m */; };
 		E9B9D9B914E67BDB005D5B5B /* ToolbarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9B9D9B814E67BDB005D5B5B /* ToolbarView.xib */; };
 		E9B9D9BB14E67C15005D5B5B /* PFMToolbarViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B9D9BA14E67C15005D5B5B /* PFMToolbarViewControllerSpec.m */; };
+		E9B9D9C614E68017005D5B5B /* PFMThemedWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B9D9C514E68017005D5B5B /* PFMThemedWindow.m */; };
 		E9CE16F914E54E3700B199AF /* RedLinenBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CE16F814E54E3700B199AF /* RedLinenBg.png */; };
 		E9CE170114E5557100B199AF /* PFMRedLinenView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CE170014E5557100B199AF /* PFMRedLinenView.m */; };
 		E9CE170314E55A9F00B199AF /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CE170214E55A9F00B199AF /* Logo.png */; };
@@ -113,6 +114,8 @@
 		E9B9D9B414E67BA4005D5B5B /* PFMToolbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMToolbarViewController.m; sourceTree = "<group>"; };
 		E9B9D9B814E67BDB005D5B5B /* ToolbarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolbarView.xib; sourceTree = "<group>"; };
 		E9B9D9BA14E67C15005D5B5B /* PFMToolbarViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMToolbarViewControllerSpec.m; sourceTree = "<group>"; };
+		E9B9D9C414E68017005D5B5B /* PFMThemedWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMThemedWindow.h; sourceTree = "<group>"; };
+		E9B9D9C514E68017005D5B5B /* PFMThemedWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMThemedWindow.m; sourceTree = "<group>"; };
 		E9CE16F814E54E3700B199AF /* RedLinenBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedLinenBg.png; sourceTree = "<group>"; };
 		E9CE16FF14E5557100B199AF /* PFMRedLinenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMRedLinenView.h; sourceTree = "<group>"; };
 		E9CE170014E5557100B199AF /* PFMRedLinenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMRedLinenView.m; sourceTree = "<group>"; };
@@ -359,11 +362,13 @@
 				E9926A3C14E4C12400F4EFA5 /* SignInWindow.xib */,
 				E9926A3A14E4C12400F4EFA5 /* MainWindow.xib */,
 				E9B9D9B114E674B3005D5B5B /* MomentListView.xib */,
+				E9B9D9B814E67BDB005D5B5B /* ToolbarView.xib */,
 				E960810414E5476B00127E58 /* PFMView.h */,
 				E960810514E5476B00127E58 /* PFMView.m */,
 				E9CE16FF14E5557100B199AF /* PFMRedLinenView.h */,
 				E9CE170014E5557100B199AF /* PFMRedLinenView.m */,
-				E9B9D9B814E67BDB005D5B5B /* ToolbarView.xib */,
+				E9B9D9C414E68017005D5B5B /* PFMThemedWindow.h */,
+				E9B9D9C514E68017005D5B5B /* PFMThemedWindow.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -514,6 +519,7 @@
 				F4B7F73D14E676CC005E8AF4 /* PFMComment.m in Sources */,
 				E9B9D9AC14E672B5005D5B5B /* PFMMomentListViewController.m in Sources */,
 				E9B9D9B614E67BA4005D5B5B /* PFMToolbarViewController.m in Sources */,
+				E9B9D9C614E68017005D5B5B /* PFMThemedWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
