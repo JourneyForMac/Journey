@@ -5,5 +5,6 @@
 @interface NSApplication (SharedObjects)
 
 - (PFMUser *)sharedUser;
+- (PFMUser *)resetSharedUser;
 
 @end

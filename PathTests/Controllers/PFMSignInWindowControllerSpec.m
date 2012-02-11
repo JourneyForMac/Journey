@@ -11,10 +11,7 @@ __block id mockUser;
 
 before(^{
   resetUserDefaultsAndKeychain();
-  user = [NSApp sharedUser];
-  user.email = nil;
-  user.password = nil;
-  user.signingIn = NO;
+  user = [NSApp resetSharedUser];
   mockUser = [OCMockObject partialMockForObject:user];
   controller = [PFMSignInWindowController new];
   [[controller window] makeKeyAndOrderFront:nil];
@@ -28,7 +25,7 @@ it(@"loads SignInWindow nib", ^{
   expect([controller windowNibName]).toEqual(@"SignInWindow");
 });
 
-it(@"sets itself as the shared user's sign in delegate", ^{
+it(@"sets itself to be the shared user's sign in delegate", ^{
   expect(user.signInDelegate).toEqual(controller);
 });
 
@@ -130,7 +127,7 @@ describe(@"PFMUserSignInDelegate", ^{
       windowController = [[[NSApp orderedWindows] objectAtIndex:0] windowController];
     });
 
-    it(@"opens activity view controller", ^{
+    it(@"opens main window controller", ^{
       expect(windowController).toBeKindOf([PFMMainWindowController class]);
       expect([[windowController window] isVisible]).toEqual(YES);
     });

@@ -14,4 +14,9 @@ static PFMUser *_sharedUser = nil;
   }
 }
 
+- (PFMUser *)resetSharedUser {
+  _sharedUser = nil;
+  return [self sharedUser];
+}
+
 @end

@@ -33,6 +33,12 @@
 		E9ADC81714E41B6100E39527 /* PFMModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E9ADC81614E41B6100E39527 /* PFMModelSpec.m */; };
 		E9ADC81A14E41BE700E39527 /* PFMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E9ADC81914E41BE700E39527 /* PFMUser.m */; };
 		E9ADC81C14E41C1700E39527 /* PFMUserSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E9ADC81B14E41C1700E39527 /* PFMUserSpec.m */; };
+		E9B9D9AC14E672B5005D5B5B /* PFMMomentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B9D9AA14E672B4005D5B5B /* PFMMomentListViewController.m */; };
+		E9B9D9B014E672D8005D5B5B /* PFMMomentListViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B9D9AF14E672D8005D5B5B /* PFMMomentListViewControllerSpec.m */; };
+		E9B9D9B214E674B3005D5B5B /* MomentListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9B9D9B114E674B3005D5B5B /* MomentListView.xib */; };
+		E9B9D9B614E67BA4005D5B5B /* PFMToolbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B9D9B414E67BA4005D5B5B /* PFMToolbarViewController.m */; };
+		E9B9D9B914E67BDB005D5B5B /* ToolbarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9B9D9B814E67BDB005D5B5B /* ToolbarView.xib */; };
+		E9B9D9BB14E67C15005D5B5B /* PFMToolbarViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B9D9BA14E67C15005D5B5B /* PFMToolbarViewControllerSpec.m */; };
 		E9CE16F914E54E3700B199AF /* RedLinenBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CE16F814E54E3700B199AF /* RedLinenBg.png */; };
 		E9CE170114E5557100B199AF /* PFMRedLinenView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CE170014E5557100B199AF /* PFMRedLinenView.m */; };
 		E9CE170314E55A9F00B199AF /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CE170214E55A9F00B199AF /* Logo.png */; };
@@ -99,6 +105,14 @@
 		E9ADC81B14E41C1700E39527 /* PFMUserSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMUserSpec.m; sourceTree = "<group>"; };
 		E9ADC81E14E4222F00E39527 /* PathTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PathTests-Info.plist"; sourceTree = "<group>"; };
 		E9ADC81F14E4222F00E39527 /* TestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
+		E9B9D9A914E672B4005D5B5B /* PFMMomentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMMomentListViewController.h; sourceTree = "<group>"; };
+		E9B9D9AA14E672B4005D5B5B /* PFMMomentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMMomentListViewController.m; sourceTree = "<group>"; };
+		E9B9D9AF14E672D8005D5B5B /* PFMMomentListViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMMomentListViewControllerSpec.m; sourceTree = "<group>"; };
+		E9B9D9B114E674B3005D5B5B /* MomentListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MomentListView.xib; sourceTree = "<group>"; };
+		E9B9D9B314E67BA4005D5B5B /* PFMToolbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMToolbarViewController.h; sourceTree = "<group>"; };
+		E9B9D9B414E67BA4005D5B5B /* PFMToolbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMToolbarViewController.m; sourceTree = "<group>"; };
+		E9B9D9B814E67BDB005D5B5B /* ToolbarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolbarView.xib; sourceTree = "<group>"; };
+		E9B9D9BA14E67C15005D5B5B /* PFMToolbarViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMToolbarViewControllerSpec.m; sourceTree = "<group>"; };
 		E9CE16F814E54E3700B199AF /* RedLinenBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedLinenBg.png; sourceTree = "<group>"; };
 		E9CE16FF14E5557100B199AF /* PFMRedLinenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMRedLinenView.h; sourceTree = "<group>"; };
 		E9CE170014E5557100B199AF /* PFMRedLinenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMRedLinenView.m; sourceTree = "<group>"; };
@@ -232,6 +246,8 @@
 				E9ADC80F14E4121500E39527 /* PathAppDelegateSpec.m */,
 				E9ADC80D14E411D800E39527 /* PFMSignInWindowControllerSpec.m */,
 				E966221314E661DA003F8861 /* PFMMainWindowControllerSpec.m */,
+				E9B9D9AF14E672D8005D5B5B /* PFMMomentListViewControllerSpec.m */,
+				E9B9D9BA14E67C15005D5B5B /* PFMToolbarViewControllerSpec.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -287,6 +303,10 @@
 				E9ADC80714E4112E00E39527 /* PFMSignInWindowController.m */,
 				E91CCEF414E4655300DA6E96 /* PFMMainWindowController.h */,
 				E91CCEF514E4655400DA6E96 /* PFMMainWindowController.m */,
+				E9B9D9A914E672B4005D5B5B /* PFMMomentListViewController.h */,
+				E9B9D9AA14E672B4005D5B5B /* PFMMomentListViewController.m */,
+				E9B9D9B314E67BA4005D5B5B /* PFMToolbarViewController.h */,
+				E9B9D9B414E67BA4005D5B5B /* PFMToolbarViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -335,13 +355,15 @@
 		E9FD375F14E40C80007F90AF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E9926A3A14E4C12400F4EFA5 /* MainWindow.xib */,
 				E9926A3B14E4C12400F4EFA5 /* MainMenu.xib */,
 				E9926A3C14E4C12400F4EFA5 /* SignInWindow.xib */,
+				E9926A3A14E4C12400F4EFA5 /* MainWindow.xib */,
+				E9B9D9B114E674B3005D5B5B /* MomentListView.xib */,
 				E960810414E5476B00127E58 /* PFMView.h */,
 				E960810514E5476B00127E58 /* PFMView.m */,
 				E9CE16FF14E5557100B199AF /* PFMRedLinenView.h */,
 				E9CE170014E5557100B199AF /* PFMRedLinenView.m */,
+				E9B9D9B814E67BDB005D5B5B /* ToolbarView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -426,6 +448,8 @@
 				E9926A4214E4C13000F4EFA5 /* Credits.rtf in Resources */,
 				E9CE16F914E54E3700B199AF /* RedLinenBg.png in Resources */,
 				E9CE170314E55A9F00B199AF /* Logo.png in Resources */,
+				E9B9D9B214E674B3005D5B5B /* MomentListView.xib in Resources */,
+				E9B9D9B914E67BDB005D5B5B /* ToolbarView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +512,8 @@
 				F44997A214E6571F00306056 /* PFMPhoto.m in Sources */,
 				E966221214E6584A003F8861 /* NSApplication+SharedObjects.m in Sources */,
 				F4B7F73D14E676CC005E8AF4 /* PFMComment.m in Sources */,
+				E9B9D9AC14E672B5005D5B5B /* PFMMomentListViewController.m in Sources */,
+				E9B9D9B614E67BA4005D5B5B /* PFMToolbarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +531,8 @@
 				F44997A514E6582300306056 /* PFMPhotoSpec.m in Sources */,
 				E966221414E661DA003F8861 /* PFMMainWindowControllerSpec.m in Sources */,
 				F4B7F73E14E676CC005E8AF4 /* PFMComment.m in Sources */,
+				E9B9D9B014E672D8005D5B5B /* PFMMomentListViewControllerSpec.m in Sources */,
+				E9B9D9BB14E67C15005D5B5B /* PFMToolbarViewControllerSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

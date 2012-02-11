@@ -1,9 +1,16 @@
 #import "PFMMainWindowController.h"
+#import "Application.h"
+#import "PFMMomentListViewController.h"
+#import "PFMToolbarViewController.h"
 
 @implementation PFMMainWindowController
 
 @synthesize
-  webView=_webView;
+  toolbarViewWrapper=toolbarViewWrapper
+, momentListViewWrapper=_momentListViewWrapper
+, toolbarViewController=_toolbarViewController
+, momentListViewController=_momentListViewController
+;
 
 - (id)init {
   self = [super initWithWindowNibName:@"MainWindow"];
@@ -25,6 +32,16 @@
 
 - (void)windowDidLoad {
   [super windowDidLoad];
+
+  self.momentListViewController = [PFMMomentListViewController new];
+  NSView *momentListView = [self.momentListViewController view];
+  [self.momentListViewWrapper addSubview:momentListView];
+  [momentListView setFrame:[self.momentListViewWrapper bounds]];
+
+  self.toolbarViewController = [PFMToolbarViewController new];
+  NSView *toolbarView = [self.toolbarViewController view];
+  [self.toolbarViewWrapper addSubview:toolbarView];
+  [toolbarView setFrame:[self.toolbarViewWrapper bounds]];
 }
 
 @end
