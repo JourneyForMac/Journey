@@ -5,10 +5,17 @@
 #import "SSKeychain.h"
 #import "PFMPhoto.h"
 
+@interface PFMUser ()
+
+- (PFMPhoto *) photoFrom:(NSDictionary *)coverPhoto;
+
+@end
+
 @implementation PFMUser
 
 @synthesize
-  email=_email
+  id=_id
+, email=_email
 , password=_password
 , signingIn=_signingIn
 , fetchingMoments=_fetchingMoments
@@ -18,6 +25,7 @@
 , momentsDelegate=_momentsDelegate
 , fetchedMoments=_fetchedMoments
 , coverPhoto=_coverPhoto
+, profilePhoto=_profilePhoto
 ;
 
 - (ASIHTTPRequest *)signIn {
@@ -78,16 +86,14 @@
         [self.fetchedMoments addObject:moment];
       }
 
+      // Set the ID
+      self.id = [(NSDictionary *)[(NSDictionary *)$safe([dict $for:@"cover"]) $for:@"user"] $for:@"id"];
+      // Get the Cover Photo
       NSDictionary * coverPhoto = [(NSDictionary *)$safe([dict $for:@"cover"]) $for:@"photo"];
-
-      self.coverPhoto = [PFMPhoto new];
-      self.coverPhoto.baseURL = $safe([coverPhoto $for:@"url"]);
-      NSDictionary * iOSDetails = (NSDictionary *)[coverPhoto $for:@"ios"];
-
-      self.coverPhoto.iOSHighResFileName = [(NSDictionary *)[iOSDetails $for:@"2x"] $for:@"file"];
-      self.coverPhoto.iOSLowResFileName = [(NSDictionary *)[iOSDetails $for:@"1x"] $for:@"file"];
-      self.coverPhoto.webFileName = [(NSDictionary *)[coverPhoto $for:@"web"] $for:@"file"];
-      self.coverPhoto.originalFileName = [(NSDictionary *)[coverPhoto $for:@"original"] $for:@"file"];
+      self.coverPhoto = [self photoFrom:coverPhoto];
+      // Get the Profile Photo dictionary from the users dictionary and set the profile photo
+      NSDictionary * profilePhoto = [(NSDictionary *)[(NSDictionary *)$safe([dict $for:@"users"]) $for:self.id] $for:@"photo"];
+      self.profilePhoto = [self photoFrom:profilePhoto];
 
       [self.momentsDelegate didFetchMoments:[self fetchedMoments]];
     } else {
@@ -110,6 +116,22 @@
 - (void)loadCredentials {
   self.email = [[NSUserDefaults standardUserDefaults] objectForKey:kPathDefaultsEmailKey];
   self.password = [SSKeychain passwordForService:kPathKeychainServiceName account:self.email];
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (PFMPhoto *) photoFrom:(NSDictionary *)coverPhoto {
+  PFMPhoto * photo = [PFMPhoto new];
+  photo.baseURL = $safe([coverPhoto $for:@"url"]);
+  NSDictionary * iOSDetails = (NSDictionary *)[coverPhoto $for:@"ios"];
+
+  photo.iOSHighResFileName = [(NSDictionary *)[iOSDetails $for:@"2x"] $for:@"file"];
+  photo.iOSLowResFileName = [(NSDictionary *)[iOSDetails $for:@"1x"] $for:@"file"];
+  photo.webFileName = [(NSDictionary *)[coverPhoto $for:@"web"] $for:@"file"];
+  photo.originalFileName = [(NSDictionary *)[coverPhoto $for:@"original"] $for:@"file"];
+
+  return photo;
 }
 
 @end

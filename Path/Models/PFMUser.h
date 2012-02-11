@@ -7,8 +7,11 @@
 
 @interface PFMUser : PFMModel
 
+@property(nonatomic, copy) NSString * id;
+
 @property(nonatomic, copy) NSString *email;
 @property(nonatomic, copy) NSString *password;
+
 @property(nonatomic) BOOL signingIn;
 @property(nonatomic) BOOL fetchingMoments;
 
@@ -17,6 +20,7 @@
 @property(nonatomic, retain) NSMutableArray  *fetchedMoments;
 
 @property(nonatomic, retain) PFMPhoto * coverPhoto;
+@property(nonatomic, retain) PFMPhoto * profilePhoto;
 
 @property(nonatomic) __weak id<PFMUserSignInDelegate> signInDelegate;
 @property(nonatomic) __weak id<PFMUserMomentsDelegate> momentsDelegate;

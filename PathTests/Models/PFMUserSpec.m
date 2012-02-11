@@ -208,9 +208,19 @@ describe(@"-fetchMoments", ^{
         expect([user.coverPhoto originalURL]).toEqual(@"https://s3-us-west-1.amazonaws.com/images.path.com/static/covers/19/original.jpg");
         expect([user.coverPhoto iOSLowResURL]).toEqual(@"https://s3-us-west-1.amazonaws.com/images.path.com/static/covers/19/1x.jpg");
         expect([user.coverPhoto iOSHighResURL]).toEqual(@"https://s3-us-west-1.amazonaws.com/images.path.com/static/covers/19/2x.jpg");
-
       });
 
+      it(@"sets the id of the user", ^{
+        doAction();
+        expect(user.id).toEqual(@"4f338c49f6b766128d011175");
+      });
+
+      it(@"sets the profile photo of the user", ^{
+        doAction();
+        expect(user.profilePhoto.iOSLowResURL).toEqual(@"https://s3-us-west-1.amazonaws.com/images.path.com/profile_photos/bef62e4fdd1b2a4e1df408443fcb4e2cde6f2a03/processed_80x80.jpg");
+        expect(user.profilePhoto.iOSHighResURL).toEqual(@"https://s3-us-west-1.amazonaws.com/images.path.com/profile_photos/bef62e4fdd1b2a4e1df408443fcb4e2cde6f2a03/processed_160x160.jpg");
+        expect(user.profilePhoto.originalURL).toEqual(@"https://s3-us-west-1.amazonaws.com/images.path.com/profile_photos/bef62e4fdd1b2a4e1df408443fcb4e2cde6f2a03/original.jpg");
+      });
 
       it(@"sends -didFetchMoments message to the userdelegate", ^{
         user.momentsDelegate = mockMomentsDelegate;
