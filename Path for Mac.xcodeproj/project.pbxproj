@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		ADBFC6DEAB4F4E14AE683583 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEC0C9312904ABA8CE686A2 /* libPods.a */; };
 		E91CCEDA14E4413100DA6E96 /* ASIHTTPRequest+Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = E91CCED914E4413100DA6E96 /* ASIHTTPRequest+Spec.m */; };
-		E91CCEF614E4655400DA6E96 /* PFMActivityWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E91CCEF514E4655400DA6E96 /* PFMActivityWindowController.m */; };
+		E91CCEF614E4655400DA6E96 /* PFMMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E91CCEF514E4655400DA6E96 /* PFMMainWindowController.m */; };
 		E91CCEFC14E46ACB00DA6E96 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91CCEFA14E4695600DA6E96 /* WebKit.framework */; };
 		E954C6C214E40A5700DF093C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E954C6C114E40A5700DF093C /* Cocoa.framework */; };
 		E954C6E014E40A5800DF093C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E954C6DF14E40A5800DF093C /* SenTestingKit.framework */; };
@@ -17,11 +17,12 @@
 		E96080EB14E4D1A100127E58 /* PFMHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E96080EA14E4D1A100127E58 /* PFMHelper.m */; };
 		E960810014E4DFA100127E58 /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E96080FF14E4DFA100127E58 /* TestHelper.m */; };
 		E960810614E5476B00127E58 /* PFMView.m in Sources */ = {isa = PBXBuildFile; fileRef = E960810514E5476B00127E58 /* PFMView.m */; };
-		E9926A3D14E4C12400F4EFA5 /* ActivityWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9926A3A14E4C12400F4EFA5 /* ActivityWindow.xib */; };
+		E966221214E6584A003F8861 /* NSApplication+SharedObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = E966221114E6584A003F8861 /* NSApplication+SharedObjects.m */; };
+		E966221414E661DA003F8861 /* PFMMainWindowControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E966221314E661DA003F8861 /* PFMMainWindowControllerSpec.m */; };
+		E9926A3D14E4C12400F4EFA5 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9926A3A14E4C12400F4EFA5 /* MainWindow.xib */; };
 		E9926A3E14E4C12400F4EFA5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9926A3B14E4C12400F4EFA5 /* MainMenu.xib */; };
 		E9926A3F14E4C12400F4EFA5 /* SignInWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9926A3C14E4C12400F4EFA5 /* SignInWindow.xib */; };
 		E9926A4214E4C13000F4EFA5 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E9926A4114E4C13000F4EFA5 /* Credits.rtf */; };
-		E9AC9C2114E4905C00F9AC4B /* NSApplication+SharedObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AC9C2014E4905C00F9AC4B /* NSApplication+SharedObjects.m */; };
 		E9AC9C2514E4AB6C00F9AC4B /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = E91CCEE414E44D1F00DA6E96 /* settings.json */; };
 		E9ADC7F714E40F6B00E39527 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9ADC7F614E40F6B00E39527 /* Security.framework */; };
 		E9ADC80314E40FD300E39527 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9ADC7F614E40F6B00E39527 /* Security.framework */; };
@@ -61,8 +62,8 @@
 		E91CCED814E4413100DA6E96 /* ASIHTTPRequest+Spec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASIHTTPRequest+Spec.h"; sourceTree = "<group>"; };
 		E91CCED914E4413100DA6E96 /* ASIHTTPRequest+Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ASIHTTPRequest+Spec.m"; sourceTree = "<group>"; };
 		E91CCEE414E44D1F00DA6E96 /* settings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = settings.json; sourceTree = "<group>"; };
-		E91CCEF414E4655300DA6E96 /* PFMActivityWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMActivityWindowController.h; sourceTree = "<group>"; };
-		E91CCEF514E4655400DA6E96 /* PFMActivityWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMActivityWindowController.m; sourceTree = "<group>"; };
+		E91CCEF414E4655300DA6E96 /* PFMMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMMainWindowController.h; sourceTree = "<group>"; };
+		E91CCEF514E4655400DA6E96 /* PFMMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMMainWindowController.m; sourceTree = "<group>"; };
 		E91CCEFA14E4695600DA6E96 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		E954C6BD14E40A5700DF093C /* Path.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Path.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E954C6C114E40A5700DF093C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -76,12 +77,13 @@
 		E96080FF14E4DFA100127E58 /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
 		E960810414E5476B00127E58 /* PFMView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMView.h; sourceTree = "<group>"; };
 		E960810514E5476B00127E58 /* PFMView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMView.m; sourceTree = "<group>"; };
-		E9926A3A14E4C12400F4EFA5 /* ActivityWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityWindow.xib; sourceTree = "<group>"; };
+		E966221014E6584A003F8861 /* NSApplication+SharedObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSApplication+SharedObjects.h"; sourceTree = "<group>"; };
+		E966221114E6584A003F8861 /* NSApplication+SharedObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSApplication+SharedObjects.m"; sourceTree = "<group>"; };
+		E966221314E661DA003F8861 /* PFMMainWindowControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMMainWindowControllerSpec.m; sourceTree = "<group>"; };
+		E9926A3A14E4C12400F4EFA5 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		E9926A3B14E4C12400F4EFA5 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		E9926A3C14E4C12400F4EFA5 /* SignInWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInWindow.xib; sourceTree = "<group>"; };
 		E9926A4114E4C13000F4EFA5 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
-		E9AC9C1F14E4905C00F9AC4B /* NSApplication+SharedObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSApplication+SharedObjects.h"; sourceTree = "<group>"; };
-		E9AC9C2014E4905C00F9AC4B /* NSApplication+SharedObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSApplication+SharedObjects.m"; sourceTree = "<group>"; };
 		E9ADC7F614E40F6B00E39527 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E9ADC80614E4112E00E39527 /* PFMSignInWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMSignInWindowController.h; sourceTree = "<group>"; };
 		E9ADC80714E4112E00E39527 /* PFMSignInWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMSignInWindowController.m; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 			children = (
 				E9ADC80F14E4121500E39527 /* PathAppDelegateSpec.m */,
 				E9ADC80D14E411D800E39527 /* PFMSignInWindowControllerSpec.m */,
+				E966221314E661DA003F8861 /* PFMMainWindowControllerSpec.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -278,10 +281,8 @@
 				E9FD375114E40C80007F90AF /* PathAppDelegate.m */,
 				E9ADC80614E4112E00E39527 /* PFMSignInWindowController.h */,
 				E9ADC80714E4112E00E39527 /* PFMSignInWindowController.m */,
-				E91CCEF414E4655300DA6E96 /* PFMActivityWindowController.h */,
-				E91CCEF514E4655400DA6E96 /* PFMActivityWindowController.m */,
-				E9AC9C1F14E4905C00F9AC4B /* NSApplication+SharedObjects.h */,
-				E9AC9C2014E4905C00F9AC4B /* NSApplication+SharedObjects.m */,
+				E91CCEF414E4655300DA6E96 /* PFMMainWindowController.h */,
+				E91CCEF514E4655400DA6E96 /* PFMMainWindowController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -297,6 +298,8 @@
 				F449978814E6295C00306056 /* PFMMoment.m */,
 				F44997A014E6571F00306056 /* PFMPhoto.h */,
 				F44997A114E6571F00306056 /* PFMPhoto.m */,
+				E966221014E6584A003F8861 /* NSApplication+SharedObjects.h */,
+				E966221114E6584A003F8861 /* NSApplication+SharedObjects.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -326,7 +329,7 @@
 		E9FD375F14E40C80007F90AF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E9926A3A14E4C12400F4EFA5 /* ActivityWindow.xib */,
+				E9926A3A14E4C12400F4EFA5 /* MainWindow.xib */,
 				E9926A3B14E4C12400F4EFA5 /* MainMenu.xib */,
 				E9926A3C14E4C12400F4EFA5 /* SignInWindow.xib */,
 				E960810414E5476B00127E58 /* PFMView.h */,
@@ -411,7 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9FD376214E40C80007F90AF /* InfoPlist.strings in Resources */,
-				E9926A3D14E4C12400F4EFA5 /* ActivityWindow.xib in Resources */,
+				E9926A3D14E4C12400F4EFA5 /* MainWindow.xib in Resources */,
 				E9926A3E14E4C12400F4EFA5 /* MainMenu.xib in Resources */,
 				E9926A3F14E4C12400F4EFA5 /* SignInWindow.xib in Resources */,
 				E9926A4214E4C13000F4EFA5 /* Credits.rtf in Resources */,
@@ -471,13 +474,13 @@
 				E9ADC80814E4112E00E39527 /* PFMSignInWindowController.m in Sources */,
 				E9ADC81514E419A900E39527 /* PFMModel.m in Sources */,
 				E9ADC81A14E41BE700E39527 /* PFMUser.m in Sources */,
-				E91CCEF614E4655400DA6E96 /* PFMActivityWindowController.m in Sources */,
-				E9AC9C2114E4905C00F9AC4B /* NSApplication+SharedObjects.m in Sources */,
+				E91CCEF614E4655400DA6E96 /* PFMMainWindowController.m in Sources */,
 				E96080EB14E4D1A100127E58 /* PFMHelper.m in Sources */,
 				E960810614E5476B00127E58 /* PFMView.m in Sources */,
 				E9CE170114E5557100B199AF /* PFMRedLinenView.m in Sources */,
 				F449978914E6295C00306056 /* PFMMoment.m in Sources */,
 				F44997A214E6571F00306056 /* PFMPhoto.m in Sources */,
+				E966221214E6584A003F8861 /* NSApplication+SharedObjects.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +496,7 @@
 				E960810014E4DFA100127E58 /* TestHelper.m in Sources */,
 				F449978A14E6295C00306056 /* PFMMoment.m in Sources */,
 				F44997A514E6582300306056 /* PFMPhotoSpec.m in Sources */,
+				E966221414E661DA003F8861 /* PFMMainWindowControllerSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

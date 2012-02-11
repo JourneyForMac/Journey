@@ -1,6 +1,6 @@
 #import "Application.h"
 #import "PFMSignInWindowController.h"
-#import "PFMActivityWindowController.h"
+#import "PFMMainWindowController.h"
 #import "PFMHelper.h"
 #import "PFMRedLinenView.h"
 
@@ -51,9 +51,9 @@
 #pragma mark - PFMUserSignInDelegate
 
 - (void)didSignIn {
-  PFMActivityWindowController *activityWindowController = [PFMActivityWindowController new];
+  PFMMainWindowController *mainWindowController = [PFMMainWindowController new];
   [[self window] close];
-  [[activityWindowController window] makeKeyAndOrderFront:nil];
+  [[mainWindowController window] makeKeyAndOrderFront:nil];
 }
 
 - (void)didFailSignInDueToInvalidCredentials {

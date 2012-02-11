@@ -2,7 +2,7 @@
 #import <WebKit/WebKit.h>
 #import "PFMUser.h"
 
-@interface PFMActivityWindowController : NSWindowController
+@interface PFMMainWindowController : NSWindowController
 
 @property (nonatomic, retain) IBOutlet WebView *webView;
 

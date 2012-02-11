@@ -1,18 +1,18 @@
-#import "PFMActivityWindowController.h"
+#import "PFMMainWindowController.h"
 
-@implementation PFMActivityWindowController
+@implementation PFMMainWindowController
 
 @synthesize
-  webView=_webView
-;
+  webView=_webView;
 
 - (id)init {
-  self = [super initWithWindowNibName:@"ActivityWindow"];
+  self = [super initWithWindowNibName:@"MainWindow"];
   return self;
 }
 
 - (void)awakeFromNib {
-  if(![[NSUserDefaults standardUserDefaults] objectForKey:@"NSWindow Frame ActivityWindow"]) {
+  if(![[NSUserDefaults standardUserDefaults] objectForKey:@"NSWindow Frame MainWindow"]) {
+    // if frame autosave is not found
     NSSize initialWindowSize = [[self window] frame].size;
     NSRect screenFrame = [[NSScreen mainScreen] frame];
     CGFloat newHeight = floorf(screenFrame.size.height * 0.8);
@@ -20,7 +20,7 @@
                                    , (screenFrame.size.height - newHeight) / 2.0
                                    , initialWindowSize.width, newHeight) display:NO];
   }
-  [self.window setFrameAutosaveName:@"ActivityWindow"];
+  [self.window setFrameAutosaveName:@"MainWindow"];
 }
 
 - (void)windowDidLoad {

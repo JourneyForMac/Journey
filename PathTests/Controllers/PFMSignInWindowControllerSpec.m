@@ -1,6 +1,6 @@
 #import "TestHelper.h"
 #import "PFMSignInWindowController.h"
-#import "PFMActivityWindowController.h"
+#import "PFMMainWindowController.h"
 #import "PFMHelper.h"
 
 SpecBegin(PFMSignInWindowController)
@@ -20,7 +20,7 @@ before(^{
   [[controller window] makeKeyAndOrderFront:nil];
 });
 
-afterEach(^{
+after(^{
   [[controller window] close];
 });
 
@@ -131,7 +131,7 @@ describe(@"PFMUserSignInDelegate", ^{
     });
 
     it(@"opens activity view controller", ^{
-      expect(windowController).toBeKindOf([PFMActivityWindowController class]);
+      expect(windowController).toBeKindOf([PFMMainWindowController class]);
       expect([[windowController window] isVisible]).toEqual(YES);
     });
 
