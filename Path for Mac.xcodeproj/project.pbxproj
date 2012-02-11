@@ -40,6 +40,8 @@
 		E9B9D9B914E67BDB005D5B5B /* ToolbarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9B9D9B814E67BDB005D5B5B /* ToolbarView.xib */; };
 		E9B9D9BB14E67C15005D5B5B /* PFMToolbarViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B9D9BA14E67C15005D5B5B /* PFMToolbarViewControllerSpec.m */; };
 		E9B9D9C614E68017005D5B5B /* PFMThemedWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B9D9C514E68017005D5B5B /* PFMThemedWindow.m */; };
+		E9B9D9C914E686E9005D5B5B /* TitleBarLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E9B9D9C814E686E9005D5B5B /* TitleBarLogo.png */; };
+		E9B9D9CC14E68D5F005D5B5B /* PFMUnclickableImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B9D9CB14E68D5F005D5B5B /* PFMUnclickableImageView.m */; };
 		E9CE16F914E54E3700B199AF /* RedLinenBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CE16F814E54E3700B199AF /* RedLinenBg.png */; };
 		E9CE170114E5557100B199AF /* PFMRedLinenView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CE170014E5557100B199AF /* PFMRedLinenView.m */; };
 		E9CE170314E55A9F00B199AF /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CE170214E55A9F00B199AF /* Logo.png */; };
@@ -116,6 +118,9 @@
 		E9B9D9BA14E67C15005D5B5B /* PFMToolbarViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMToolbarViewControllerSpec.m; sourceTree = "<group>"; };
 		E9B9D9C414E68017005D5B5B /* PFMThemedWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMThemedWindow.h; sourceTree = "<group>"; };
 		E9B9D9C514E68017005D5B5B /* PFMThemedWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMThemedWindow.m; sourceTree = "<group>"; };
+		E9B9D9C814E686E9005D5B5B /* TitleBarLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TitleBarLogo.png; sourceTree = "<group>"; };
+		E9B9D9CA14E68D5F005D5B5B /* PFMUnclickableImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMUnclickableImageView.h; sourceTree = "<group>"; };
+		E9B9D9CB14E68D5F005D5B5B /* PFMUnclickableImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMUnclickableImageView.m; sourceTree = "<group>"; };
 		E9CE16F814E54E3700B199AF /* RedLinenBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedLinenBg.png; sourceTree = "<group>"; };
 		E9CE16FF14E5557100B199AF /* PFMRedLinenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMRedLinenView.h; sourceTree = "<group>"; };
 		E9CE170014E5557100B199AF /* PFMRedLinenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMRedLinenView.m; sourceTree = "<group>"; };
@@ -338,6 +343,7 @@
 			children = (
 				E9CE170214E55A9F00B199AF /* Logo.png */,
 				E9CE16F814E54E3700B199AF /* RedLinenBg.png */,
+				E9B9D9C814E686E9005D5B5B /* TitleBarLogo.png */,
 				E9FD375614E40C80007F90AF /* InfoPlist.strings */,
 				E9926A4114E4C13000F4EFA5 /* Credits.rtf */,
 			);
@@ -369,6 +375,8 @@
 				E9CE170014E5557100B199AF /* PFMRedLinenView.m */,
 				E9B9D9C414E68017005D5B5B /* PFMThemedWindow.h */,
 				E9B9D9C514E68017005D5B5B /* PFMThemedWindow.m */,
+				E9B9D9CA14E68D5F005D5B5B /* PFMUnclickableImageView.h */,
+				E9B9D9CB14E68D5F005D5B5B /* PFMUnclickableImageView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -455,6 +463,7 @@
 				E9CE170314E55A9F00B199AF /* Logo.png in Resources */,
 				E9B9D9B214E674B3005D5B5B /* MomentListView.xib in Resources */,
 				E9B9D9B914E67BDB005D5B5B /* ToolbarView.xib in Resources */,
+				E9B9D9C914E686E9005D5B5B /* TitleBarLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +529,7 @@
 				E9B9D9AC14E672B5005D5B5B /* PFMMomentListViewController.m in Sources */,
 				E9B9D9B614E67BA4005D5B5B /* PFMToolbarViewController.m in Sources */,
 				E9B9D9C614E68017005D5B5B /* PFMThemedWindow.m in Sources */,
+				E9B9D9CC14E68D5F005D5B5B /* PFMUnclickableImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

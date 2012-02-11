@@ -8,6 +8,7 @@
 @synthesize
   toolbarViewWrapper=toolbarViewWrapper
 , momentListViewWrapper=_momentListViewWrapper
+, titleBarLogoView=_titleBarLogoView
 , toolbarViewController=_toolbarViewController
 , momentListViewController=_momentListViewController
 ;
@@ -42,6 +43,17 @@
   NSView *toolbarView = [self.toolbarViewController view];
   [self.toolbarViewWrapper addSubview:toolbarView];
   [toolbarView setFrame:[self.toolbarViewWrapper bounds]];
+
+  NSWindow *window = [self window];
+  NSImageView *titleBarLogoView = self.titleBarLogoView;
+  NSView *contentView = [window contentView];
+  NSView *themeFrame = [contentView superview];
+  [themeFrame addSubview:titleBarLogoView positioned:NSWindowBelow relativeTo:contentView];
+  NSRect windowFrame = [window frame];
+  NSRect logoFrame = [titleBarLogoView frame];
+  [titleBarLogoView setFrame:NSMakeRect(floorf((windowFrame.size.width - logoFrame.size.width) / 2.0)
+                                      , windowFrame.size.height - logoFrame.size.height - 7.0
+                                      , logoFrame.size.width, logoFrame.size.height)];
 }
 
 @end

@@ -6,7 +6,6 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
   PFMSignInWindowController *signInWindowController = [PFMSignInWindowController new];
   [signInWindowController.window makeKeyAndOrderFront:nil];
-  [signInWindowController.window makeMainWindow];
 }
 
 @end

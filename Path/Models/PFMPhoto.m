@@ -14,12 +14,12 @@
   PFMPhoto * photo = [PFMPhoto new];
   photo.baseURL = $safe([photoDict $for:@"url"]);
   NSDictionary * iOSDetails = (NSDictionary *)[photoDict $for:@"ios"];
-  
+
   photo.iOSHighResFileName = [(NSDictionary *)[iOSDetails $for:@"2x"] $for:@"file"];
   photo.iOSLowResFileName = [(NSDictionary *)[iOSDetails $for:@"1x"] $for:@"file"];
   photo.webFileName = [(NSDictionary *)[photoDict $for:@"web"] $for:@"file"];
   photo.originalFileName = [(NSDictionary *)[photoDict $for:@"original"] $for:@"file"];
-  
+
   return photo;
 }
 
