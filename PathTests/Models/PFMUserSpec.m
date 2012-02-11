@@ -243,6 +243,15 @@ describe(@"-fetchMoments", ^{
         expect(moment.private).toEqual(false);
         expect(moment.createdAt).toEqual([NSDate dateWithTimeIntervalSince1970:1328778313]);
       });
+      
+      it(@"should assign photos to moments (if they exist)", ^{
+        doAction();
+        PFMMoment *moment = (PFMMoment *)[user.fetchedMoments $at:0];
+        
+        expect(moment.photo.iOSLowResURL).toEqual(@"https://s3-us-west-1.amazonaws.com/images.path.com/photos2/d5abf9a1-1217-418a-9188-b8be09b1026e/1x.jpg");
+        expect(moment.photo.iOSHighResURL).toEqual(@"https://s3-us-west-1.amazonaws.com/images.path.com/photos2/d5abf9a1-1217-418a-9188-b8be09b1026e/2x.jpg");
+        expect(moment.photo.originalURL).toEqual(@"https://s3-us-west-1.amazonaws.com/images.path.com/photos2/d5abf9a1-1217-418a-9188-b8be09b1026e/original.jpg");
+      });
 
       it(@"sets user's fetchingMoments property to be NO", ^{
         doAction();

@@ -14,6 +14,7 @@
 , createdAt = _createdAt
 , shared = _shared
 , private = _private
+, photo=_photo
 ;
 
 

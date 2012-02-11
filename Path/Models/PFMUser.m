@@ -82,6 +82,11 @@
         moment.createdAt = [NSDate dateWithTimeIntervalSince1970:floor([$safe([rawMoment $for:@"created"]) doubleValue])];
         moment.private = [(NSNumber *)[rawMoment $for:@"private"] boolValue];
         moment.shared =  [(NSNumber *)[rawMoment $for:@"shared"] boolValue];
+        
+        if($eql(moment.type, @"photo")) {
+          NSDictionary * photoDictionary = (NSDictionary *)[(NSDictionary *)[rawMoment $for:@"photo"] $for:@"photo"];
+          moment.photo = [PFMPhoto photoFrom:photoDictionary];
+        }
 
         [self.fetchedMoments addObject:moment];
       }

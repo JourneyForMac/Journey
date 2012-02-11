@@ -1,6 +1,8 @@
 #import <Foundation/Foundation.h>
 #import "PFMModel.h"
 
+@class PFMPhoto;
+
 @interface PFMMoment : PFMModel
 
 @property (nonatomic, copy) NSString * id;
@@ -14,6 +16,7 @@
 @property (nonatomic, copy) NSString * thought;
 @property (nonatomic, copy) NSString * state;
 @property (nonatomic, retain) NSDate * createdAt;
+@property (nonatomic, retain) PFMPhoto * photo;
 
 @property (nonatomic, getter=isShared) BOOL shared;
 @property (nonatomic, getter=isPrivate) BOOL private;
