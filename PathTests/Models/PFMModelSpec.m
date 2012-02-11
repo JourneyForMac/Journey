@@ -1,6 +1,5 @@
 #import "TestHelper.h"
 #import "PFMModel.h"
-#import "ASIHTTPRequest+Spec.h"
 
 SpecBegin(PFMModel)
 

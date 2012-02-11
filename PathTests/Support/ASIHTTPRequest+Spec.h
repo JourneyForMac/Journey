@@ -2,6 +2,10 @@
 
 @interface ASIHTTPRequest (Spec)
 
++ (NSMutableArray *)requests;
++ (void)resetRequests;
++ (ASIHTTPRequest *)mostRecentRequest;
+
 - (ASIBasicBlock)startedBlock;
 - (ASIBasicBlock)completionBlock;
 - (ASIBasicBlock)failureBlock;

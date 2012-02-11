@@ -2,7 +2,27 @@
 #import "ASIHTTPRequest+Spec.h"
 #import <objc/runtime.h>
 
+static NSMutableArray *requests = nil;
+
 @implementation ASIHTTPRequest (Spec)
+
++ (NSMutableArray *)requests {
+  @synchronized(self) {
+    if(!requests) {
+      requests = [NSMutableArray array];
+    }
+  }
+  return requests;
+}
+
+
++ (void)resetRequests {
+  [[self requests] removeAllObjects];
+}
+
++ (ASIHTTPRequest *)mostRecentRequest {
+  return [[self requests] lastObject];
+}
 
 - (ASIBasicBlock)startedBlock {
   return startedBlock;
@@ -37,11 +57,13 @@
 - (void)startSynchronous {
   self.started = YES;
   self.asynchronous = NO;
+  [[[self class] requests] addObject:self];
 }
 
 - (void)startAsynchronous {
   self.started = YES;
   self.asynchronous = YES;
+  [[[self class] requests] addObject:self];
 }
 
 @end

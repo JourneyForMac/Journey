@@ -1,7 +1,6 @@
 #import "TestHelper.h"
 #import "PFMUser.h"
 #import "SSKeychain.h"
-#import "ASIHTTPRequest+Spec.h"
 #import "PFMMoment.h"
 #import "PFMPhoto.h"
 #import "PFMComment.h"
