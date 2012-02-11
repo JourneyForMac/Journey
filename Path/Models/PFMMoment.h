@@ -18,16 +18,18 @@
 @property (nonatomic, retain) NSDate * createdAt;
 @property (nonatomic, retain) PFMPhoto * photo;
 
+@property (nonatomic, retain) NSMutableArray * comments;
+
 @property (nonatomic, getter=isShared) BOOL shared;
 @property (nonatomic, getter=isPrivate) BOOL private;
 
 // There are other components (which may or may not be self-standing objects)
-// photo
 // location
 // emotions
-// comments
 // place
 // origin_location
 // destination_location
+
++ (PFMMoment *)momentFrom:(NSDictionary *)rawMoment;
 
 @end

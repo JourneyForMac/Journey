@@ -1,5 +1,6 @@
 #import "PFMUser.h"
 #import "PFMMoment.h"
+#import "PFMComment.h"
 #import "Application.h"
 #import "SBJson.h"
 #import "SSKeychain.h"
@@ -69,25 +70,7 @@
 
       NSDictionary *dict = [[request responseString] JSONValue];
       for(NSDictionary * rawMoment in $safe([dict $for:@"moments"])) {
-        PFMMoment * moment = [PFMMoment new];
-        moment.id = $safe([rawMoment $for:@"id"]);
-        moment.locationId = $safe([rawMoment $for:@"location_id"]);
-        moment.userId = $safe([rawMoment $for:@"user_id"]);
-
-        moment.type = $safe([rawMoment $for:@"type"]);
-        moment.headline = $safe([rawMoment $for:@"headline"]);
-        moment.subHeadline = $safe([rawMoment $for:@"subheadline"]);
-        moment.thought = $safe([rawMoment $for:@"thought"]);
-        moment.state = $safe([rawMoment $for:@"state"]);
-        moment.createdAt = [NSDate dateWithTimeIntervalSince1970:floor([$safe([rawMoment $for:@"created"]) doubleValue])];
-        moment.private = [(NSNumber *)[rawMoment $for:@"private"] boolValue];
-        moment.shared =  [(NSNumber *)[rawMoment $for:@"shared"] boolValue];
-        
-        if($eql(moment.type, @"photo")) {
-          NSDictionary * photoDictionary = (NSDictionary *)[(NSDictionary *)[rawMoment $for:@"photo"] $for:@"photo"];
-          moment.photo = [PFMPhoto photoFrom:photoDictionary];
-        }
-
+        PFMMoment * moment = [PFMMoment momentFrom:rawMoment];
         [self.fetchedMoments addObject:moment];
       }
 

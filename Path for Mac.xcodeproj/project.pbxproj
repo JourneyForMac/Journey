@@ -44,6 +44,8 @@
 		F449978A14E6295C00306056 /* PFMMoment.m in Sources */ = {isa = PBXBuildFile; fileRef = F449978814E6295C00306056 /* PFMMoment.m */; };
 		F44997A214E6571F00306056 /* PFMPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = F44997A114E6571F00306056 /* PFMPhoto.m */; };
 		F44997A514E6582300306056 /* PFMPhotoSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F44997A414E6582300306056 /* PFMPhotoSpec.m */; };
+		F4B7F73D14E676CC005E8AF4 /* PFMComment.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B7F73C14E676CC005E8AF4 /* PFMComment.m */; };
+		F4B7F73E14E676CC005E8AF4 /* PFMComment.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B7F73C14E676CC005E8AF4 /* PFMComment.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,8 @@
 		F44997A014E6571F00306056 /* PFMPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMPhoto.h; sourceTree = "<group>"; };
 		F44997A114E6571F00306056 /* PFMPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMPhoto.m; sourceTree = "<group>"; };
 		F44997A414E6582300306056 /* PFMPhotoSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMPhotoSpec.m; sourceTree = "<group>"; };
+		F4B7F73B14E676CB005E8AF4 /* PFMComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMComment.h; sourceTree = "<group>"; };
+		F4B7F73C14E676CC005E8AF4 /* PFMComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMComment.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +304,8 @@
 				F44997A114E6571F00306056 /* PFMPhoto.m */,
 				E966221014E6584A003F8861 /* NSApplication+SharedObjects.h */,
 				E966221114E6584A003F8861 /* NSApplication+SharedObjects.m */,
+				F4B7F73B14E676CB005E8AF4 /* PFMComment.h */,
+				F4B7F73C14E676CC005E8AF4 /* PFMComment.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -481,6 +487,7 @@
 				F449978914E6295C00306056 /* PFMMoment.m in Sources */,
 				F44997A214E6571F00306056 /* PFMPhoto.m in Sources */,
 				E966221214E6584A003F8861 /* NSApplication+SharedObjects.m in Sources */,
+				F4B7F73D14E676CC005E8AF4 /* PFMComment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +504,7 @@
 				F449978A14E6295C00306056 /* PFMMoment.m in Sources */,
 				F44997A514E6582300306056 /* PFMPhotoSpec.m in Sources */,
 				E966221414E661DA003F8861 /* PFMMainWindowControllerSpec.m in Sources */,
+				F4B7F73E14E676CC005E8AF4 /* PFMComment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

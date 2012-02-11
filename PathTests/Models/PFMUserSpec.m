@@ -4,6 +4,7 @@
 #import "ASIHTTPRequest+Spec.h"
 #import "PFMMoment.h"
 #import "PFMPhoto.h"
+#import "PFMComment.h"
 
 SpecBegin(PFMUser)
 
@@ -243,14 +244,40 @@ describe(@"-fetchMoments", ^{
         expect(moment.private).toEqual(false);
         expect(moment.createdAt).toEqual([NSDate dateWithTimeIntervalSince1970:1328778313]);
       });
-      
+
       it(@"should assign photos to moments (if they exist)", ^{
         doAction();
         PFMMoment *moment = (PFMMoment *)[user.fetchedMoments $at:0];
-        
+
         expect(moment.photo.iOSLowResURL).toEqual(@"https://s3-us-west-1.amazonaws.com/images.path.com/photos2/d5abf9a1-1217-418a-9188-b8be09b1026e/1x.jpg");
         expect(moment.photo.iOSHighResURL).toEqual(@"https://s3-us-west-1.amazonaws.com/images.path.com/photos2/d5abf9a1-1217-418a-9188-b8be09b1026e/2x.jpg");
         expect(moment.photo.originalURL).toEqual(@"https://s3-us-west-1.amazonaws.com/images.path.com/photos2/d5abf9a1-1217-418a-9188-b8be09b1026e/original.jpg");
+      });
+
+      it(@"should assign comments to moments (if they exist)", ^{
+        doAction();
+        PFMMoment *moment = (PFMMoment *)[user.fetchedMoments $at:0];
+
+        expect([moment.comments count]).toEqual(2);
+
+        PFMComment * comment1 = (PFMComment *)[moment.comments $at:0];
+        PFMComment * comment2 = (PFMComment *)[moment.comments $at:1];
+
+        expect(comment1.id).toEqual(@"4f34078de7cf662b9d09e2d8");
+        expect(comment1.body).toEqual(@"Hello");
+        expect(comment1.userId).toEqual(@"4f338c49f6b766128d011175");
+        expect(comment1.locationId).toEqual(@"4f34078be7cf662b9d09e2d2");
+        expect(comment1.momentId).toEqual(@"4f34078de7cf662b9d09e2d7");
+        expect(comment1.state).toEqual(@"live");
+        expect(comment1.createdAt).toEqual([NSDate dateWithTimeIntervalSince1970:1328809735]);
+
+        expect(comment2.id).toEqual(@"4f343a20d2bfa87b380074de");
+        expect(comment2.body).toEqual(@"xdt");
+        expect(comment2.userId).toEqual(@"4f338c49f6b766128d011175");
+        expect(comment2.locationId).toEqual(@"4f343a1fd2bfa87b380074dd");
+        expect(comment2.momentId).toEqual(@"4f34078de7cf662b9d09e2d7");
+        expect(comment2.state).toEqual(@"live");
+        expect(comment2.createdAt).toEqual([NSDate dateWithTimeIntervalSince1970:1328822815]);
       });
 
       it(@"sets user's fetchingMoments property to be NO", ^{
