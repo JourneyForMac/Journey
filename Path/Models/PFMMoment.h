@@ -25,12 +25,13 @@
 @property (nonatomic, getter=isPrivate) BOOL private;
 
 // There are other components (which may or may not be self-standing objects)
-// location
 // emotions
-// place
 // origin_location
 // destination_location
 
 + (PFMMoment *)momentFrom:(NSDictionary *)rawMoment;
+
+- (NSDictionary *) toHash;
+- (NSString *) JSONRepresentation;
 
 @end
