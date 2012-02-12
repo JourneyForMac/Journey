@@ -134,12 +134,15 @@
 }
 
 - (NSDictionary *) toHash {
-  return $dict(self.id, @"id",
-               self.email, @"email",
-               self.firstName, @"firstName",
-               self.lastName, @"lastName",
-               [self.coverPhoto toHash], @"coverPhoto",
-               [self.profilePhoto toHash], @"profilePhoto");
+  NSMutableDictionary * userDict = $mdict(self.id, @"id");
+
+  [userDict setObject:(self.email == nil ? [NSNull null] : self.email) forKey:@"email"];
+  [userDict setObject:(self.firstName == nil ? [NSNull null] : self.firstName) forKey:@"firstName"];
+  [userDict setObject:(self.lastName == nil ? [NSNull null] : self.lastName) forKey:@"lastName"];
+  [userDict setObject:(self.coverPhoto == nil ? [NSNull null] : [self.coverPhoto toHash]) forKey:@"coverPhoto"];
+  [userDict setObject:(self.profilePhoto == nil ? [NSNull null] : [self.profilePhoto toHash]) forKey:@"profilePhoto"];
+
+  return userDict;
 }
 
 - (NSString *) JSONRepresentation {

@@ -1,5 +1,6 @@
 #import "PFMComment.h"
 #import "Application.h"
+#import "PFMLocation.h"
 #import "SBJson.h"
 
 @implementation PFMComment
@@ -29,9 +30,30 @@
 }
 
 - (NSDictionary *) toHash {
-  return $dict(self.id, @"id",
-               self.body, @"body",
-               self.state, @"state");
+  NSMutableDictionary * commentDict =  $mdict(self.id, @"id",
+                                              self.body, @"body",
+                                              self.state, @"state");
+
+  if(self.locationId != nil) {
+    PFMLocation * location = [[NSApp sharedLocations] objectForKey:self.locationId];
+    if(location != nil) {
+      [commentDict setObject:[location toHash] forKey:@"location"];
+    }
+  }
+
+  if(self.userId != nil) {
+    PFMUser * user = [[NSApp sharedUsers] objectForKey:self.userId];
+    if(user != nil) {
+      [commentDict setObject:[user toHash] forKey:@"user"];
+    }
+  }
+
+  if(self.createdAt != nil) {
+    NSNumber * created = $double([self.createdAt timeIntervalSince1970]);
+    [commentDict setObject:created forKey:@"createdAt"];
+  }
+
+  return commentDict;
 }
 
 - (NSString *) JSONRepresentation {
