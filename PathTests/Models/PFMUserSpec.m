@@ -245,6 +245,9 @@ describe(@"-fetchMoments", ^{
         expect(moment.shared).toEqual(false);
         expect(moment.private).toEqual(false);
         expect(moment.createdAt).toEqual([NSDate dateWithTimeIntervalSince1970:1328778313]);
+
+        PFMMoment * momentWithPlace = (PFMMoment *)[user.fetchedMoments $at:8];
+        expect(momentWithPlace.placeId).toEqual(@"4bcd4dc50687ef3b31c6e0cc");
       });
 
       it(@"sets the sharedLocations dictionary with id <-> location mapping", ^{

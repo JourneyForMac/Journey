@@ -8,6 +8,7 @@
 @synthesize
   id = _id
 , userId = _userId
+, placeId=_placeId
 , locationId = _locationId
 , type = _type
 , headline = _headline
@@ -36,6 +37,12 @@
   moment.createdAt = [NSDate dateWithTimeIntervalSince1970:floor([$safe([rawMoment $for:@"created"]) doubleValue])];
   moment.private = [(NSNumber *)[rawMoment $for:@"private"] boolValue];
   moment.shared =  [(NSNumber *)[rawMoment $for:@"shared"] boolValue];
+
+  NSDictionary * place = $safe([rawMoment $for:@"place"]);
+
+  if (place != nil) {
+    moment.placeId = $safe([place $for:@"id"]);
+  }
 
   if($eql(moment.type, @"photo")) {
     NSDictionary * photoDictionary = (NSDictionary *)[(NSDictionary *)[rawMoment $for:@"photo"] $for:@"photo"];

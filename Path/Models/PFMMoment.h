@@ -8,6 +8,7 @@
 @property (nonatomic, copy) NSString * id;
 @property (nonatomic, copy) NSString * userId;
 @property (nonatomic, copy) NSString * locationId;
+@property (nonatomic, copy) NSString * placeId;
 
 @property (nonatomic, copy) NSString * type;
 
