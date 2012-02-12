@@ -6,6 +6,7 @@
 #import "PFMComment.h"
 #import "PFMLocation.h"
 #import "PFMPlace.h"
+#import "SBJson.h"
 
 SpecBegin(PFMUser)
 
@@ -328,6 +329,46 @@ describe(@"-fetchMoments", ^{
     });
   });
 
+});
+
+describe(@"-JSONRepresentation", ^{
+  before(^{
+    user.firstName = @"Aloha";
+    user.lastName = @"Boss";
+    user.id = @"user.id";
+
+    PFMPhoto * coverPhoto = [PFMPhoto new];
+
+    coverPhoto.iOSLowResFileName = @"1x.jpg";
+    coverPhoto.iOSHighResFileName = @"2x.jpg";
+    coverPhoto.webFileName = @"web.jpg";
+    coverPhoto.originalFileName = @"original.jpg";
+    coverPhoto.baseURL = @"https://s3-us-west-1.amazonaws.com/images.path.com/static/covers/19";
+
+    PFMPhoto * profilePhoto = [PFMPhoto new];
+
+    profilePhoto.iOSLowResFileName = @"1x.jpg";
+    profilePhoto.iOSHighResFileName = @"2x.jpg";
+    profilePhoto.webFileName = @"web.jpg";
+    profilePhoto.originalFileName = @"original.jpg";
+    profilePhoto.baseURL = @"https://s3-us-west-1.amazonaws.com/images.path.com/static/profile/1";
+
+    user.coverPhoto = coverPhoto;
+    user.profilePhoto = profilePhoto;
+  });
+
+  it(@"should return a JSON representation of the user, including nested objects", ^{
+    NSString * userJSON = [user JSONRepresentation];
+    NSDictionary * userDict = [userJSON JSONValue];
+
+    expect([userDict $for:@"id"]).toEqual(@"user.id");
+    expect([userDict $for:@"email"]).toEqual(@"foo@bar.com");
+    expect([userDict $for:@"firstName"]).toEqual(@"Aloha");
+    expect([userDict $for:@"lastName"]).toEqual(@"Boss");
+
+    expect([[userDict $for:@"profilePhoto"] $for:@"webURL"]).toEqual(@"https://s3-us-west-1.amazonaws.com/images.path.com/static/profile/1/web.jpg");
+    expect([[userDict $for:@"coverPhoto"] $for:@"webURL"]).toEqual(@"https://s3-us-west-1.amazonaws.com/images.path.com/static/covers/19/web.jpg");
+  });
 });
 
 SpecEnd

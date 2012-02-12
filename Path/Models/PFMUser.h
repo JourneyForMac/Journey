@@ -30,6 +30,9 @@
 - (void)saveCredentials;
 - (void)loadCredentials;
 
+- (NSDictionary *) toHash;
+- (NSString *) JSONRepresentation;
+
 @end
 
 @protocol PFMUserSignInDelegate <NSObject>

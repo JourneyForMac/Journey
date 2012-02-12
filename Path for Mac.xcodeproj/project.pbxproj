@@ -56,6 +56,9 @@
 		F47A489C14E6D987007D0B9F /* PFMPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = F47A489A14E6D987007D0B9F /* PFMPlace.m */; };
 		F4B7F73D14E676CC005E8AF4 /* PFMComment.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B7F73C14E676CC005E8AF4 /* PFMComment.m */; };
 		F4B7F74214E68110005E8AF4 /* PFMLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B7F74114E68110005E8AF4 /* PFMLocation.m */; };
+		F4DB598E14E7FEBF009E92E8 /* PFMCommentSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB598D14E7FEBF009E92E8 /* PFMCommentSpec.m */; };
+		F4DB599114E80A6E009E92E8 /* PFMLocationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB599014E80A6E009E92E8 /* PFMLocationSpec.m */; };
+		F4DB599314E80D12009E92E8 /* PFMPlaceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB599214E80D12009E92E8 /* PFMPlaceSpec.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +148,9 @@
 		F4B7F73C14E676CC005E8AF4 /* PFMComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMComment.m; sourceTree = "<group>"; };
 		F4B7F74014E68110005E8AF4 /* PFMLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMLocation.h; sourceTree = "<group>"; };
 		F4B7F74114E68110005E8AF4 /* PFMLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMLocation.m; sourceTree = "<group>"; };
+		F4DB598D14E7FEBF009E92E8 /* PFMCommentSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMCommentSpec.m; sourceTree = "<group>"; };
+		F4DB599014E80A6E009E92E8 /* PFMLocationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMLocationSpec.m; sourceTree = "<group>"; };
+		F4DB599214E80D12009E92E8 /* PFMPlaceSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMPlaceSpec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +277,9 @@
 				E9ADC81614E41B6100E39527 /* PFMModelSpec.m */,
 				E9ADC81B14E41C1700E39527 /* PFMUserSpec.m */,
 				F44997A414E6582300306056 /* PFMPhotoSpec.m */,
+				F4DB598D14E7FEBF009E92E8 /* PFMCommentSpec.m */,
+				F4DB599014E80A6E009E92E8 /* PFMLocationSpec.m */,
+				F4DB599214E80D12009E92E8 /* PFMPlaceSpec.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -559,6 +568,9 @@
 				E9B9D9B014E672D8005D5B5B /* PFMMomentListViewControllerSpec.m in Sources */,
 				E9B9D9BB14E67C15005D5B5B /* PFMToolbarViewControllerSpec.m in Sources */,
 				F47A489C14E6D987007D0B9F /* PFMPlace.m in Sources */,
+				F4DB598E14E7FEBF009E92E8 /* PFMCommentSpec.m in Sources */,
+				F4DB599114E80A6E009E92E8 /* PFMLocationSpec.m in Sources */,
+				F4DB599314E80D12009E92E8 /* PFMPlaceSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

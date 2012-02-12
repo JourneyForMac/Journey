@@ -1,5 +1,6 @@
 #import "PFMLocation.h"
 #import "Application.h"
+#import "SBJson.h"
 
 @implementation PFMLocation
 
@@ -48,6 +49,39 @@
   location.longitude = [(NSNumber *)$safe([locationDict $for:@"lng"]) doubleValue];
 
   return location;
+}
+
+- (NSDictionary *) toHash {
+  NSMutableDictionary * locationDict = $mdict(self.id, @"id",
+                                              $double(self.elevation), @"elevation",
+                                              $double(self.latitude), @"latitude",
+                                              $double(self.longitude), @"longitude",
+                                              $double(self.accuracy), @"accuracy");
+
+  [locationDict setObject:((self.weatherConditions == nil) ? [NSNull null] : self.weatherConditions)
+                  forKey:@"weatherConditions"];
+  [locationDict setObject:((self.cloudCover == nil) ? [NSNull null] : self.cloudCover)
+                   forKey:@"cloudCover"];
+  [locationDict setObject:((self.windSpeed == nil) ? [NSNull null] : self.windSpeed)
+                   forKey:@"windSpeed"];
+  [locationDict setObject:((self.dewPoint == nil) ? [NSNull null] : self.dewPoint)
+                   forKey:@"dewPoint"];
+  [locationDict setObject:((self.temperature == nil) ? [NSNull null] : self.temperature)
+                   forKey:@"temperature"];
+  [locationDict setObject:((self.windDirection == nil) ? [NSNull null] : self.windDirection)
+                   forKey:@"windDirection"];
+  [locationDict setObject:((self.countryName == nil) ? [NSNull null] : self.countryName)
+                   forKey:@"countryName"];
+  [locationDict setObject:((self.country == nil) ? [NSNull null] : self.country)
+                   forKey:@"country"];
+  [locationDict setObject:((self.city == nil) ? [NSNull null] : self.city)
+                   forKey:@"city"];
+
+  return (NSDictionary *)locationDict;
+}
+
+- (NSString *) JSONRepresentation {
+  return [[self toHash] JSONRepresentation];
 }
 
 @end

@@ -117,4 +117,17 @@
   self.password = [SSKeychain passwordForService:kPathKeychainServiceName account:self.email];
 }
 
+- (NSDictionary *) toHash {
+  return $dict(self.id, @"id",
+               self.email, @"email",
+               self.firstName, @"firstName",
+               self.lastName, @"lastName",
+               [self.coverPhoto toHash], @"coverPhoto",
+               [self.profilePhoto toHash], @"profilePhoto");
+}
+
+- (NSString *) JSONRepresentation {
+  return [[self toHash] JSONRepresentation];
+}
+
 @end

@@ -20,4 +20,7 @@
 - (NSString *) webURL;
 - (NSString *) originalURL;
 
+- (NSString *) JSONRepresentation;
+- (NSDictionary *) toHash;
+
 @end

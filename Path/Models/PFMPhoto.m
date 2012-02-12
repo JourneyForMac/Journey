@@ -1,5 +1,6 @@
 #import "PFMPhoto.h"
 #import "Application.h"
+#import "SBJson.h"
 
 @implementation PFMPhoto
 
@@ -37,6 +38,17 @@
 
 - (NSString *) originalURL {
   return [NSString stringWithFormat:@"%@/%@", self.baseURL, self.originalFileName];
+}
+
+- (NSDictionary *) toHash {
+  return $dict([self iOSLowResURL], @"iOSLowResURL",
+               [self iOSHighResURL], @"iOSHighResURL",
+               [self webURL], @"webURL",
+               [self originalURL], @"originalURL");
+}
+
+- (NSString *) JSONRepresentation {
+  return [[self toHash] JSONRepresentation];
 }
 
 

@@ -1,5 +1,6 @@
 #import "PFMPlace.h"
 #import "Application.h"
+#import "SBJson.h"
 
 @implementation PFMPlace
 
@@ -46,6 +47,37 @@
 
 
   return place;
+}
+
+- (NSDictionary *) toHash {
+  NSMutableDictionary * placeDict = $mdict(self.id, @"id",
+                                           $double(self.latitude), @"latitude",
+                                           $double(self.longitude), @"longitude",
+                                           $integer(self.totalCheckins), @"totalCheckins");
+
+  [placeDict setObject:((self.name == nil) ? [NSNull null] : self.name)
+                   forKey:@"name"];
+  [placeDict setObject:((self.address == nil) ? [NSNull null] : self.address)
+                   forKey:@"address"];
+  [placeDict setObject:((self.city == nil) ? [NSNull null] : self.city)
+                   forKey:@"city"];
+  [placeDict setObject:((self.country == nil) ? [NSNull null] : self.country)
+                   forKey:@"country"];
+  [placeDict setObject:((self.state == nil) ? [NSNull null] : self.state)
+                   forKey:@"state"];
+  [placeDict setObject:((self.postalCode == nil) ? [NSNull null] : self.postalCode)
+                   forKey:@"postalCode"];
+  [placeDict setObject:((self.phone == nil) ? [NSNull null] : self.phone)
+                   forKey:@"phone"];
+  [placeDict setObject:((self.formattedPhone == nil) ? [NSNull null] : self.formattedPhone)
+                   forKey:@"formattedPhone"];
+
+
+  return (NSDictionary *)placeDict;
+}
+
+- (NSString *) JSONRepresentation {
+  return [[self toHash] JSONRepresentation];
 }
 
 @end

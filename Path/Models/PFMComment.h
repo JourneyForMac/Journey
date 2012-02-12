@@ -12,4 +12,7 @@
 
 + (PFMComment *)commentFrom:(NSDictionary *)commentDict;
 
+- (NSString *) JSONRepresentation;
+- (NSDictionary *) toHash;
+
 @end

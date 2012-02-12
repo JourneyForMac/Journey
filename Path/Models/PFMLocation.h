@@ -29,4 +29,7 @@
 
 + (PFMLocation *)locationFrom:(NSDictionary *)locationDict;
 
+- (NSDictionary *)toHash;
+- (NSString *) JSONRepresentation;
+
 @end

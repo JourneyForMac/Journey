@@ -1,5 +1,6 @@
 #import "PFMComment.h"
 #import "Application.h"
+#import "SBJson.h"
 
 @implementation PFMComment
 
@@ -25,6 +26,16 @@
   comment.createdAt = [NSDate dateWithTimeIntervalSince1970:floor([$safe([commentDict $for:@"created"]) doubleValue])];
 
   return comment;
+}
+
+- (NSDictionary *) toHash {
+  return $dict(self.id, @"id",
+               self.body, @"body",
+               self.state, @"state");
+}
+
+- (NSString *) JSONRepresentation {
+  return [[self toHash] JSONRepresentation];
 }
 
 @end

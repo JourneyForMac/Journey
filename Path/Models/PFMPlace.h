@@ -20,4 +20,7 @@
 
 + (PFMPlace *)placeFrom:(NSDictionary *)placeDict;
 
+- (NSDictionary *) toHash;
+- (NSString *) JSONRepresentation;
+
 @end
