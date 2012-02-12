@@ -23,6 +23,7 @@
 		E9926A3E14E4C12400F4EFA5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9926A3B14E4C12400F4EFA5 /* MainMenu.xib */; };
 		E9926A3F14E4C12400F4EFA5 /* SignInWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9926A3C14E4C12400F4EFA5 /* SignInWindow.xib */; };
 		E9926A4214E4C13000F4EFA5 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E9926A4114E4C13000F4EFA5 /* Credits.rtf */; };
+		E994D49414E6CAAE00B3F011 /* DefaultPortrait.png in Resources */ = {isa = PBXBuildFile; fileRef = E994D49314E6CAAE00B3F011 /* DefaultPortrait.png */; };
 		E9AC9C2514E4AB6C00F9AC4B /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = E91CCEE414E44D1F00DA6E96 /* settings.json */; };
 		E9ADC7F714E40F6B00E39527 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9ADC7F614E40F6B00E39527 /* Security.framework */; };
 		E9ADC80314E40FD300E39527 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9ADC7F614E40F6B00E39527 /* Security.framework */; };
@@ -99,6 +100,7 @@
 		E9926A3B14E4C12400F4EFA5 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		E9926A3C14E4C12400F4EFA5 /* SignInWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInWindow.xib; sourceTree = "<group>"; };
 		E9926A4114E4C13000F4EFA5 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		E994D49314E6CAAE00B3F011 /* DefaultPortrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultPortrait.png; sourceTree = "<group>"; };
 		E9ADC7F614E40F6B00E39527 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E9ADC80614E4112E00E39527 /* PFMSignInWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMSignInWindowController.h; sourceTree = "<group>"; };
 		E9ADC80714E4112E00E39527 /* PFMSignInWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMSignInWindowController.m; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 		E9FD375314E40C80007F90AF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E994D49314E6CAAE00B3F011 /* DefaultPortrait.png */,
 				E9CE170214E55A9F00B199AF /* Logo.png */,
 				E9CE16F814E54E3700B199AF /* RedLinenBg.png */,
 				E9B9D9C814E686E9005D5B5B /* TitleBarLogo.png */,
@@ -482,6 +485,7 @@
 				E9B9D9B214E674B3005D5B5B /* MomentListView.xib in Resources */,
 				E9B9D9B914E67BDB005D5B5B /* ToolbarView.xib in Resources */,
 				E9B9D9C914E686E9005D5B5B /* TitleBarLogo.png in Resources */,
+				E994D49414E6CAAE00B3F011 /* DefaultPortrait.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
