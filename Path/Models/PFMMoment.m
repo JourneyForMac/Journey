@@ -28,33 +28,30 @@
 + (PFMMoment *)momentFrom:(NSDictionary *)rawMoment {
   PFMMoment * moment = [PFMMoment new];
 
-  moment.id = $safe([rawMoment $for:@"id"]);
-  moment.locationId = $safe([rawMoment $for:@"location_id"]);
-  moment.userId = $safe([rawMoment $for:@"user_id"]);
+  moment.id          = [rawMoment objectOrNilForKey:@"id"];
+  moment.locationId  = [rawMoment objectOrNilForKey:@"location_id"];
+  moment.userId      = [rawMoment objectOrNilForKey:@"user_id"];
 
-  moment.type = $safe([rawMoment $for:@"type"]);
-  moment.headline = $safe([rawMoment $for:@"headline"]);
-  moment.subHeadline = $safe([rawMoment $for:@"subheadline"]);
-  moment.thought = $safe([rawMoment $for:@"thought"]);
-  moment.state = $safe([rawMoment $for:@"state"]);
-  moment.createdAt = [NSDate dateWithTimeIntervalSince1970:floor([$safe([rawMoment $for:@"created"]) doubleValue])];
-  moment.private = [(NSNumber *)[rawMoment $for:@"private"] boolValue];
-  moment.shared =  [(NSNumber *)[rawMoment $for:@"shared"] boolValue];
+  moment.type        = [rawMoment objectOrNilForKey:@"type"];
+  moment.headline    = [rawMoment objectOrNilForKey:@"headline"];
+  moment.subHeadline = [rawMoment objectOrNilForKey:@"subheadline"];
+  moment.thought     = [rawMoment objectOrNilForKey:@"thought"];
+  moment.state       = [rawMoment objectOrNilForKey:@"state"];
+  moment.createdAt   = [NSDate dateWithTimeIntervalSince1970:floor([[rawMoment objectOrNilForKey:@"created"] doubleValue])];
+  moment.private     = [(NSNumber *)[rawMoment objectOrNilForKey:@"private"] boolValue];
+  moment.shared      = [(NSNumber *)[rawMoment objectOrNilForKey:@"shared"] boolValue];
 
-  NSDictionary * place = $safe([rawMoment $for:@"place"]);
-
-  if (place != nil) {
-    moment.placeId = $safe([place $for:@"id"]);
-  }
+  NSDictionary * place = [rawMoment objectOrNilForKey:@"place"];
+  moment.placeId       = [place objectOrNilForKey:@"id"];
 
   if($eql(moment.type, @"photo")) {
-    NSDictionary * photoDictionary = (NSDictionary *)[(NSDictionary *)[rawMoment $for:@"photo"] $for:@"photo"];
+    NSDictionary * photoDictionary = (NSDictionary *)[(NSDictionary *)[rawMoment objectOrNilForKey:@"photo"] objectOrNilForKey:@"photo"];
     moment.photo = [PFMPhoto photoFrom:photoDictionary];
   }
 
   moment.comments = $marr(nil);
 
-  for(NSDictionary * commentDict in (NSArray *)[rawMoment $for:@"comments"]) {
+  for(NSDictionary * commentDict in (NSArray *)[rawMoment objectOrNilForKey:@"comments"]) {
     PFMComment * comment = [PFMComment commentFrom:commentDict];
     [moment.comments addObject:comment];
   }

@@ -34,8 +34,8 @@
   [request setCompletionBlock:^{
     if(request.responseStatusCode == 200) {
       NSDictionary *dict = [[request responseString] JSONValue];
-      self.firstName = [$safe([dict $for:@"settings"]) $for:@"user_first_name"];
-      self.lastName = [$safe([dict $for:@"settings"]) $for:@"user_last_name"];
+      self.firstName = [[dict objectOrNilForKey:@"settings"] objectOrNilForKey:@"user_first_name"];
+      self.lastName  = [[dict objectOrNilForKey:@"settings"] objectOrNilForKey:@"user_last_name"];
       [self saveCredentials];
       [self.signInDelegate didSignIn];
     } else {
@@ -65,21 +65,21 @@
       self.fetchedMoments = $marr(nil);
 
       NSDictionary *dict = [[request responseString] JSONValue];
-      for(NSDictionary * rawMoment in $safe([dict $for:@"moments"])) {
+      for(NSDictionary * rawMoment in [dict objectOrNilForKey:@"moments"]) {
         PFMMoment * moment = [PFMMoment momentFrom:rawMoment];
         [self.fetchedMoments addObject:moment];
       }
 
       // Set the ID
-      self.id = [(NSDictionary *)[(NSDictionary *)$safe([dict $for:@"cover"]) $for:@"user"] $for:@"id"];
+      self.id = [(NSDictionary *)[(NSDictionary *)[dict objectOrNilForKey:@"cover"] objectOrNilForKey:@"user"] objectOrNilForKey:@"id"];
       // Get the Cover Photo
-      NSDictionary * coverPhotoDictionary = [(NSDictionary *)$safe([dict $for:@"cover"]) $for:@"photo"];
+      NSDictionary * coverPhotoDictionary = [(NSDictionary *)[dict objectOrNilForKey:@"cover"] objectOrNilForKey:@"photo"];
       self.coverPhoto = [PFMPhoto photoFrom:coverPhotoDictionary];
       // Get the Profile Photo dictionary from the users dictionary and set the profile photo
-      NSDictionary * profilePhotoDictionary = [(NSDictionary *)[(NSDictionary *)$safe([dict $for:@"users"]) $for:self.id] $for:@"photo"];
+      NSDictionary * profilePhotoDictionary = [(NSDictionary *)[(NSDictionary *)[dict objectOrNilForKey:@"users"] objectOrNilForKey:self.id] objectOrNilForKey:@"photo"];
       self.profilePhoto = [PFMPhoto photoFrom:profilePhotoDictionary];
       // Get the locations map
-      NSDictionary * locationsDict = (NSDictionary *)$safe([dict $for:@"locations"]);
+      NSDictionary * locationsDict = (NSDictionary *)[dict objectOrNilForKey:@"locations"];
 
       [locationsDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         PFMLocation * location = [PFMLocation locationFrom:(NSDictionary *)obj];
@@ -87,7 +87,7 @@
       }];
 
       // Get the places map
-      NSDictionary * placesDict = (NSDictionary *)$safe([dict $for:@"places"]);
+      NSDictionary * placesDict = (NSDictionary *)[dict objectOrNilForKey:@"places"];
 
       [placesDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         PFMPlace * place = [PFMPlace placeFrom:(NSDictionary *)obj];
@@ -95,16 +95,16 @@
       }];
 
       // Get the global users map
-      NSDictionary * usersDict = (NSDictionary *)$safe([dict $for:@"users"]);
+      NSDictionary * usersDict = (NSDictionary *)[dict objectOrNilForKey:@"users"];
       [usersDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         NSDictionary * userDict = (NSDictionary *)obj;
         NSString * userId = (NSString *)key;
 
         PFMUser * user = [PFMUser new];
         user.id = userId;
-        user.firstName = $safe([userDict $for:@"first_name"]);
-        user.lastName = $safe([userDict $for:@"last_name"]);
-        user.profilePhoto = [PFMPhoto photoFrom:$safe([userDict $for:@"photo"])];
+        user.firstName    = [userDict objectOrNilForKey:@"first_name"];
+        user.lastName     = [userDict objectOrNilForKey:@"last_name"];
+        user.profilePhoto = [PFMPhoto photoFrom:[userDict objectOrNilForKey:@"photo"]];
 
         [[NSApp sharedUsers] setObject:user forKey:userId];
       }];

@@ -23,30 +23,30 @@
 + (PFMLocation *)locationFrom:(NSDictionary *)locationDict {
   PFMLocation * location = [PFMLocation new];
 
-  NSDictionary * weatherDict = (NSDictionary *)$safe([locationDict $for:@"weather"]);
-  NSDictionary * locationDetailsDict = (NSDictionary *)$safe([locationDict $for:@"location"]);
+  NSDictionary * weatherDict         = (NSDictionary *)[locationDict objectOrNilForKey:@"weather"];
+  NSDictionary * locationDetailsDict = (NSDictionary *)[locationDict objectOrNilForKey:@"location"];
 
-  location.id = $safe([locationDict $for:@"id"]);
+  location.id = [locationDict objectOrNilForKey:@"id"];
 
   if (weatherDict != nil) {
-    location.weatherConditions = $safe([weatherDict $for:@"conditions"]);
-    location.cloudCover = $safe([weatherDict $for:@"cloud_cover"]);
-    location.windSpeed = $safe([weatherDict $for:@"wind_speed"]);
-    location.windDirection = $safe([weatherDict $for:@"wind_direction"]);
-    location.dewPoint = $safe([weatherDict $for:@"dewpoint"]);
-    location.temperature = $safe([weatherDict $for:@"temperature"]);
+    location.weatherConditions = [weatherDict objectOrNilForKey:@"conditions"];
+    location.cloudCover        = [weatherDict objectOrNilForKey:@"cloud_cover"];
+    location.windSpeed         = [weatherDict objectOrNilForKey:@"wind_speed"];
+    location.windDirection     = [weatherDict objectOrNilForKey:@"wind_direction"];
+    location.dewPoint          = [weatherDict objectOrNilForKey:@"dewpoint"];
+    location.temperature       = [weatherDict objectOrNilForKey:@"temperature"];
   }
 
   if (location != nil) {
-    location.elevation = [(NSNumber *)$safe([locationDetailsDict $for:@"elevation"]) doubleValue];
-    location.accuracy = [(NSNumber *)$safe([locationDetailsDict $for:@"accuracy"]) doubleValue];
-    location.countryName = $safe([locationDetailsDict $for:@"country_name"]);
-    location.country = $safe([locationDetailsDict $for:@"country"]);
-    location.city = $safe([locationDetailsDict $for:@"city"]);
+    location.elevation   = [(NSNumber *)[locationDetailsDict objectOrNilForKey:@"elevation"] doubleValue];
+    location.accuracy    = [(NSNumber *)[locationDetailsDict objectOrNilForKey:@"accuracy"] doubleValue];
+    location.countryName = [locationDetailsDict objectOrNilForKey:@"country_name"];
+    location.country     = [locationDetailsDict objectOrNilForKey:@"country"];
+    location.city        = [locationDetailsDict objectOrNilForKey:@"city"];
   }
 
-  location.latitude = [(NSNumber *)$safe([locationDict $for:@"lat"]) doubleValue];
-  location.longitude = [(NSNumber *)$safe([locationDict $for:@"lng"]) doubleValue];
+  location.latitude  = [(NSNumber *)[locationDict objectOrNilForKey:@"lat"] doubleValue];
+  location.longitude = [(NSNumber *)[locationDict objectOrNilForKey:@"lng"] doubleValue];
 
   return location;
 }

@@ -17,14 +17,14 @@
 + (PFMComment *)commentFrom:(NSDictionary *)commentDict {
   PFMComment * comment = [PFMComment new];
 
-  comment.id = $safe([commentDict $for:@"id"]);
-  comment.userId = $safe([commentDict $for:@"user_id"]);
-  comment.locationId = $safe([commentDict $for:@"location_id"]);
-  comment.body = $safe([commentDict $for:@"body"]);
-  comment.momentId = $safe([commentDict $for:@"moment_id"]);
-  comment.userId = $safe([commentDict $for:@"user_id"]);
-  comment.state = $safe([commentDict $for:@"state"]);
-  comment.createdAt = [NSDate dateWithTimeIntervalSince1970:floor([$safe([commentDict $for:@"created"]) doubleValue])];
+  comment.id         = [commentDict objectOrNilForKey:@"id"];
+  comment.userId     = [commentDict objectOrNilForKey:@"user_id"];
+  comment.locationId = [commentDict objectOrNilForKey:@"location_id"];
+  comment.body       = [commentDict objectOrNilForKey:@"body"];
+  comment.momentId   = [commentDict objectOrNilForKey:@"moment_id"];
+  comment.userId     = [commentDict objectOrNilForKey:@"user_id"];
+  comment.state      = [commentDict objectOrNilForKey:@"state"];
+  comment.createdAt  = [NSDate dateWithTimeIntervalSince1970:floor([[commentDict objectOrNilForKey:@"created"] doubleValue])];
 
   return comment;
 }

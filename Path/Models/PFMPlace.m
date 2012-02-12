@@ -21,29 +21,29 @@
 + (PFMPlace *)placeFrom:(NSDictionary *)placeDict {
   PFMPlace * place = [PFMPlace new];
 
-  place.id = $safe([placeDict $for:@"id"]);
-  place.name = $safe([placeDict $for:@"name"]);
+  place.id   = [placeDict objectOrNilForKey:@"id"];
+  place.name = [placeDict objectOrNilForKey:@"name"];
 
-  NSDictionary * locationDict = $safe([placeDict $for:@"location"]);
-  NSDictionary * contactDict = $safe([placeDict $for:@"contact"]);
+  NSDictionary * locationDict = [placeDict objectOrNilForKey:@"location"];
+  NSDictionary * contactDict  = [placeDict objectOrNilForKey:@"contact"];
 
   if(locationDict != nil) {
-    place.city = $safe([locationDict $for:@"city"]);
-    place.country = $safe([locationDict $for:@"country"]);
-    place.address = $safe([locationDict $for:@"address"]);
-    place.postalCode = $safe([locationDict $for:@"postalCode"]);
-    place.state = $safe([locationDict $for:@"state"]);
+    place.city       = [locationDict objectOrNilForKey:@"city"];
+    place.country    = [locationDict objectOrNilForKey:@"country"];
+    place.address    = [locationDict objectOrNilForKey:@"address"];
+    place.postalCode = [locationDict objectOrNilForKey:@"postalCode"];
+    place.state      = [locationDict objectOrNilForKey:@"state"];
 
-    place.latitude = [(NSNumber *)$safe([locationDict $for:@"lat"]) doubleValue];
-    place.longitude = [(NSNumber *)$safe([locationDict $for:@"lng"]) doubleValue];
+    place.latitude   = [(NSNumber *)[locationDict objectOrNilForKey:@"lat"] doubleValue];
+    place.longitude  = [(NSNumber *)[locationDict objectOrNilForKey:@"lng"] doubleValue];
   }
 
   if(contactDict != nil) {
-    place.phone = $safe([contactDict $for:@"phone"]);
-    place.formattedPhone = $safe([contactDict $for:@"formattedPhone"]);
+    place.phone          = [contactDict objectOrNilForKey:@"phone"];
+    place.formattedPhone = [contactDict objectOrNilForKey:@"formattedPhone"];
   }
 
-  place.totalCheckins = [(NSNumber *)$safe([placeDict $for:@"total_checkins"]) intValue];
+  place.totalCheckins = [(NSNumber *)[placeDict objectOrNilForKey:@"total_checkins"] intValue];
 
 
   return place;
@@ -63,7 +63,6 @@
   [placeDict setObjectOrNil:self.postalCode     forKey:@"postalCode"];
   [placeDict setObjectOrNil:self.phone          forKey:@"phone"];
   [placeDict setObjectOrNil:self.formattedPhone forKey:@"formattedPhone"];
-
 
   return (NSDictionary *)placeDict;
 }

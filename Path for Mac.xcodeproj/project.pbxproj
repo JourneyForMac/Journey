@@ -20,6 +20,7 @@
 		E966221214E6584A003F8861 /* NSApplication+SharedObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = E966221114E6584A003F8861 /* NSApplication+SharedObjects.m */; };
 		E966221414E661DA003F8861 /* PFMMainWindowControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E966221314E661DA003F8861 /* PFMMainWindowControllerSpec.m */; };
 		E972ADF414E825220049FFEA /* NSMutableDictionary+PFMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E972ADF314E825220049FFEA /* NSMutableDictionary+PFMAdditions.m */; };
+		E972ADF714E829220049FFEA /* NSDictionary+PFMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E972ADF614E829220049FFEA /* NSDictionary+PFMAdditions.m */; };
 		E9926A3D14E4C12400F4EFA5 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9926A3A14E4C12400F4EFA5 /* MainWindow.xib */; };
 		E9926A3E14E4C12400F4EFA5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9926A3B14E4C12400F4EFA5 /* MainMenu.xib */; };
 		E9926A3F14E4C12400F4EFA5 /* SignInWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9926A3C14E4C12400F4EFA5 /* SignInWindow.xib */; };
@@ -100,6 +101,8 @@
 		E966221314E661DA003F8861 /* PFMMainWindowControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMMainWindowControllerSpec.m; sourceTree = "<group>"; };
 		E972ADF214E825220049FFEA /* NSMutableDictionary+PFMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+PFMAdditions.h"; sourceTree = "<group>"; };
 		E972ADF314E825220049FFEA /* NSMutableDictionary+PFMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+PFMAdditions.m"; sourceTree = "<group>"; };
+		E972ADF514E829220049FFEA /* NSDictionary+PFMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+PFMAdditions.h"; sourceTree = "<group>"; };
+		E972ADF614E829220049FFEA /* NSDictionary+PFMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+PFMAdditions.m"; sourceTree = "<group>"; };
 		E9926A3A14E4C12400F4EFA5 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		E9926A3B14E4C12400F4EFA5 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		E9926A3C14E4C12400F4EFA5 /* SignInWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInWindow.xib; sourceTree = "<group>"; };
@@ -271,6 +274,8 @@
 			children = (
 				E972ADF214E825220049FFEA /* NSMutableDictionary+PFMAdditions.h */,
 				E972ADF314E825220049FFEA /* NSMutableDictionary+PFMAdditions.m */,
+				E972ADF514E829220049FFEA /* NSDictionary+PFMAdditions.h */,
+				E972ADF614E829220049FFEA /* NSDictionary+PFMAdditions.m */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -572,6 +577,7 @@
 				F4B7F74214E68110005E8AF4 /* PFMLocation.m in Sources */,
 				F47A489B14E6D987007D0B9F /* PFMPlace.m in Sources */,
 				E972ADF414E825220049FFEA /* NSMutableDictionary+PFMAdditions.m in Sources */,
+				E972ADF714E829220049FFEA /* NSDictionary+PFMAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
