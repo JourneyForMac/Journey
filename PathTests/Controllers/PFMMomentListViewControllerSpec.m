@@ -34,6 +34,11 @@ it(@"begins fetching moments", ^{
   [mockUser verify];
 });
 
+it(@"is its webview's UIDelegate", ^{
+  openView();
+  expect([controller.webView UIDelegate]).toEqual(controller);
+});
+
 describe(@"PFMUserMomentsDelegate", ^{
   before(^{
     openView();

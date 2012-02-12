@@ -13,8 +13,8 @@ static NSMutableDictionary * _sharedUsers = nil;
     if(!_sharedUser) {
       _sharedUser = [PFMUser new];
     }
-    return _sharedUser;
   }
+  return _sharedUser;
 }
 
 - (NSMutableDictionary *)sharedLocations {
@@ -22,9 +22,8 @@ static NSMutableDictionary * _sharedUsers = nil;
     if(!_sharedLocations) {
       _sharedLocations = $mdict(nil);
     }
-
-    return _sharedLocations;
   }
+  return _sharedLocations;
 }
 
 - (NSMutableDictionary *)sharedUsers {
@@ -42,9 +41,8 @@ static NSMutableDictionary * _sharedUsers = nil;
     if(!_sharedPlaces) {
       _sharedPlaces = $mdict(nil);
     }
-
-    return _sharedPlaces;
   }
+  return _sharedPlaces;
 }
 
 - (PFMUser *)resetSharedUser {

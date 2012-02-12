@@ -60,8 +60,4 @@
   [[PFMHelper helper] showAlertSheetWithTitle:@"Failed to sign in!" message:@"An error occured while trying to connect to the server. Please check your Internet connection and try again." window:[self window]];
 }
 
-- (void)didFetchMoments {
-
-}
-
 @end
