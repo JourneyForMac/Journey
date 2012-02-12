@@ -5,6 +5,7 @@
 #import "PFMPhoto.h"
 #import "PFMComment.h"
 #import "PFMLocation.h"
+#import "PFMPlace.h"
 
 SpecBegin(PFMUser)
 
@@ -264,6 +265,25 @@ describe(@"-fetchMoments", ^{
         expect(location.countryName).toEqual(@"Singapore");
         expect(location.country).toEqual(@"SG");
         expect(location.city).toEqual(@"Singapore");
+      });
+
+      it(@"sets the sharedPlaces dictionary with id <-> place mapping", ^{
+        doAction();
+        expect([[NSApp sharedPlaces] count]).toEqual(1);
+
+        PFMPlace * place = [[NSApp sharedPlaces] $for:@"4bcd4dc50687ef3b31c6e0cc"];
+        expect(place.id).toEqual(@"4bcd4dc50687ef3b31c6e0cc");
+        expect(place.name).toEqual(@"Mescluns");
+        expect(place.address).toEqual(@"64 Circular Road");
+        expect(place.city).toEqual(@"Singapore");
+        expect(place.country).toEqual(@"Singapore");
+        expect(place.state).toEqual(@"Singapore");
+
+        expect((float)place.latitude).toEqual(1.286237f);
+        expect((float)place.longitude).toEqual(103.849196);
+        expect(place.totalCheckins).toEqual(1);
+        expect(place.phone).toEqual(@"+6562218141");
+        expect(place.formattedPhone).toEqual(@"+65 6221 8141");
       });
 
       it(@"should assign photos to moments (if they exist)", ^{

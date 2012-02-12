@@ -6,12 +6,7 @@
 #import "SSKeychain.h"
 #import "PFMPhoto.h"
 #import "PFMLocation.h"
-
-@interface PFMUser ()
-
-;
-
-@end
+#import "PFMPlace.h"
 
 @implementation PFMUser
 
@@ -91,6 +86,13 @@
         [[NSApp sharedLocations] setObject:location forKey:key];
       }];
 
+      // Get the places map
+      NSDictionary * placesDict = (NSDictionary *)$safe([dict $for:@"places"]);
+
+      [placesDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        PFMPlace * place = [PFMPlace placeFrom:(NSDictionary *)obj];
+        [[NSApp sharedPlaces] setObject:place forKey:key];
+      }];
 
       [self.momentsDelegate didFetchMoments:[self fetchedMoments]];
     } else {
