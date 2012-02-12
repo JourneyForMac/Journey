@@ -136,11 +136,11 @@
 - (NSDictionary *) toHash {
   NSMutableDictionary * userDict = $mdict(self.id, @"id");
 
-  [userDict setObject:(self.email == nil ? [NSNull null] : self.email) forKey:@"email"];
-  [userDict setObject:(self.firstName == nil ? [NSNull null] : self.firstName) forKey:@"firstName"];
-  [userDict setObject:(self.lastName == nil ? [NSNull null] : self.lastName) forKey:@"lastName"];
-  [userDict setObject:(self.coverPhoto == nil ? [NSNull null] : [self.coverPhoto toHash]) forKey:@"coverPhoto"];
-  [userDict setObject:(self.profilePhoto == nil ? [NSNull null] : [self.profilePhoto toHash]) forKey:@"profilePhoto"];
+  [userDict setObjectOrNil:self.email                 forKey:@"email"];
+  [userDict setObjectOrNil:self.firstName             forKey:@"firstName"];
+  [userDict setObjectOrNil:self.lastName              forKey:@"lastName"];
+  [userDict setObjectOrNil:[self.coverPhoto toHash]   forKey:@"coverPhoto"];
+  [userDict setObjectOrNil:[self.profilePhoto toHash] forKey:@"profilePhoto"];
 
   return userDict;
 }

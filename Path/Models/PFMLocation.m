@@ -53,29 +53,20 @@
 
 - (NSDictionary *) toHash {
   NSMutableDictionary * locationDict = $mdict(self.id, @"id",
-                                              $double(self.elevation), @"elevation",
-                                              $double(self.latitude), @"latitude",
-                                              $double(self.longitude), @"longitude",
-                                              $double(self.accuracy), @"accuracy");
+                              $double(self.elevation), @"elevation",
+                               $double(self.latitude), @"latitude",
+                              $double(self.longitude), @"longitude",
+                               $double(self.accuracy), @"accuracy");
 
-  [locationDict setObject:((self.weatherConditions == nil) ? [NSNull null] : self.weatherConditions)
-                  forKey:@"weatherConditions"];
-  [locationDict setObject:((self.cloudCover == nil) ? [NSNull null] : self.cloudCover)
-                   forKey:@"cloudCover"];
-  [locationDict setObject:((self.windSpeed == nil) ? [NSNull null] : self.windSpeed)
-                   forKey:@"windSpeed"];
-  [locationDict setObject:((self.dewPoint == nil) ? [NSNull null] : self.dewPoint)
-                   forKey:@"dewPoint"];
-  [locationDict setObject:((self.temperature == nil) ? [NSNull null] : self.temperature)
-                   forKey:@"temperature"];
-  [locationDict setObject:((self.windDirection == nil) ? [NSNull null] : self.windDirection)
-                   forKey:@"windDirection"];
-  [locationDict setObject:((self.countryName == nil) ? [NSNull null] : self.countryName)
-                   forKey:@"countryName"];
-  [locationDict setObject:((self.country == nil) ? [NSNull null] : self.country)
-                   forKey:@"country"];
-  [locationDict setObject:((self.city == nil) ? [NSNull null] : self.city)
-                   forKey:@"city"];
+  [locationDict setObjectOrNil:self.weatherConditions forKey:@"weatherConditions"];
+  [locationDict setObjectOrNil:self.cloudCover        forKey:@"cloudCover"];
+  [locationDict setObjectOrNil:self.windSpeed         forKey:@"windSpeed"];
+  [locationDict setObjectOrNil:self.dewPoint          forKey:@"dewPoint"];
+  [locationDict setObjectOrNil:self.temperature       forKey:@"temperature"];
+  [locationDict setObjectOrNil:self.windDirection     forKey:@"windDirection"];
+  [locationDict setObjectOrNil:self.countryName       forKey:@"countryName"];
+  [locationDict setObjectOrNil:self.country           forKey:@"country"];
+  [locationDict setObjectOrNil:self.city              forKey:@"city"];
 
   return (NSDictionary *)locationDict;
 }

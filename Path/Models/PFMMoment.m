@@ -64,40 +64,29 @@
 
 - (NSDictionary *) toHash {
   NSMutableDictionary * momentDict = $mdict(self.id, @"id",
-                                            self.type, @"type");
+                                          self.type, @"type");
 
-  [momentDict setObject:((self.headline == nil) ? [NSNull null] : self.headline)
-                   forKey:@"headline"];
-  [momentDict setObject:((self.subHeadline == nil) ? [NSNull null] : self.subHeadline)
-                 forKey:@"subHeadline"];
-  [momentDict setObject:((self.thought == nil) ? [NSNull null] : self.thought)
-                 forKey:@"thought"];
-  [momentDict setObject:((self.state == nil) ? [NSNull null] : self.state)
-                 forKey:@"state"];
-  [momentDict setObject:((self.photo == nil) ? [NSNull null] : [self.photo toHash])
-                 forKey:@"photo"];
-  [momentDict setObject:$bool(self.shared) forKey:@"shared"];
-  [momentDict setObject:$bool(self.private) forKey:@"private"];
+  [momentDict setObjectOrNil:self.headline       forKey:@"headline"];
+  [momentDict setObjectOrNil:self.subHeadline    forKey:@"subHeadline"];
+  [momentDict setObjectOrNil:self.thought        forKey:@"thought"];
+  [momentDict setObjectOrNil:self.state          forKey:@"state"];
+  [momentDict setObjectOrNil:[self.photo toHash] forKey:@"photo"];
+  [momentDict setObjectOrNil:$bool(self.shared)  forKey:@"shared"];
+  [momentDict setObjectOrNil:$bool(self.private) forKey:@"private"];
 
   if(self.locationId != nil) {
     PFMLocation * location = [[NSApp sharedLocations] objectForKey:self.locationId];
-    if(location != nil) {
-      [momentDict setObject:[location toHash] forKey:@"location"];
-    }
+    [momentDict setObjectOrNil:[location toHash] forKey:@"location"];
   }
 
   if(self.placeId != nil) {
     PFMPlace * place = [[NSApp sharedPlaces] objectForKey:self.placeId];
-    if(place != nil) {
-      [momentDict setObject:[place toHash] forKey:@"place"];
-    }
+    [momentDict setObjectOrNil:[place toHash] forKey:@"place"];
   }
 
   if(self.userId != nil) {
     PFMUser * user = [[NSApp sharedUsers] objectForKey:self.userId];
-    if(user != nil) {
-      [momentDict setObject:[user toHash] forKey:@"user"];
-    }
+    [momentDict setObjectOrNil:[user toHash] forKey:@"user"];
   }
 
   if(self.createdAt != nil) {
