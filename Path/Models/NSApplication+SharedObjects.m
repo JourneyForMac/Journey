@@ -5,7 +5,7 @@
 static PFMUser *_sharedUser = nil;
 static NSMutableDictionary * _sharedLocations = nil;
 static NSMutableDictionary * _sharedPlaces = nil;
-
+static NSMutableDictionary * _sharedUsers = nil;
 @implementation NSApplication (SharedObjects)
 
 - (PFMUser *)sharedUser {
@@ -24,6 +24,16 @@ static NSMutableDictionary * _sharedPlaces = nil;
     }
 
     return _sharedLocations;
+  }
+}
+
+- (NSMutableDictionary *)sharedUsers {
+  @synchronized(self) {
+    if(!_sharedUsers) {
+      _sharedUsers = $mdict(nil);
+    }
+
+    return _sharedUsers;
   }
 }
 
@@ -50,6 +60,11 @@ static NSMutableDictionary * _sharedPlaces = nil;
 - (NSMutableDictionary *)resetSharedPlaces {
   _sharedPlaces = nil;
   return [self sharedPlaces];
+}
+
+- (NSMutableDictionary *)resetSharedUsers {
+  _sharedUsers = nil;
+  return [self sharedUsers];
 }
 
 

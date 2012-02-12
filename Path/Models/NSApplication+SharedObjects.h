@@ -7,9 +7,11 @@
 - (PFMUser *)sharedUser;
 - (NSMutableDictionary *)sharedLocations;
 - (NSMutableDictionary *)sharedPlaces;
+- (NSMutableDictionary *)sharedUsers;
 
 - (PFMUser *)resetSharedUser;
 - (NSMutableDictionary *)resetSharedLocations;
 - (NSMutableDictionary *)resetSharedPlaces;
+- (NSMutableDictionary *)resetSharedUsers;
 
 @end

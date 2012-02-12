@@ -94,6 +94,22 @@
         [[NSApp sharedPlaces] setObject:place forKey:key];
       }];
 
+      // Get the global users map
+      NSDictionary * usersDict = (NSDictionary *)$safe([dict $for:@"users"]);
+      [usersDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        NSDictionary * userDict = (NSDictionary *)obj;
+        NSString * userId = (NSString *)key;
+
+        PFMUser * user = [PFMUser new];
+        user.id = userId;
+        user.firstName = $safe([userDict $for:@"first_name"]);
+        user.lastName = $safe([userDict $for:@"last_name"]);
+        user.profilePhoto = [PFMPhoto photoFrom:$safe([userDict $for:@"photo"])];
+
+        [[NSApp sharedUsers] setObject:user forKey:userId];
+      }];
+
+
       [self.momentsDelegate didFetchMoments:[self fetchedMoments]];
     } else {
       // Delegate method for Home Feed

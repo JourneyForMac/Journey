@@ -287,6 +287,17 @@ describe(@"-fetchMoments", ^{
         expect(place.formattedPhone).toEqual(@"+65 6221 8141");
       });
 
+      it(@"sets the sharedUsers dictionary with id <-> user mapping", ^{
+        doAction();
+        expect([[NSApp sharedUsers] count]).toEqual(1);
+
+        PFMUser * user = [[NSApp sharedUsers] $for:@"4f338c49f6b766128d011175"];
+        expect(user.id).toEqual(@"4f338c49f6b766128d011175");
+        expect(user.firstName).toEqual(@"Aloha");
+        expect(user.lastName).toEqual(@"Boss");
+        expect(user.profilePhoto.originalURL).toEqual(@"https://s3-us-west-1.amazonaws.com/images.path.com/profile_photos/bef62e4fdd1b2a4e1df408443fcb4e2cde6f2a03/original.jpg");
+      });
+
       it(@"should assign photos to moments (if they exist)", ^{
         doAction();
         PFMMoment *moment = (PFMMoment *)[user.fetchedMoments $at:0];
