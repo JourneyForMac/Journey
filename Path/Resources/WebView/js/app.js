@@ -9,9 +9,7 @@
     }
 
   , renderTemplate: function(name, object) {
-      var obj = {};
-      obj[name] = object;
-      $('#content').html(_.template(this.templates[name], obj));
+      $('#content').html(_.template(this.templates[name], object));
       $('abbr.timeago').timeago();
     }
   };

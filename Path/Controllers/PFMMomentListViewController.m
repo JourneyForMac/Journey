@@ -2,6 +2,8 @@
 #import "Application.h"
 #import "SBJson.h"
 #import "PFMMoment.h"
+#import "PFMUser.h"
+#import "PFMPhoto.h"
 
 @implementation PFMMomentListViewController
 
@@ -30,10 +32,13 @@
 #pragma mark - PFMUserMomentsDelegate
 
 - (void)didFetchMoments:(NSArray *)moments {
-  NSString *json = [[moments $map:^id (id moment) {
-    return [(PFMMoment *)moment toHash];
-  }] JSONRepresentation];
-  NSLog(@"%@", json);
+  PFMUser *user = [NSApp sharedUser];
+  NSDictionary *dict = $dict([moments $map:^id (id moment) {
+                               return [(PFMMoment *)moment toHash];
+                             }], @"moments",
+                             [user.coverPhoto iOSHighResURL], @"coverPhoto");
+  NSString *json = [dict JSONRepresentation];
+  // NSLog(@"%@", json);
   [self.webView stringByEvaluatingJavaScriptFromString:$str(@"Path.renderTemplate('moments', %@)", json)];
 }
 

@@ -9,6 +9,11 @@
   <div id="content"></div>
 
   <script id='moments_template' type='application/jst'>
+    <% if(coverPhoto) { %>
+      <div id="cover_photo" style='background-image: url(<%= coverPhoto %>)'>
+        <div class='gradient'></div>
+      </div>
+    <% } %>
     <ul class='moments'>
       <% _.each(moments, function(m) { %>
         <% if(['ambient', 'thought', 'photo'].indexOf(m.type) !== -1) { %>
@@ -31,19 +36,25 @@
               </div>
             <% } %>
             <% var hasComments = m.comments && m.comments.length > 0; %>
-            <% if(!ambientMoment || hasComments) { %>
+            <% if((!ambientMoment && m.headline) || hasComments) { %>
               <div class='comments-tip'></div>
               <ul class='comments'>
                 <% if(!ambientMoment && m.headline) { %>
                   <li class='text'>
                     <p class='body'><%= m.headline %></p>
-                    <p class='created_at'><abbr class="timeago" title="<%= m.createdAt %>"></abbr></p>
+                    <p class='created_at'>
+                      <abbr class="timeago" title="<%= m.createdAt %>"></abbr>
+                      <% if(m.location && m.location.city) { %>
+                        from <%- m.location.city %>
+                      <% } %>
+                    </p>
                   </li>
                 <% } %>
                 <% if(hasComments) { %>
                   <% _.each(m.comments, function(c) { %>
-                    <li class='text'>
-                      <% if(c.user && c.user.profilePhoto && c.user.profilePhoto.iOSLowResURL) { %>
+                    <% var displayProfilePhoto = c.user && c.user.profilePhoto && c.user.profilePhoto.iOSLowResURL; %>
+                    <li class='text<% if(displayProfilePhoto) { %> with_photo<% } %>'>
+                      <% if(displayProfilePhoto) { %>
                         <img class='profile_photo' src='<%= c.user.profilePhoto.iOSLowResURL %>' alt='' />
                       <% } %>
                       <p class='body'>
@@ -52,7 +63,12 @@
                         <% } %>
                         <%= c.body %>
                       </p>
-                      <p class='created_at'><abbr class="timeago" title="<%= c.createdAt %>"></abbr></p>
+                      <p class='created_at'>
+                        <abbr class="timeago" title="<%= c.createdAt %>"></abbr>
+                        <% if(c.location && c.location.city) { %>
+                          from <%- c.location.city %>
+                        <% } %>
+                      </p>
                     </li>
                   <% }); %>
                 <% } %>
@@ -73,7 +89,7 @@
   <script src="js/app.js"></script>
   <script>
     Path.init();
-    //Path.renderTemplate('moments', JSON.parse($('#example_json').text()))
+    // Path.renderTemplate('moments', JSON.parse($('#example_json').text()))
   </script>
 </body>
 </html>

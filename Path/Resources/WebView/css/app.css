@@ -6,8 +6,22 @@ body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-#content {
+#content, #cover_photo {
   width: 390px;
+}
+
+#cover_photo {
+  position: relative;
+  height: 244px;
+  background-size: cover;
+}
+
+#cover_photo .gradient {
+  position: absolute;
+  width: 390px;
+  height: 100px;
+  bottom: 0;
+  background-image: -webkit-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
 }
 
 ul.moments {
@@ -103,12 +117,14 @@ ul.comments {
 }
 
 ul.comments li.text {
+  position: relative;
   padding: 8px;
   text-align: left;
   border-bottom: 1px solid #e0e0e0;
 }
 
-ul.comments li.text p {
+ul.comments li.text.with_photo p {
+  margin-left: 40px;
 }
 
 ul.comments li.text:last-child {
@@ -116,7 +132,7 @@ ul.comments li.text:last-child {
 }
 
 ul.comments img.profile_photo {
-  float: left;
+  position: absolute;
   width: 32px;
   height: 32px;
   margin-right: 8px;
