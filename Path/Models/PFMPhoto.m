@@ -51,5 +51,4 @@
   return [[self toHash] JSONRepresentation];
 }
 
-
 @end

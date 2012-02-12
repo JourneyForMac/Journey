@@ -3,15 +3,183 @@
 <head>
   <meta charset="utf-8" />
   <title>Path for Mac</title>
+  <link rel='stylesheet' type='text/css' media='screen' href='css/app.css' />
 </head>
 <body>
-  hello world
-  
-  <script src="vendor/zepto.js"></script>
+  <div id="content"></div>
+
+  <script id='moments_template' type='application/jst'>
+    <ul class='moments'>
+      <% _.each(moments, function(m) { %>
+        <% if(['ambient', 'thought', 'photo'].indexOf(m.type) !== -1) { %>
+          <li class='moment' id='<%- m.id %>'>
+            <div class='user_photo'>
+              <img src='<%- %>' alt='' />
+            </div>
+            <% if(m.photo && m.photo.iOSLowResURL) { %>
+              <div class='moment_photo'>
+                <img src='<%= m.photo.iOSLowResURL %>' alt='' />
+              </div>
+            <% } %>
+            <% var ambientMoment = m.type == 'ambient' && m.headline && m.subHeadline; %>
+            <% if(ambientMoment) { %>
+              <div class='ambient text'>
+                <p class='headline'><%= m.headline %></p>
+                <p class='sub_headline'><%= m.subHeadline %></p>
+              </div>
+            <% } %>
+            <% var hasComments = m.comments && m.comments.length > 0; %>
+            <% if(!ambientMoment || hasComments) { %>
+              <div class='comments-tip'></div>
+              <ul class='comments'>
+                <% if(!ambientMoment) { %>
+                  <li class='text'>
+                    <p class='body'><%= m.headline %></p>
+                    <p class='created_at'><%= m.createdAt %></p>
+                  </li>
+                <% } %>
+                <% if(hasComments) { %>
+                  <% _.each(m.comments, function(c) { %>
+                    <li class='text'>
+                      <p class='body'><%= c.body %></p>
+                      <p class='created_at'><%= c.createdAt %></p>
+                    </li>
+                  <% }); %>
+                <% } %>
+              </ul>
+            <% } %>
+          </li>
+        <% } %>
+      <% }); %>
+    </ul>
+  </script>
+
+  <script id='example_json' type='application/json'>
+    [
+      {
+        "id": "4f338c49f6b766128d011178"
+      , "userId": "4f338c49f6b766128d011175"
+      , "locationId": "4f34078be7cf662b9d09e2d2"
+      , "type": "photo"
+      , "headline": "Joined Path"
+      , "subHeadline": "On February 9th, 2012"
+      , "thought": "this is cool"
+      , "state": "live"
+      , "shared": false
+      , "private": false
+      , "createdAt": 1328778313
+      , "photo": {
+          "iOSLowResURL": "https://s3-us-west-1.amazonaws.com/images.path.com/photos2/d5abf9a1-1217-418a-9188-b8be09b1026e/1x.jpg"
+        , "iOSHighResURL": "https://s3-us-west-1.amazonaws.com/images.path.com/photos2/d5abf9a1-1217-418a-9188-b8be09b1026e/2x.jpg"
+        , "originalURL": "https://s3-us-west-1.amazonaws.com/images.path.com/photos2/d5abf9a1-1217-418a-9188-b8be09b1026e/original.jpg"
+        }
+      , "comments": [
+          {
+            "id": "4f34078de7cf662b9d09e2d8"
+          , "body": "Hello"
+          , "userId": "4f338c49f6b766128d011175"
+          , "locationId": "4f34078be7cf662b9d09e2d2"
+          , "momentId": "4f338c49f6b766128d011178"
+          , "state": "live"
+          , "createdAt": 1328809735
+          }
+        , {
+            "id": "4f343a20d2bfa87b380074de"
+          , "body": "Lorem Ipsum Dolor Sit Amet Consecteteur Adipscing Elit"
+          , "userId": "4f338c49f6b766128d011175"
+          , "locationId": "4f34078be7cf662b9d09e2d2"
+          , "state": "live"
+          , "createdAt": 1328822815
+          }
+        ]
+      }
+    , {
+        "id": "4f338c49f6b766128d011178"
+      , "userId": "4f338c49f6b766128d011175"
+      , "locationId": "4f34078be7cf662b9d09e2d2"
+      , "type": "ambient"
+      , "headline": "Joined Path"
+      , "subHeadline": "On February 9th, 2012"
+      , "thought": "this is cool"
+      , "state": "live"
+      , "shared": false
+      , "private": false
+      , "createdAt": 1328778313
+      , "comments": [
+          {
+            "id": "4f34078de7cf662b9d09e2d8"
+          , "body": "Hello"
+          , "userId": "4f338c49f6b766128d011175"
+          , "locationId": "4f34078be7cf662b9d09e2d2"
+          , "momentId": "4f338c49f6b766128d011178"
+          , "state": "live"
+          , "createdAt": 1328809735
+          }
+        , {
+            "id": "4f343a20d2bfa87b380074de"
+          , "body": "Lorem Ipsum Dolor Sit Amet Consecteteur Adipscing"
+          , "userId": "4f338c49f6b766128d011175"
+          , "locationId": "4f34078be7cf662b9d09e2d2"
+          , "state": "live"
+          , "createdAt": 1328822815
+          }
+        ]
+      }
+    , {
+        "id": "4f338c49f6b766128d011178"
+      , "userId": "4f338c49f6b766128d011175"
+      , "locationId": "4f34078be7cf662b9d09e2d2"
+      , "type": "thought"
+      , "headline": "this is really cool<b>hi</b>"
+      , "subHeadline": "On February 9th, 2012"
+      , "thought": "this is cool"
+      , "state": "live"
+      , "shared": false
+      , "private": false
+      , "createdAt": 1328778313
+      , "comments": [
+          {
+            "id": "4f34078de7cf662b9d09e2d8"
+          , "body": "Hello"
+          , "userId": "4f338c49f6b766128d011175"
+          , "locationId": "4f34078be7cf662b9d09e2d2"
+          , "momentId": "4f338c49f6b766128d011178"
+          , "state": "live"
+          , "createdAt": 1328809735
+          }
+        , {
+            "id": "4f343a20d2bfa87b380074de"
+          , "body": "Lorem Ipsum Dolor Sit Amet Consecteteur Adipscing"
+          , "userId": "4f338c49f6b766128d011175"
+          , "locationId": "4f34078be7cf662b9d09e2d2"
+          , "state": "live"
+          , "createdAt": 1328822815
+          }
+        ]
+      }
+    , {
+        "id": "4f338c49f6b766128d011178"
+      , "userId": "4f338c49f6b766128d011175"
+      , "locationId": "4f34078be7cf662b9d09e2d2"
+      , "type": "ambient"
+      , "headline": "Joined Path"
+      , "subHeadline": "On February 9th, 2012"
+      , "thought": "this is cool"
+      , "state": "live"
+      , "shared": false
+      , "private": false
+      , "createdAt": 1328778313
+      , "comments": []
+      }
+    ]
+  </script>
+
+  <script src="vendor/jquery-1.7.1.js"></script>
   <script src="vendor/underscore.js"></script>
-  <script src="app/app.js"></script>
+  <script src="js/app.js"></script>
   <script>
     Path.init();
+    Path.renderTemplate('moments', $('#example_json').text())
   </script>
 </body>
 </html>

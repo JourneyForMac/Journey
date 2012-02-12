@@ -2,6 +2,7 @@
 #import "Application.h"
 #import "PFMMomentListViewController.h"
 #import "PFMToolbarViewController.h"
+#import "PFMView.h"
 
 @implementation PFMMainWindowController
 
@@ -31,18 +32,8 @@
   [self.window setFrameAutosaveName:@"MainWindow"];
 }
 
-- (void)windowDidLoad {
-  [super windowDidLoad];
-
-  self.momentListViewController = [PFMMomentListViewController new];
-  NSView *momentListView = [self.momentListViewController view];
-  [self.momentListViewWrapper addSubview:momentListView];
-  [momentListView setFrame:[self.momentListViewWrapper bounds]];
-
-  self.toolbarViewController = [PFMToolbarViewController new];
-  NSView *toolbarView = [self.toolbarViewController view];
-  [self.toolbarViewWrapper addSubview:toolbarView];
-  [toolbarView setFrame:[self.toolbarViewWrapper bounds]];
+- (void)loadWindow {
+  [super loadWindow];
 
   NSWindow *window = [self window];
   NSImageView *titleBarLogoView = self.titleBarLogoView;
@@ -54,6 +45,18 @@
   [titleBarLogoView setFrame:NSMakeRect(floorf((windowFrame.size.width - logoFrame.size.width) / 2.0)
                                       , windowFrame.size.height - logoFrame.size.height - 7.0
                                       , logoFrame.size.width, logoFrame.size.height)];
+
+  self.momentListViewWrapper.backgroundColor = [NSColor whiteColor];
+
+  self.momentListViewController = [PFMMomentListViewController new];
+  NSView *momentListView = [self.momentListViewController view];
+  [self.momentListViewWrapper addSubview:momentListView];
+  [momentListView setFrame:[self.momentListViewWrapper bounds]];
+
+  self.toolbarViewController = [PFMToolbarViewController new];
+  NSView *toolbarView = [self.toolbarViewController view];
+  [self.toolbarViewWrapper addSubview:toolbarView];
+  [toolbarView setFrame:[self.toolbarViewWrapper bounds]];
 }
 
 @end

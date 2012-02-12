@@ -1,5 +1,7 @@
 # App
 Pods/
+vendor/bundle
+.bundle/config
 
 # Xcode
 build/*

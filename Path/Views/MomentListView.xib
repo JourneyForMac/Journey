@@ -74,7 +74,7 @@
 								<string>public.url-name</string>
 							</object>
 						</object>
-						<string key="NSFrameSize">{320, 480}</string>
+						<string key="NSFrameSize">{405, 405}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
@@ -103,9 +103,10 @@
 						<bool key="AllowsUndo">YES</bool>
 					</object>
 				</object>
-				<string key="NSFrameSize">{320, 480}</string>
+				<string key="NSFrameSize">{405, 405}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
+				<reference key="NSNextKeyView" ref="576004473"/>
 				<string key="NSClassName">NSView</string>
 			</object>
 		</object>

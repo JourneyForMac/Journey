@@ -5,7 +5,10 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
   PFMSignInWindowController *signInWindowController = [PFMSignInWindowController new];
-  [signInWindowController.window makeKeyAndOrderFront:nil];
+  NSWindow *window = [signInWindowController window];
+  [window orderFrontRegardless];
+  [window makeMainWindow];
+  [window makeKeyWindow];
 }
 
 @end

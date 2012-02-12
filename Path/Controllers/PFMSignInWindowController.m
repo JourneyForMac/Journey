@@ -48,7 +48,10 @@
 - (void)didSignIn {
   PFMMainWindowController *mainWindowController = [PFMMainWindowController new];
   [[self window] close];
-  [[mainWindowController window] makeKeyAndOrderFront:nil];
+  NSWindow *window = [mainWindowController window];
+  [window orderFrontRegardless];
+  [window makeMainWindow];
+  [window makeKeyWindow];
 }
 
 - (void)didFailSignInDueToInvalidCredentials {
