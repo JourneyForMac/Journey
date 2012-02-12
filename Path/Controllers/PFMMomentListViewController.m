@@ -1,5 +1,7 @@
 #import "PFMMomentListViewController.h"
 #import "Application.h"
+#import "SBJson.h"
+#import "PFMMoment.h"
 
 @implementation PFMMomentListViewController
 
@@ -15,6 +17,10 @@
 - (void)loadView {
   [super loadView];
 
+  NSString *webViewPath = [[$ resourcePath] $append:@"/WebView/"];
+  NSString *html = [NSString stringWithContentsOfFile:[webViewPath $append:@"index.html"] encoding:NSUTF8StringEncoding error:NULL];
+  [[self.webView mainFrame] loadHTMLString:html baseURL:[NSURL fileURLWithPath:webViewPath]];
+
   PFMUser *user = [NSApp sharedUser];
   user.momentsDelegate = self;
 
@@ -24,9 +30,11 @@
 #pragma mark - PFMUserMomentsDelegate
 
 - (void)didFetchMoments:(NSArray *)moments {
-  NSString *webViewPath = [[$ resourcePath] $append:@"/WebView/"];
-  NSString *html = [NSString stringWithContentsOfFile:[webViewPath $append:@"index.html"] encoding:NSUTF8StringEncoding error:NULL];
-  [[self.webView mainFrame] loadHTMLString:html baseURL:[NSURL fileURLWithPath:webViewPath]];
+  NSString *json = [[moments $map:^id (id moment) {
+    return [(PFMMoment *)moment toHash];
+  }] JSONRepresentation];
+  NSLog(@"%@", json);
+  [self.webView stringByEvaluatingJavaScriptFromString:$str(@"Path.renderTemplate('moments', %@)", json)];
 }
 
 #pragma mark WebUIDelegate

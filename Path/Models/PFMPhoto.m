@@ -25,26 +25,42 @@
 }
 
 - (NSString *) iOSLowResURL {
+  if(!self.iOSLowResFileName) {
+    return nil;
+  }
   return [NSString stringWithFormat:@"%@/%@", self.baseURL, self.iOSLowResFileName];
 }
 
 - (NSString *) iOSHighResURL {
+  if(!self.iOSHighResFileName) {
+    return nil;
+  }
   return [NSString stringWithFormat:@"%@/%@", self.baseURL, self.iOSHighResFileName];
 }
 
 - (NSString *) webURL {
+  if(!self.webFileName) {
+    return nil;
+  }
   return [NSString stringWithFormat:@"%@/%@", self.baseURL, self.webFileName];
 }
 
 - (NSString *) originalURL {
+  if(!self.originalFileName) {
+    return nil;
+  }
   return [NSString stringWithFormat:@"%@/%@", self.baseURL, self.originalFileName];
 }
 
 - (NSDictionary *) toHash {
-  return $dict([self iOSLowResURL], @"iOSLowResURL",
-               [self iOSHighResURL], @"iOSHighResURL",
-               [self webURL], @"webURL",
-               [self originalURL], @"originalURL");
+  NSMutableDictionary *dict = $mdict(nil);
+
+  [dict setObjectOrNil:[self iOSLowResURL]  forKey:@"iOSLowResURL"];
+  [dict setObjectOrNil:[self iOSHighResURL] forKey:@"iOSHighResURL"];
+  [dict setObjectOrNil:[self webURL]        forKey:@"webURL"];
+  [dict setObjectOrNil:[self originalURL]   forKey:@"originalURL"];
+
+  return dict;
 }
 
 - (NSString *) JSONRepresentation {

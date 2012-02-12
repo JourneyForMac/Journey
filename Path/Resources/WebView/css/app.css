@@ -108,7 +108,17 @@ ul.comments li.text {
   border-bottom: 1px solid #e0e0e0;
 }
 
+ul.comments li.text p {
+}
+
 ul.comments li.text:last-child {
   border-bottom: 0;
 }
 
+ul.comments img.profile_photo {
+  float: left;
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+  -webkit-border-radius: 3px;
+}

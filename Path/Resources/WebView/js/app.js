@@ -8,10 +8,11 @@
       Path.initialized = true;
     }
 
-  , renderTemplate: function(name, json) {
+  , renderTemplate: function(name, object) {
       var obj = {};
-      obj[name] = JSON.parse(json);
+      obj[name] = object;
       $('#content').html(_.template(this.templates[name], obj));
+      $('abbr.timeago').timeago();
     }
   };
 }());

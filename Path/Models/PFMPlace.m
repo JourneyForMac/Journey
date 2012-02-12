@@ -45,7 +45,6 @@
 
   place.totalCheckins = [(NSNumber *)[placeDict objectOrNilForKey:@"total_checkins"] intValue];
 
-
   return place;
 }
 

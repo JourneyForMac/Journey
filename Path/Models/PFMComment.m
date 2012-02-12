@@ -48,10 +48,7 @@
     }
   }
 
-  if(self.createdAt != nil) {
-    NSNumber * created = $double([self.createdAt timeIntervalSince1970]);
-    [commentDict setObject:created forKey:@"createdAt"];
-  }
+  [commentDict setObjectOrNil:[self.createdAt descriptionInISO8601] forKey:@"createdAt"];
 
   return commentDict;
 }

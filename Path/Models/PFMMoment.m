@@ -86,10 +86,7 @@
     [momentDict setObjectOrNil:[user toHash] forKey:@"user"];
   }
 
-  if(self.createdAt != nil) {
-    NSNumber * created = $double([self.createdAt timeIntervalSince1970]);
-    [momentDict setObject:created forKey:@"createdAt"];
-  }
+  [momentDict setObjectOrNil:[self.createdAt descriptionInISO8601] forKey:@"createdAt"];
 
   NSArray * commentsDictionaryArray = [self.comments $map:^(id obj) {
                                         return [(PFMComment *)obj toHash];
