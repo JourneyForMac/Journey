@@ -8,6 +8,12 @@
 #import "PFMLocation.h"
 #import "PFMPlace.h"
 
+@interface PFMUser ()
+
+- (ASIHTTPRequest *)fetchMomentsWithPath:(NSString *)path;
+
+@end
+
 @implementation PFMUser
 
 @synthesize
@@ -53,10 +59,36 @@
   return request;
 }
 
-- (ASIHTTPRequest *)fetchMoments {
+- (ASIHTTPRequest *)fetchMomentsNewerThan:(NSDate *)date {
+  NSString * path = nil;
+
+  if (date != nil) {
+    path = $str(@"%@?newer_than=%f", kMomentsAPIPath, [date timeIntervalSince1970]);
+  } else {
+    path = kMomentsAPIPath;
+  }
+
+  return [self fetchMomentsWithPath:path];
+}
+
+- (ASIHTTPRequest *)fetchMomentsOlderThan:(NSDate *)date {
+  NSString * path = nil;
+
+  if (date) {
+    path = $str(@"%@?older_than=%f", kMomentsAPIPath, [date timeIntervalSince1970]);
+  } else {
+    path = kMomentsAPIPath;
+  }
+
+  return [self fetchMomentsWithPath:path];
+}
+
+
+- (ASIHTTPRequest *)fetchMomentsWithPath:(NSString *)path {
   self.fetchingMoments = YES;
 
-  __block ASIHTTPRequest * request = [self requestWithPath:@"/3/moment/feed/home"];
+  __block ASIHTTPRequest * request = [self requestWithPath:path];
+
   [request setUsername:self.email];
   [request setPassword:self.password];
 

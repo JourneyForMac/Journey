@@ -158,13 +158,55 @@ describe(@"-loadCredentials", ^{
   });
 });
 
-describe(@"-fetchMoments", ^{
+describe(@"-fetchMomentsNewerThan: (non-null Date)", ^{
   __block ASIHTTPRequest *request;
   __block id mockRequest;
   __block id mockMomentsDelegate;
 
   before(^{
-    request = [user fetchMoments];
+    NSDate * date = [NSDate dateWithTimeIntervalSince1970:1324386779.0];
+
+    request = [user fetchMomentsNewerThan:date];
+    mockRequest = [OCMockObject partialMockForObject:request];
+    mockMomentsDelegate = [OCMockObject mockForProtocol:@protocol(PFMUserMomentsDelegate)];
+  });
+
+  it(@"makes an asynchronous GET request to /3/moment/feed/home?newer_than=1324386779", ^{
+    expect([request.url relativePath]).toContain(@"/3/moment/feed/home");
+    expect([request.url query]).toContain(@"newer_than=1324386779");
+    expect(request.started).toEqual(YES);
+    expect(request.asynchronous).toEqual(YES);
+  });
+});
+
+describe(@"-fetchMomentsOlderThan: (non-null Date)", ^{
+  __block ASIHTTPRequest *request;
+  __block id mockRequest;
+  __block id mockMomentsDelegate;
+
+  before(^{
+    NSDate * date = [NSDate dateWithTimeIntervalSince1970:1324386779.0];
+
+    request = [user fetchMomentsOlderThan:date];
+    mockRequest = [OCMockObject partialMockForObject:request];
+    mockMomentsDelegate = [OCMockObject mockForProtocol:@protocol(PFMUserMomentsDelegate)];
+  });
+
+  it(@"makes an asynchronous GET request to /3/moment/feed/home?older_than=1324386779", ^{
+    expect([request.url relativePath]).toContain(@"/3/moment/feed/home");
+    expect([request.url query]).toContain(@"older_than=1324386779");
+    expect(request.started).toEqual(YES);
+    expect(request.asynchronous).toEqual(YES);
+  });
+});
+
+describe(@"-fetchMomentsNewerThan:/-fetchMomentsOlderThan: (with nil date)", ^{
+  __block ASIHTTPRequest *request;
+  __block id mockRequest;
+  __block id mockMomentsDelegate;
+
+  before(^{
+    request = [user fetchMomentsNewerThan:nil];
     mockRequest = [OCMockObject partialMockForObject:request];
     mockMomentsDelegate = [OCMockObject mockForProtocol:@protocol(PFMUserMomentsDelegate)];
   });

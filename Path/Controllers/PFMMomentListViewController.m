@@ -26,7 +26,7 @@
   PFMUser *user = [NSApp sharedUser];
   user.momentsDelegate = self;
 
-  [[NSApp sharedUser] fetchMoments];
+  [[NSApp sharedUser] fetchMomentsNewerThan:nil];
 }
 
 #pragma mark - PFMUserMomentsDelegate

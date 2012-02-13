@@ -1,5 +1,7 @@
 #import "PFMModel.h"
 
+#define kMomentsAPIPath  @"/3/moment/feed/home"
+
 @protocol PFMUserSignInDelegate;
 @protocol PFMUserMomentsDelegate;
 
@@ -26,7 +28,9 @@
 @property(nonatomic) __weak id<PFMUserMomentsDelegate> momentsDelegate;
 
 - (ASIHTTPRequest *)signIn;
-- (ASIHTTPRequest *)fetchMoments;
+- (ASIHTTPRequest *)fetchMomentsNewerThan:(NSDate *)date;
+- (ASIHTTPRequest *)fetchMomentsOlderThan:(NSDate *)date;
+
 - (void)saveCredentials;
 - (void)loadCredentials;
 

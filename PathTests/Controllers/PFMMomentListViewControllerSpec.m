@@ -29,7 +29,7 @@ it(@"sets itself to be shared user's sign in delegate", ^{
 });
 
 it(@"begins fetching moments", ^{
-  [[mockUser expect] fetchMoments];
+  [[mockUser expect] fetchMomentsNewerThan:nil];
   openView();
   [mockUser verify];
 });
