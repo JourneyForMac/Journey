@@ -12,6 +12,10 @@
     <% if(coverPhoto) { %>
       <div id="cover_photo" style='background-image: url(<%= coverPhoto %>)'>
         <div class='gradient'></div>
+        <% if(profilePhoto) { %>
+          <img id="profile_photo" src='<%= profilePhoto %>'>
+          </div>
+        <% } %>
       </div>
     <% } %>
     <ul class='moments'>

@@ -16,6 +16,17 @@ body {
   background-size: cover;
 }
 
+#profile_photo {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  display: block;
+  top: 70%;
+  left: 9%;
+  -webkit-border-radius: 24px;
+  -webkit-box-shadow: 0px 0px 6px 1px #444;
+}
+
 #cover_photo .gradient {
   position: absolute;
   width: 390px;

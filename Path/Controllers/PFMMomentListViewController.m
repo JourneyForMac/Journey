@@ -36,7 +36,8 @@
   NSDictionary *dict = $dict([moments $map:^id (id moment) {
                                return [(PFMMoment *)moment toHash];
                              }], @"moments",
-                             [user.coverPhoto iOSHighResURL], @"coverPhoto");
+                             [user.coverPhoto iOSHighResURL], @"coverPhoto",
+                             [user.profilePhoto iOSHighResURL], @"profilePhoto");
   NSString *json = [dict JSONRepresentation];
   // NSLog(@"%@", json);
   [self.webView stringByEvaluatingJavaScriptFromString:$str(@"Path.renderTemplate('moments', %@)", json)];
