@@ -42,6 +42,11 @@ describe(@"-signIn", ^{
     expect(request.asynchronous).toEqual(YES);
   });
 
+  it(@"makes request with basic auth", ^{
+    expect([request.requestHeaders allKeys]).toContain(@"Authorization");
+    expect([request.requestHeaders objectForKey:@"Authorization"]).toContain(@"Basic");
+  });
+
   describe(@"when the request is completed", ^{
     before(^{
       [[[mockRequest stub] andReturn:loadStringFixture(@"settings.json")] responseString];
@@ -55,12 +60,6 @@ describe(@"-signIn", ^{
       before(^{
         int responseStatusCode = 200;
         [[[mockRequest stub] andReturnValue:OCMOCK_VALUE(responseStatusCode)] responseStatusCode];
-      });
-
-      it(@"makes request with basic auth", ^{
-        doAction();
-        expect(request.username).toEqual(@"foo@bar.com");
-        expect(request.password).toEqual(@"123456");
       });
 
       it(@"sets firstName and lastName", ^{
@@ -220,6 +219,11 @@ describe(@"-fetchMomentsNewerThan:/-fetchMomentsOlderThan: (with nil date)", ^{
     expect(request.started).toEqual(YES);
     expect(request.asynchronous).toEqual(YES);
   });
+  
+  it(@"makes request with basic auth", ^{
+    expect([request.requestHeaders allKeys]).toContain(@"Authorization");
+    expect([request.requestHeaders objectForKey:@"Authorization"]).toContain(@"Basic");
+  });
 
   describe(@"when the request is completed", ^{
     before(^{
@@ -234,12 +238,6 @@ describe(@"-fetchMomentsNewerThan:/-fetchMomentsOlderThan: (with nil date)", ^{
       before(^{
         int responseStatusCode = 200;
         [[[mockRequest stub] andReturnValue:OCMOCK_VALUE(responseStatusCode)] responseStatusCode];
-      });
-
-      it(@"makes request with basic auth", ^{
-        doAction();
-        expect(request.username).toEqual(@"foo@bar.com");
-        expect(request.password).toEqual(@"123456");
       });
 
       it(@"populates the fetchedMoments array with the moments fetched from the API", ^{
