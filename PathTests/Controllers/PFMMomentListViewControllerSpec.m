@@ -1,5 +1,6 @@
 #import "TestHelper.h"
 #import "PFMMomentListViewController.h"
+#import "PFMMoment.h"
 
 SpecBegin(PFMMomentListViewController)
 
@@ -48,6 +49,20 @@ describe(@"PFMUserMomentsDelegate", ^{
     before(^{
 
     });
+  });
+});
+
+describe(@"-refreshFeed", ^{
+  before(^{
+    openView();
+    [user parseMomentsJSON:loadStringFixture(@"moments_feed.json")];
+  });
+
+  it(@"fetches moments newer than the first moment's createdAt", ^{
+    NSDate *firstMomentCreatedAt = ((PFMMoment *)[user.fetchedMoments objectAtIndex:0]).createdAt;
+    [[mockUser expect] fetchMomentsNewerThan:firstMomentCreatedAt];
+    [controller refreshFeed];
+    [mockUser verify];
   });
 });
 

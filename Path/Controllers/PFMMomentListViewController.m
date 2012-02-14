@@ -29,6 +29,16 @@
   [[NSApp sharedUser] fetchMomentsNewerThan:nil];
 }
 
+- (void)refreshFeed {
+  PFMUser *user = [NSApp sharedUser];
+  PFMMoment *firstMoment = nil;
+  NSArray *fetchedMoments = user.fetchedMoments;
+  if(fetchedMoments && [fetchedMoments count] > 0) {
+    firstMoment = [fetchedMoments objectAtIndex:0];
+  }
+  [user fetchMomentsNewerThan:firstMoment.createdAt];
+}
+
 #pragma mark - PFMUserMomentsDelegate
 
 - (void)didFetchMoments:(NSArray *)moments {
@@ -39,14 +49,29 @@
                              [user.coverPhoto iOSHighResURL], @"coverPhoto",
                              [user.profilePhoto iOSHighResURL], @"profilePhoto");
   NSString *json = [dict JSONRepresentation];
-  // NSLog(@"%@", json);
-  [self.webView stringByEvaluatingJavaScriptFromString:$str(@"Path.renderTemplate('moments', %@)", json)];
+  NSLog(@">> %@", json);
+  [self.webView stringByEvaluatingJavaScriptFromString:$str(@"Path.renderTemplate('feed', %@)", json)];
 }
 
-#pragma mark WebUIDelegate
+#pragma mark - WebUIDelegate
 
 - (NSArray *)webView:(WebView *)sender contextMenuItemsForElement:(NSDictionary *)element defaultMenuItems:(NSArray *)defaultMenuItems {
   return nil;
+}
+
+#pragma mark - WebFrameLoadDelegate
+
+- (void)webView:(WebView *)webView decidePolicyForNavigationAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener {
+  if([actionInformation objectForKey:WebActionNavigationTypeKey]) {
+    NSURL *url = [actionInformation objectForKey:WebActionOriginalURLKey];
+    if(url) {
+      if([[url absoluteString] hasSuffix:@"#refresh_feed"]) {
+        [self refreshFeed];
+        return;
+      }
+    }
+  }
+  [listener use];
 }
 
 @end

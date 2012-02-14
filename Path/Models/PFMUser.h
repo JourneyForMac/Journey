@@ -30,6 +30,7 @@
 - (ASIHTTPRequest *)signIn;
 - (ASIHTTPRequest *)fetchMomentsNewerThan:(NSDate *)date;
 - (ASIHTTPRequest *)fetchMomentsOlderThan:(NSDate *)date;
+- (void)parseMomentsJSON:(NSString *)json;
 
 - (void)saveCredentials;
 - (void)loadCredentials;

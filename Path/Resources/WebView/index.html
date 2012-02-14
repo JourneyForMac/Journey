@@ -8,7 +8,70 @@
 <body>
   <div id="content"></div>
 
-  <script id='moments_template' type='application/jst'>
+  <script id='moment_template' type='application/jst'>
+    <% if(['ambient', 'thought', 'photo'].indexOf(m.type) !== -1) { %>
+      <li class='moment' id='<%- m.id %>'>
+        <div class='user_photo'>
+          <% if(m.user && m.user.profilePhoto && m.user.profilePhoto.iOSLowResURL) { %>
+            <img src='<%= m.user.profilePhoto.iOSLowResURL %>' alt='' />
+          <% } %>
+        </div>
+        <% if(m.photo && m.photo.iOSLowResURL) { %>
+          <div class='moment_photo'>
+            <img src='<%= m.photo.iOSLowResURL %>' alt='' />
+          </div>
+        <% } %>
+        <% var ambientMoment = m.type == 'ambient' && m.headline && m.subHeadline; %>
+        <% if(ambientMoment) { %>
+          <div class='ambient text'>
+            <p class='headline'><%= m.headline %></p>
+            <p class='sub_headline'><%= m.subHeadline %></p>
+          </div>
+        <% } %>
+        <% var hasComments = m.comments && m.comments.length > 0; %>
+        <% if((!ambientMoment && m.headline) || hasComments) { %>
+          <div class='comments-tip'></div>
+          <ul class='comments'>
+            <% if(!ambientMoment && m.headline) { %>
+              <li class='text'>
+                <p class='body'><%= m.headline %></p>
+                <p class='created_at'>
+                  <abbr class="timeago" title="<%= m.createdAt %>"></abbr>
+                  <% if(m.location && m.location.city) { %>
+                    from <%- m.location.city %>
+                  <% } %>
+                </p>
+              </li>
+            <% } %>
+            <% if(hasComments) { %>
+              <% _.each(m.comments, function(c) { %>
+                <% var displayProfilePhoto = c.user && c.user.profilePhoto && c.user.profilePhoto.iOSLowResURL; %>
+                <li class='text<% if(displayProfilePhoto) { %> with_photo<% } %>'>
+                  <% if(displayProfilePhoto) { %>
+                    <img class='profile_photo' src='<%= c.user.profilePhoto.iOSLowResURL %>' alt='' />
+                  <% } %>
+                  <p class='body'>
+                    <% if(c.user && c.user.firstName) { %>
+                      <strong><%- c.user.firstName %>:</strong>
+                    <% } %>
+                    <%= c.body %>
+                  </p>
+                  <p class='created_at'>
+                    <abbr class="timeago" title="<%= c.createdAt %>"></abbr>
+                    <% if(c.location && c.location.city) { %>
+                      from <%- c.location.city %>
+                    <% } %>
+                  </p>
+                </li>
+              <% }); %>
+            <% } %>
+          </ul>
+        <% } %>
+      </li>
+    <% } %>
+  </script>
+
+  <script id='feed_template' type='application/jst'>
     <% if(coverPhoto) { %>
       <div id="cover_photo" style='background-image: url(<%= coverPhoto %>)'>
         <div class='gradient'></div>
@@ -18,68 +81,15 @@
         <% } %>
       </div>
     <% } %>
+    <a href="#" id="refresh_button">
+      <div>
+        <img src="images/reload_shadow.png" class="shadow">
+        <img src="images/reload.png" class="">
+      </div>
+    </a>
     <ul class='moments'>
       <% _.each(moments, function(m) { %>
-        <% if(['ambient', 'thought', 'photo'].indexOf(m.type) !== -1) { %>
-          <li class='moment' id='<%- m.id %>'>
-            <div class='user_photo'>
-              <% if(m.user && m.user.profilePhoto && m.user.profilePhoto.iOSLowResURL) { %>
-                <img src='<%= m.user.profilePhoto.iOSLowResURL %>' alt='' />
-              <% } %>
-            </div>
-            <% if(m.photo && m.photo.iOSLowResURL) { %>
-              <div class='moment_photo'>
-                <img src='<%= m.photo.iOSLowResURL %>' alt='' />
-              </div>
-            <% } %>
-            <% var ambientMoment = m.type == 'ambient' && m.headline && m.subHeadline; %>
-            <% if(ambientMoment) { %>
-              <div class='ambient text'>
-                <p class='headline'><%= m.headline %></p>
-                <p class='sub_headline'><%= m.subHeadline %></p>
-              </div>
-            <% } %>
-            <% var hasComments = m.comments && m.comments.length > 0; %>
-            <% if((!ambientMoment && m.headline) || hasComments) { %>
-              <div class='comments-tip'></div>
-              <ul class='comments'>
-                <% if(!ambientMoment && m.headline) { %>
-                  <li class='text'>
-                    <p class='body'><%= m.headline %></p>
-                    <p class='created_at'>
-                      <abbr class="timeago" title="<%= m.createdAt %>"></abbr>
-                      <% if(m.location && m.location.city) { %>
-                        from <%- m.location.city %>
-                      <% } %>
-                    </p>
-                  </li>
-                <% } %>
-                <% if(hasComments) { %>
-                  <% _.each(m.comments, function(c) { %>
-                    <% var displayProfilePhoto = c.user && c.user.profilePhoto && c.user.profilePhoto.iOSLowResURL; %>
-                    <li class='text<% if(displayProfilePhoto) { %> with_photo<% } %>'>
-                      <% if(displayProfilePhoto) { %>
-                        <img class='profile_photo' src='<%= c.user.profilePhoto.iOSLowResURL %>' alt='' />
-                      <% } %>
-                      <p class='body'>
-                        <% if(c.user && c.user.firstName) { %>
-                          <strong><%- c.user.firstName %>:</strong>
-                        <% } %>
-                        <%= c.body %>
-                      </p>
-                      <p class='created_at'>
-                        <abbr class="timeago" title="<%= c.createdAt %>"></abbr>
-                        <% if(c.location && c.location.city) { %>
-                          from <%- c.location.city %>
-                        <% } %>
-                      </p>
-                    </li>
-                  <% }); %>
-                <% } %>
-              </ul>
-            <% } %>
-          </li>
-        <% } %>
+        <%= _.template(Path.templates.moment, { m: m }) %>
       <% }); %>
     </ul>
   </script>
@@ -93,7 +103,7 @@
   <script src="js/app.js"></script>
   <script>
     Path.init();
-    // Path.renderTemplate('moments', JSON.parse($('#example_json').text()))
+    //Path.renderTemplate('feed', JSON.parse($('#example_json').text()));
   </script>
 </body>
 </html>

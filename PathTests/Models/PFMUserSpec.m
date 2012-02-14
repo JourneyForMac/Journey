@@ -219,7 +219,7 @@ describe(@"-fetchMomentsNewerThan:/-fetchMomentsOlderThan: (with nil date)", ^{
     expect(request.started).toEqual(YES);
     expect(request.asynchronous).toEqual(YES);
   });
-  
+
   it(@"makes request with basic auth", ^{
     expect([request.requestHeaders allKeys]).toContain(@"Authorization");
     expect([request.requestHeaders objectForKey:@"Authorization"]).toContain(@"Basic");
