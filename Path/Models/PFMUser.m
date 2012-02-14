@@ -34,8 +34,7 @@
 - (ASIHTTPRequest *)signIn {
   self.signingIn = YES;
   __block ASIHTTPRequest *request = [self requestWithPath:@"/3/user/settings"];
-  [request setUsername:self.email];
-  [request setPassword:self.password];
+  [request addBasicAuthenticationHeaderWithUsername:self.email andPassword:self.password];
 
   [request setCompletionBlock:^{
     if(request.responseStatusCode == 200) {
@@ -89,8 +88,7 @@
 
   __block ASIHTTPRequest * request = [self requestWithPath:path];
 
-  [request setUsername:self.email];
-  [request setPassword:self.password];
+  [request addBasicAuthenticationHeaderWithUsername:self.email andPassword:self.password];
 
   [request setCompletionBlock:^{
     if(request.responseStatusCode == 200) {
