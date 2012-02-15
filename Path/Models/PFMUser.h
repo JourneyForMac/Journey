@@ -24,6 +24,9 @@
 @property(nonatomic, retain) PFMPhoto * coverPhoto;
 @property(nonatomic, retain) PFMPhoto * profilePhoto;
 
+@property(nonatomic, retain) NSMutableDictionary * allMomentIds;
+@property(nonatomic, retain) NSMutableArray      * allMoments;
+
 @property(nonatomic) __weak id<PFMUserSignInDelegate> signInDelegate;
 @property(nonatomic) __weak id<PFMUserMomentsDelegate> momentsDelegate;
 

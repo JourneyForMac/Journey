@@ -29,7 +29,18 @@
 , fetchedMoments=_fetchedMoments
 , coverPhoto=_coverPhoto
 , profilePhoto=_profilePhoto
+, allMomentIds=_allMomentIds
+, allMoments=_allMoments
 ;
+
+- (id) init {
+  if (self = [super init]) {
+    self.allMomentIds = $mdict(nil);
+    self.allMoments = $marr(nil);
+  }
+
+  return self;
+}
 
 - (ASIHTTPRequest *)signIn {
   self.signingIn = YES;
@@ -110,8 +121,18 @@
   NSDictionary *dict = [json JSONValue];
   for(NSDictionary * rawMoment in [dict objectOrNilForKey:@"moments"]) {
     PFMMoment * moment = [PFMMoment momentFrom:rawMoment];
-    [self.fetchedMoments addObject:moment];
+    if (![self.allMomentIds objectForKey:moment.id]) {
+      [self.fetchedMoments addObject:moment];
+      [self.allMomentIds setObject:moment forKey:moment.id];
+    }
   }
+
+  // Don't do anything if the API hasn't returned anything
+  if([self.fetchedMoments count] == 0) {
+    return;
+  }
+
+  PFMMoment * firstMoment = [self.fetchedMoments $at:0];
 
   // Set the ID
   self.id = [(NSDictionary *)[(NSDictionary *)[dict objectOrNilForKey:@"cover"] objectOrNilForKey:@"user"] objectOrNilForKey:@"id"];

@@ -49,7 +49,7 @@
                              [user.coverPhoto iOSHighResURL], @"coverPhoto",
                              [user.profilePhoto iOSHighResURL], @"profilePhoto");
   NSString *json = [dict JSONRepresentation];
-  NSLog(@">> %@", json);
+//  NSLog(@">> %@", json);
   [self.webView stringByEvaluatingJavaScriptFromString:$str(@"Path.renderTemplate('feed', %@)", json)];
 }
 
