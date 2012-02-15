@@ -58,11 +58,11 @@
   return request;
 }
 
-- (ASIHTTPRequest *)fetchMomentsNewerThan:(NSDate *)date {
+- (ASIHTTPRequest *)fetchMomentsNewerThan:(double)date {
   NSString * path = nil;
 
-  if (date != nil) {
-    path = $str(@"%@?newer_than=%f", kMomentsAPIPath, [date timeIntervalSince1970]);
+  if (date != 0.0) {
+    path = $str(@"%@?newer_than=%f", kMomentsAPIPath, date);
   } else {
     path = kMomentsAPIPath;
   }
@@ -70,11 +70,11 @@
   return [self fetchMomentsWithPath:path];
 }
 
-- (ASIHTTPRequest *)fetchMomentsOlderThan:(NSDate *)date {
+- (ASIHTTPRequest *)fetchMomentsOlderThan:(double)date {
   NSString * path = nil;
 
-  if (date) {
-    path = $str(@"%@?older_than=%f", kMomentsAPIPath, [date timeIntervalSince1970]);
+  if (date != 0.0) {
+    path = $str(@"%@?older_than=%f", kMomentsAPIPath, date);
   } else {
     path = kMomentsAPIPath;
   }

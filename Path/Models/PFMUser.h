@@ -28,8 +28,8 @@
 @property(nonatomic) __weak id<PFMUserMomentsDelegate> momentsDelegate;
 
 - (ASIHTTPRequest *)signIn;
-- (ASIHTTPRequest *)fetchMomentsNewerThan:(NSDate *)date;
-- (ASIHTTPRequest *)fetchMomentsOlderThan:(NSDate *)date;
+- (ASIHTTPRequest *)fetchMomentsNewerThan:(double)date;
+- (ASIHTTPRequest *)fetchMomentsOlderThan:(double)date;
 - (void)parseMomentsJSON:(NSString *)json;
 
 - (void)saveCredentials;

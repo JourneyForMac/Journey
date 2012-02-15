@@ -16,7 +16,7 @@
 @property (nonatomic, copy) NSString * subHeadline;
 @property (nonatomic, copy) NSString * thought;
 @property (nonatomic, copy) NSString * state;
-@property (nonatomic, retain) NSDate * createdAt;
+@property (nonatomic, assign) double createdAt;
 @property (nonatomic, retain) PFMPhoto * photo;
 
 @property (nonatomic, retain) NSMutableArray * comments;

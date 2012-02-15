@@ -163,16 +163,14 @@ describe(@"-fetchMomentsNewerThan: (non-null Date)", ^{
   __block id mockMomentsDelegate;
 
   before(^{
-    NSDate * date = [NSDate dateWithTimeIntervalSince1970:1324386779.0];
-
-    request = [user fetchMomentsNewerThan:date];
+    request = [user fetchMomentsNewerThan:1324386779.0];
     mockRequest = [OCMockObject partialMockForObject:request];
     mockMomentsDelegate = [OCMockObject mockForProtocol:@protocol(PFMUserMomentsDelegate)];
   });
 
   it(@"makes an asynchronous GET request to /3/moment/feed/home?newer_than=1324386779", ^{
     expect([request.url relativePath]).toContain(@"/3/moment/feed/home");
-    expect([request.url query]).toContain(@"newer_than=1324386779");
+    expect([request.url query]).toContain(@"newer_than=1324386779.0");
     expect(request.started).toEqual(YES);
     expect(request.asynchronous).toEqual(YES);
   });
@@ -184,16 +182,14 @@ describe(@"-fetchMomentsOlderThan: (non-null Date)", ^{
   __block id mockMomentsDelegate;
 
   before(^{
-    NSDate * date = [NSDate dateWithTimeIntervalSince1970:1324386779.0];
-
-    request = [user fetchMomentsOlderThan:date];
+    request = [user fetchMomentsOlderThan:1324386779.0];
     mockRequest = [OCMockObject partialMockForObject:request];
     mockMomentsDelegate = [OCMockObject mockForProtocol:@protocol(PFMUserMomentsDelegate)];
   });
 
   it(@"makes an asynchronous GET request to /3/moment/feed/home?older_than=1324386779", ^{
     expect([request.url relativePath]).toContain(@"/3/moment/feed/home");
-    expect([request.url query]).toContain(@"older_than=1324386779");
+    expect([request.url query]).toContain(@"older_than=1324386779.0");
     expect(request.started).toEqual(YES);
     expect(request.asynchronous).toEqual(YES);
   });
@@ -205,7 +201,7 @@ describe(@"-fetchMomentsNewerThan:/-fetchMomentsOlderThan: (with nil date)", ^{
   __block id mockMomentsDelegate;
 
   before(^{
-    request = [user fetchMomentsNewerThan:nil];
+    request = [user fetchMomentsNewerThan:0.0];
     mockRequest = [OCMockObject partialMockForObject:request];
     mockMomentsDelegate = [OCMockObject mockForProtocol:@protocol(PFMUserMomentsDelegate)];
   });
@@ -284,7 +280,7 @@ describe(@"-fetchMomentsNewerThan:/-fetchMomentsOlderThan: (with nil date)", ^{
         expect(moment.state).toEqual(@"live");
         expect(moment.shared).toEqual(false);
         expect(moment.private).toEqual(false);
-        expect(moment.createdAt).toEqual([NSDate dateWithTimeIntervalSince1970:1328778313]);
+        expect((float)moment.createdAt).toEqual(1328778313.41825f);
 
         PFMMoment * momentWithPlace = (PFMMoment *)[user.fetchedMoments $at:8];
         expect(momentWithPlace.placeId).toEqual(@"4bcd4dc50687ef3b31c6e0cc");

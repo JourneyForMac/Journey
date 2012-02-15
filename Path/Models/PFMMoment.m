@@ -37,7 +37,7 @@
   moment.subHeadline = [rawMoment objectOrNilForKey:@"subheadline"];
   moment.thought     = [rawMoment objectOrNilForKey:@"thought"];
   moment.state       = [rawMoment objectOrNilForKey:@"state"];
-  moment.createdAt   = [NSDate dateWithTimeIntervalSince1970:floor([[rawMoment objectOrNilForKey:@"created"] doubleValue])];
+  moment.createdAt   = [[rawMoment objectOrNilForKey:@"created"] doubleValue];
   moment.private     = [(NSNumber *)[rawMoment objectOrNilForKey:@"private"] boolValue];
   moment.shared      = [(NSNumber *)[rawMoment objectOrNilForKey:@"shared"] boolValue];
 
@@ -86,7 +86,7 @@
     [momentDict setObjectOrNil:[user toHash] forKey:@"user"];
   }
 
-  [momentDict setObjectOrNil:[self.createdAt descriptionInISO8601] forKey:@"createdAt"];
+  [momentDict setObjectOrNil:[[NSDate dateWithTimeIntervalSince1970:self.createdAt] descriptionInISO8601] forKey:@"createdAt"];
 
   NSArray * commentsDictionaryArray = [self.comments $map:^(id obj) {
                                         return [(PFMComment *)obj toHash];

@@ -26,7 +26,7 @@
   PFMUser *user = [NSApp sharedUser];
   user.momentsDelegate = self;
 
-  [[NSApp sharedUser] fetchMomentsNewerThan:nil];
+  [[NSApp sharedUser] fetchMomentsNewerThan:0.0];
 }
 
 - (void)refreshFeed {

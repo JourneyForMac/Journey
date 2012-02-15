@@ -30,7 +30,7 @@ it(@"sets itself to be shared user's sign in delegate", ^{
 });
 
 it(@"begins fetching moments", ^{
-  [[mockUser expect] fetchMomentsNewerThan:nil];
+  [[mockUser expect] fetchMomentsNewerThan:0.0];
   openView();
   [mockUser verify];
 });
@@ -59,7 +59,7 @@ describe(@"-refreshFeed", ^{
   });
 
   it(@"fetches moments newer than the first moment's createdAt", ^{
-    NSDate *firstMomentCreatedAt = ((PFMMoment *)[user.fetchedMoments objectAtIndex:0]).createdAt;
+    double firstMomentCreatedAt = ((PFMMoment *)[user.fetchedMoments objectAtIndex:0]).createdAt;
     [[mockUser expect] fetchMomentsNewerThan:firstMomentCreatedAt];
     [controller refreshFeed];
     [mockUser verify];
