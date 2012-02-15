@@ -9,10 +9,14 @@
 
   , init: function() {
       Path.initialized = true;
+      Path.killScroll = false;
+      Path.loadOldMomentsComplete = false;
+
+      Path.handleWindowScroll();
       window.setInterval(self.didClickRefreshButton, 30000);
     }
 
-  , renderTemplate: function(name, object) {
+  , renderTemplate: function(name, object, atTop) {
       var $content = $('#content');
       if($content.children().length == 0) {
         $content.html(_.template(self.templates[name], object));
@@ -24,7 +28,12 @@
           return _.template(self.templates.moment, {m: m});
         }).join(''));
         $newMomentHTML.find('abbr.timeago').timeago();
-        $content.find('.moments').prepend($newMomentHTML);
+        if(atTop) {
+          $content.find('.moments').prepend($newMomentHTML);
+        } else {
+          $content.find('.moments').append($newMomentHTML);
+          Path.killScroll = false;
+        }
       }
       self.didCompleteRefresh();
     }
@@ -39,8 +48,8 @@
     }
 
   , didCompleteRefresh: function() {
+      document.location.replace('#complete_refresh');
       self.refreshing = false;
-      document.location.replace('#');
       self.animateRefreshButton(false);
     }
 
@@ -52,6 +61,17 @@
         $imgs.removeClass('loading');
       }
     }
+
+  , handleWindowScroll: function() {
+      $(window).scroll(function() {
+        if($(window).scrollTop() + 200 >= ($(document).height() - $(window).height())) {
+          if(Path.killScroll === false && Path.loadOldMomentsComplete === false) {
+            Path.killScroll = true;
+            document.location.replace('#load_old_moments');
+          }
+        }
+      });
+    },
   };
 }());
 

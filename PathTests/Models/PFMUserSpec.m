@@ -210,16 +210,54 @@ describe(@"-fetchMomentsNewerThan: (non-null Date)", ^{
   __block id mockMomentsDelegate;
 
   before(^{
-    request = [user fetchMomentsNewerThan:1324386779.0];
+    request = [user fetchMomentsNewerThan:1328809735.59837];
     mockRequest = [OCMockObject partialMockForObject:request];
     mockMomentsDelegate = [OCMockObject mockForProtocol:@protocol(PFMUserMomentsDelegate)];
+    // There are already moments loaded as part of the user
+    [user parseMomentsJSON:loadStringFixture(@"moments_feed.json") insertAtTop:YES];
+  });
+  
+  after(^{
+    [NSApp resetSharedUsers];
+    [NSApp resetSharedLocations];
+    [NSApp resetSharedPlaces];
+    [NSApp resetSharedLocations];
   });
 
-  it(@"makes an asynchronous GET request to /3/moment/feed/home?newer_than=1324386779", ^{
+  it(@"makes an asynchronous GET request to /3/moment/feed/home?newer_than=1328809735.59837", ^{
     expect([request.url relativePath]).toContain(@"/3/moment/feed/home");
-    expect([request.url query]).toContain(@"newer_than=1324386779.0");
+    expect([request.url query]).toContain(@"newer_than=1328809735.59837");
     expect(request.started).toEqual(YES);
     expect(request.asynchronous).toEqual(YES);
+  });
+  
+  describe(@"when the request is completed", ^{
+    before(^{
+      // This feed contains one moment which has been already initialized in the allMomentIds hash
+      // so it wont be added to fetchedMoments
+      [[[mockRequest stub] andReturn:loadStringFixture(@"moments_feed_newer_than.json")] responseString];
+    });
+    
+    void (^doAction)(void) = ^{
+      [request completionBlock]();
+    };
+    
+    context(@"when the response code is 200", ^{
+      before(^{
+        int responseStatusCode = 200;
+        [[[mockRequest stub] andReturnValue:OCMOCK_VALUE(responseStatusCode)] responseStatusCode];
+      });
+      
+      it(@"populates the fetchedMoments array with the new moments fetched from the API", ^{
+        doAction();
+        expect([user.fetchedMoments count]).toEqual(1);
+      });
+
+      it(@"populates the allMoments array with the all moments fetched so far", ^{
+        doAction();
+        expect([user.allMoments count]).toEqual(12);
+      });
+    });
   });
 });
 
@@ -229,16 +267,53 @@ describe(@"-fetchMomentsOlderThan: (non-null Date)", ^{
   __block id mockMomentsDelegate;
 
   before(^{
-    request = [user fetchMomentsOlderThan:1324386779.0];
+    request = [user fetchMomentsOlderThan:1328778313.41825];
     mockRequest = [OCMockObject partialMockForObject:request];
     mockMomentsDelegate = [OCMockObject mockForProtocol:@protocol(PFMUserMomentsDelegate)];
+    [user parseMomentsJSON:loadStringFixture(@"moments_feed.json") insertAtTop:YES];
+  });
+  
+  after(^{
+    [NSApp resetSharedUsers];
+    [NSApp resetSharedLocations];
+    [NSApp resetSharedPlaces];
+    [NSApp resetSharedLocations];
   });
 
-  it(@"makes an asynchronous GET request to /3/moment/feed/home?older_than=1324386779", ^{
+  it(@"makes an asynchronous GET request to /3/moment/feed/home?older_than=1328778313.41825", ^{
     expect([request.url relativePath]).toContain(@"/3/moment/feed/home");
-    expect([request.url query]).toContain(@"older_than=1324386779.0");
+    expect([request.url query]).toContain(@"older_than=1328778313.41825");
     expect(request.started).toEqual(YES);
     expect(request.asynchronous).toEqual(YES);
+  });
+  
+  describe(@"when the request is completed", ^{
+    before(^{
+      // This feed contains one moment which has been already initialized in the allMomentIds hash
+      // so it wont be added to fetchedMoments
+      [[[mockRequest stub] andReturn:loadStringFixture(@"moments_feed_older_than.json")] responseString];
+    });
+    
+    void (^doAction)(void) = ^{
+      [request completionBlock]();
+    };
+    
+    context(@"when the response code is 200", ^{
+      before(^{
+        int responseStatusCode = 200;
+        [[[mockRequest stub] andReturnValue:OCMOCK_VALUE(responseStatusCode)] responseStatusCode];
+      });
+      
+      it(@"populates the fetchedMoments array with the new moments fetched from the API", ^{
+        doAction();
+        expect([user.fetchedMoments count]).toEqual(1);
+      });
+      
+      it(@"populates the allMoments array with the all moments fetched so far", ^{
+        doAction();
+        expect([user.allMoments count]).toEqual(12);
+      });
+    });
   });
 });
 
@@ -313,7 +388,7 @@ describe(@"-fetchMomentsNewerThan:/-fetchMomentsOlderThan: (with nil date)", ^{
         [[mockMomentsDelegate expect] didFetchMoments:[OCMArg checkWithBlock:^BOOL (id obj) {
           expect(obj).toEqual(user.fetchedMoments);
           return YES;
-        }]];
+        }] atTop:YES];
         doAction();
         [mockMomentsDelegate verify];
         PFMMoment *moment = [user.fetchedMoments lastObject];

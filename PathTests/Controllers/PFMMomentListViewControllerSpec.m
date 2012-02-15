@@ -55,7 +55,7 @@ describe(@"PFMUserMomentsDelegate", ^{
 describe(@"-refreshFeed", ^{
   before(^{
     openView();
-    [user parseMomentsJSON:loadStringFixture(@"moments_feed.json")];
+    [user parseMomentsJSON:loadStringFixture(@"moments_feed.json") insertAtTop:YES];
   });
 
   it(@"fetches moments newer than the first moment's createdAt", ^{

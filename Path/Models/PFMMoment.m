@@ -37,7 +37,7 @@
   moment.subHeadline = [rawMoment objectOrNilForKey:@"subheadline"];
   moment.thought     = [rawMoment objectOrNilForKey:@"thought"];
   moment.state       = [rawMoment objectOrNilForKey:@"state"];
-  moment.createdAt   = [[rawMoment objectOrNilForKey:@"visible_ts"] doubleValue];
+  moment.createdAt   = [[rawMoment objectOrNilForKey:@"created"] doubleValue];
   moment.private     = [(NSNumber *)[rawMoment objectOrNilForKey:@"private"] boolValue];
   moment.shared      = [(NSNumber *)[rawMoment objectOrNilForKey:@"shared"] boolValue];
 

@@ -34,7 +34,8 @@
 - (ASIHTTPRequest *)signIn;
 - (ASIHTTPRequest *)fetchMomentsNewerThan:(double)date;
 - (ASIHTTPRequest *)fetchMomentsOlderThan:(double)date;
-- (void)parseMomentsJSON:(NSString *)json;
+- (void)parseMomentsJSON:(NSString *)json
+             insertAtTop:(BOOL)atTop;
 
 - (void)saveCredentials;
 - (void)loadCredentials;
@@ -55,6 +56,7 @@
 
 @protocol PFMUserMomentsDelegate <NSObject>
 
-- (void)didFetchMoments:(NSArray *)moments;
+- (void)didFetchMoments:(NSArray *)moments
+                  atTop:(BOOL)atTop;
 
 @end

@@ -9,5 +9,6 @@
 @property (nonatomic, retain) IBOutlet WebView *webView;
 
 - (void)refreshFeed;
+- (void)loadOldMoments;
 
 @end

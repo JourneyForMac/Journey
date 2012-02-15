@@ -11,7 +11,8 @@
 @interface PFMUser ()
 
 - (void)reset;
-- (ASIHTTPRequest *)fetchMomentsWithPath:(NSString *)path;
+- (ASIHTTPRequest *)fetchMomentsWithPath:(NSString *)path
+                                   atTop:(BOOL)atTop;
 
 @end
 
@@ -95,7 +96,7 @@
     path = kMomentsAPIPath;
   }
 
-  return [self fetchMomentsWithPath:path];
+  return [self fetchMomentsWithPath:path atTop:YES];
 }
 
 - (ASIHTTPRequest *)fetchMomentsOlderThan:(double)date {
@@ -107,11 +108,12 @@
     path = kMomentsAPIPath;
   }
 
-  return [self fetchMomentsWithPath:path];
+  return [self fetchMomentsWithPath:path atTop:NO];
 }
 
 
-- (ASIHTTPRequest *)fetchMomentsWithPath:(NSString *)path {
+- (ASIHTTPRequest *)fetchMomentsWithPath:(NSString *)path
+                                   atTop:(BOOL)atTop {
   self.fetchingMoments = YES;
 
   __block ASIHTTPRequest * request = [self requestWithPath:path];
@@ -120,9 +122,9 @@
 
   [request setCompletionBlock:^{
     if(request.responseStatusCode == 200) {
-      [self parseMomentsJSON:[request responseString]];
+      [self parseMomentsJSON:[request responseString] insertAtTop:atTop];
 
-      [self.momentsDelegate didFetchMoments:[self fetchedMoments]];
+      [self.momentsDelegate didFetchMoments:[self fetchedMoments] atTop:atTop];
     } else {
       // Delegate method for Home Feed
     }
@@ -133,7 +135,8 @@
   return request;
 }
 
-- (void)parseMomentsJSON:(NSString *)json {
+- (void)parseMomentsJSON:(NSString *)json
+             insertAtTop:(BOOL)atTop {
   self.fetchedMoments = $marr(nil);
   NSDictionary *dict = [json JSONValue];
   for(NSDictionary * rawMoment in [dict objectOrNilForKey:@"moments"]) {
@@ -147,6 +150,14 @@
   // Don't do anything if the API hasn't returned anything
   if([self.fetchedMoments count] == 0) {
     return;
+  } else {
+    // Otherwise insert elements either at the top/bottom depending on atTop
+    NSUInteger insertAt = 0;
+    if (!atTop) { insertAt = [self.allMoments count]; }
+
+    NSRange range = NSMakeRange(insertAt, [self.fetchedMoments count]);     
+    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
+    [self.allMoments insertObjects:self.fetchedMoments atIndexes:indexSet];
   }
 
   // Set the ID

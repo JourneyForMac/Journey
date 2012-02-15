@@ -64,6 +64,8 @@
 		F4DB598E14E7FEBF009E92E8 /* PFMCommentSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB598D14E7FEBF009E92E8 /* PFMCommentSpec.m */; };
 		F4DB599114E80A6E009E92E8 /* PFMLocationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB599014E80A6E009E92E8 /* PFMLocationSpec.m */; };
 		F4DB599314E80D12009E92E8 /* PFMPlaceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB599214E80D12009E92E8 /* PFMPlaceSpec.m */; };
+		F4F7DF3914EE393300CAB792 /* moments_feed_newer_than.json in Resources */ = {isa = PBXBuildFile; fileRef = F4F7DF3814EE393300CAB792 /* moments_feed_newer_than.json */; };
+		F4F7DF3C14EE591900CAB792 /* moments_feed_older_than.json in Resources */ = {isa = PBXBuildFile; fileRef = F4F7DF3B14EE591900CAB792 /* moments_feed_older_than.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +166,8 @@
 		F4DB598D14E7FEBF009E92E8 /* PFMCommentSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMCommentSpec.m; sourceTree = "<group>"; };
 		F4DB599014E80A6E009E92E8 /* PFMLocationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMLocationSpec.m; sourceTree = "<group>"; };
 		F4DB599214E80D12009E92E8 /* PFMPlaceSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMPlaceSpec.m; sourceTree = "<group>"; };
+		F4F7DF3814EE393300CAB792 /* moments_feed_newer_than.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = moments_feed_newer_than.json; sourceTree = "<group>"; };
+		F4F7DF3B14EE591900CAB792 /* moments_feed_older_than.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = moments_feed_older_than.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +200,8 @@
 			children = (
 				E91CCEE414E44D1F00DA6E96 /* settings.json */,
 				F449978414E6215000306056 /* moments_feed.json */,
+				F4F7DF3814EE393300CAB792 /* moments_feed_newer_than.json */,
+				F4F7DF3B14EE591900CAB792 /* moments_feed_older_than.json */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -522,6 +528,8 @@
 			files = (
 				E9AC9C2514E4AB6C00F9AC4B /* settings.json in Resources */,
 				F449978514E6215000306056 /* moments_feed.json in Resources */,
+				F4F7DF3914EE393300CAB792 /* moments_feed_newer_than.json in Resources */,
+				F4F7DF3C14EE591900CAB792 /* moments_feed_older_than.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
