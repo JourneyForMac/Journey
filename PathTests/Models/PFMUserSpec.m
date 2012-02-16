@@ -81,7 +81,12 @@ describe(@"-signIn", ^{
         [mockSignInDelegate verify];
       });
 
-      it(@"sets user's signingIn property to be NO", ^{
+      it(@"sets user's signedIn property to YES", ^{
+        doAction();
+        expect(user.signedIn).toEqual(YES);
+      });
+
+      it(@"sets user's signingIn property to NO", ^{
         doAction();
         expect(user.signingIn).toEqual(NO);
       });
@@ -100,7 +105,7 @@ describe(@"-signIn", ^{
         [mockSignInDelegate verify];
       });
 
-      it(@"sets user's signingIn property to be NO", ^{
+      it(@"sets user's signingIn property to NO", ^{
         doAction();
         expect(user.signingIn).toEqual(NO);
       });
@@ -119,7 +124,7 @@ describe(@"-signIn", ^{
       [mockSignInDelegate verify];
     });
 
-    it(@"sets user's signingIn property to be NO", ^{
+    it(@"sets user's signingIn property to NO", ^{
       doAction();
       expect(user.signingIn).toEqual(NO);
     });
@@ -154,6 +159,48 @@ describe(@"-loadCredentials", ^{
 
   it(@"loads the password from the keychain", ^{
     expect(user.password).toEqual(@"123456");
+  });
+});
+
+describe(@"-deleteCredentials", ^{
+  before(^{
+    user.id = @"";
+    user.signedIn = YES;
+    user.signingIn = YES;
+    user.fetchingMoments = YES;
+    user.firstName = @"";
+    user.lastName = @"";
+    user.allMomentIds = $dict(@"v",@"k");
+    user.allMoments = $arr([PFMMoment new]);
+    user.fetchedMoments = $arr(@"");
+    user.coverPhoto = [PFMPhoto new];
+    user.profilePhoto = [PFMPhoto new];
+    [user saveCredentials];
+    [user deleteCredentials];
+  });
+
+  it(@"removes the email in user defaults", ^{
+    expect([[NSUserDefaults standardUserDefaults] objectForKey:kPathDefaultsEmailKey]).toBeNil();
+  });
+
+  it(@"removes the keychain entry", ^{
+    expect([SSKeychain passwordForService:kPathKeychainServiceName account:user.email]).toBeNil();
+  });
+
+  it(@"resets the user object", ^{
+    expect(user.id).toBeNil();
+    expect(user.email).toBeNil();
+    expect(user.password).toBeNil();
+    expect(user.signedIn).toEqual(NO);
+    expect(user.signingIn).toEqual(NO);
+    expect(user.fetchingMoments).toEqual(NO);
+    expect(user.firstName).toBeNil();
+    expect(user.lastName).toBeNil();
+    expect([user.allMomentIds count]).toEqual(0);
+    expect([user.allMoments count]).toEqual(0);
+    expect(user.fetchedMoments).toBeNil();
+    expect(user.coverPhoto).toBeNil();
+    expect(user.profilePhoto).toBeNil();
   });
 });
 

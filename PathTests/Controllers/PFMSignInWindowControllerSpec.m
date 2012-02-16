@@ -1,6 +1,7 @@
 #import "TestHelper.h"
 #import "PFMSignInWindowController.h"
 #import "PFMMainWindowController.h"
+#import "PathAppDelegate.h"
 #import "PFMHelper.h"
 
 SpecBegin(PFMSignInWindowController)
@@ -18,7 +19,7 @@ before(^{
 });
 
 after(^{
-  [[controller window] close];
+  [controller close];
 });
 
 it(@"loads SignInWindow nib", ^{
@@ -128,6 +129,7 @@ describe(@"PFMUserSignInDelegate", ^{
     });
 
     it(@"opens main window controller", ^{
+      expect(((PathAppDelegate *)[NSApp delegate]).mainWindowController).toBeIdenticalTo(windowController);
       expect(windowController).toBeKindOf([PFMMainWindowController class]);
       expect([[windowController window] isVisible]).toEqual(YES);
     });

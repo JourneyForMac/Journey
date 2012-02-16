@@ -3,6 +3,7 @@
 #import "PFMMainWindowController.h"
 #import "PFMHelper.h"
 #import "PFMRedLinenView.h"
+#import "PathAppDelegate.h"
 
 @implementation PFMSignInWindowController
 
@@ -46,9 +47,10 @@
 #pragma mark - PFMUserSignInDelegate
 
 - (void)didSignIn {
-  PFMMainWindowController *mainWindowController = [PFMMainWindowController new];
-  [[self window] close];
-  NSWindow *window = [mainWindowController window];
+  [self close];
+  PathAppDelegate *appDelegate = [NSApp delegate];
+  appDelegate.mainWindowController = [PFMMainWindowController new];
+  NSWindow *window = [appDelegate.mainWindowController window];
   [window orderFrontRegardless];
   [window makeMainWindow];
   [window makeKeyWindow];

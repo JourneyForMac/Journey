@@ -14,8 +14,9 @@
 @property(nonatomic, copy) NSString *email;
 @property(nonatomic, copy) NSString *password;
 
-@property(nonatomic) BOOL signingIn;
-@property(nonatomic) BOOL fetchingMoments;
+@property(nonatomic, getter=isSigningIn) BOOL signingIn;
+@property(nonatomic, getter=isSignedIn)  BOOL signedIn;
+@property(nonatomic, getter=isFetchingMoments) BOOL fetchingMoments;
 
 @property(nonatomic, copy) NSString *firstName;
 @property(nonatomic, copy) NSString *lastName;
@@ -37,6 +38,7 @@
 
 - (void)saveCredentials;
 - (void)loadCredentials;
+- (void)deleteCredentials;
 
 - (NSDictionary *) toHash;
 - (NSString *) JSONRepresentation;

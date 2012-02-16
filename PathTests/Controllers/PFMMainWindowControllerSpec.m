@@ -14,7 +14,7 @@ before(^{
 });
 
 after(^{
-  [[controller window] close];
+  [controller close];
 });
 
 it(@"loads MainWindow nib", ^{

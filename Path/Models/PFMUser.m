@@ -10,6 +10,7 @@
 
 @interface PFMUser ()
 
+- (void)reset;
 - (ASIHTTPRequest *)fetchMomentsWithPath:(NSString *)path;
 
 @end
@@ -21,6 +22,7 @@
 , email=_email
 , password=_password
 , signingIn=_signingIn
+, signedIn=_signedIn
 , fetchingMoments=_fetchingMoments
 , firstName=_firstName
 , lastName=_lastName
@@ -35,11 +37,25 @@
 
 - (id) init {
   if (self = [super init]) {
-    self.allMomentIds = $mdict(nil);
-    self.allMoments = $marr(nil);
+    [self reset];
   }
-
   return self;
+}
+
+- (void)reset {
+  self.id = nil;
+  self.email = nil;
+  self.password = nil;
+  self.signingIn = NO;
+  self.signedIn = NO;
+  self.fetchingMoments = NO;
+  self.firstName = nil;
+  self.lastName = nil;
+  self.fetchedMoments = nil;
+  self.coverPhoto = nil;
+  self.profilePhoto = nil;
+  self.allMomentIds = $mdict(nil);
+  self.allMoments = $marr(nil);
 }
 
 - (ASIHTTPRequest *)signIn {
@@ -53,6 +69,7 @@
       self.firstName = [[dict objectOrNilForKey:@"settings"] objectOrNilForKey:@"user_first_name"];
       self.lastName  = [[dict objectOrNilForKey:@"settings"] objectOrNilForKey:@"user_last_name"];
       [self saveCredentials];
+      self.signedIn = YES;
       [self.signInDelegate didSignIn];
     } else {
       [self.signInDelegate didFailSignInDueToInvalidCredentials];
@@ -132,8 +149,6 @@
     return;
   }
 
-  PFMMoment * firstMoment = [self.fetchedMoments $at:0];
-
   // Set the ID
   self.id = [(NSDictionary *)[(NSDictionary *)[dict objectOrNilForKey:@"cover"] objectOrNilForKey:@"user"] objectOrNilForKey:@"id"];
   // Get the Cover Photo
@@ -184,6 +199,14 @@
 - (void)loadCredentials {
   self.email = [[NSUserDefaults standardUserDefaults] objectForKey:kPathDefaultsEmailKey];
   self.password = [SSKeychain passwordForService:kPathKeychainServiceName account:self.email];
+}
+
+- (void)deleteCredentials {
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  [defaults removeObjectForKey:kPathDefaultsEmailKey];
+  [defaults synchronize];
+  [SSKeychain deletePasswordForService:kPathKeychainServiceName account:self.email];
+  [self reset];
 }
 
 - (NSDictionary *) toHash {
