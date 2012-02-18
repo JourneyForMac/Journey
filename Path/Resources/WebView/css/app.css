@@ -22,9 +22,32 @@ body {
   position: relative;
   display: block;
   top: 150px;
-  left: 50px;
+  left: 38px;
   -webkit-border-radius: 24px;
-  -webkit-box-shadow: 0px 0px 6px 1px #444;
+  -webkit-box-shadow: 0px 0px 4px 1px #666;
+}
+
+#path_start {
+  width: 8px;
+  height: 8px;
+  position: relative;
+  top: 165px;
+  left: 60px;
+  background-color: #fff;
+  -webkit-border-radius: 24px;
+  -webkit-box-shadow: 0px 0px 4px 1px #666;
+  z-index: 999;
+}
+
+#path_journey {
+  position: relative;
+  width: 2px;
+  background-color: #CCC;
+  left: 63px;
+  top: 160px;
+  bottom: 0px;
+  z-index: 99;
+  opacity: 0.4;
 }
 
 #cover_photo .gradient {
@@ -58,10 +81,15 @@ li.moment:last-child {
   border-bottom: none;
 }
 
+.moment_photo {
+  position: relative;
+  z-index: 109;
+}
+
 .moment_photo img {
   padding: 5px;
   width: 320px;
-  min-height:40px;
+  min-height:430px;
   margin-right: 5px;
   background: white;
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.35);

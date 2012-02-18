@@ -14,6 +14,9 @@
 
       Path.handleWindowScroll();
       window.setInterval(self.didClickRefreshButton, 30000);
+      $(window).resize(function(){
+        Path.setPathJourneyHeight();
+      });
     }
 
   , renderTemplate: function(name, object, atTop) {
@@ -35,8 +38,13 @@
           Path.killScroll = false;
         }
       }
+      self.setPathJourneyHeight();
       self.didCompleteRefresh();
     }
+
+  , setPathJourneyHeight: function() {
+    $('#path_journey').css({'height':(($(document).height())-160-60)+'px'});
+  }
 
   , didClickRefreshButton: function() {
       if(!self.refreshing) {
