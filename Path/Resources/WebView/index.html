@@ -6,7 +6,12 @@
   <link rel='stylesheet' type='text/css' media='screen' href='css/app.css' />
 </head>
 <body>
-  <div id="content"></div>
+  <div id="content">
+    <div id="loading">
+      <div class="message">Loading...</div>
+      <div class="icon"><img src="images/loading.gif"></div>
+    </div>
+  </div>
 
   <script id='moment_template' type='application/jst'>
     <% if(['ambient', 'thought', 'photo'].indexOf(m.type) !== -1) { %>

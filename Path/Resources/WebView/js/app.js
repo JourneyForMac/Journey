@@ -20,7 +20,7 @@
 
   , renderTemplate: function(name, object, atTop) {
       var $content = $('#content');
-      if($content.children().length == 0) {
+      if($content.children('.moments').length == 0) {
         $content.html(_.template(self.templates[name], object));
         $('abbr.timeago').timeago();
         $('#refresh_button').click(self.didClickRefreshButton);
