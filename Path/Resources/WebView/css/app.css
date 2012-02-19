@@ -150,6 +150,65 @@ li.moment:last-child {
   color: #aaa;
 }
 
+.dot {
+  position: absolute;
+  border: 2px solid white;
+  border-radius: 13px;
+  z-index: 99;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.35);
+  text-align: center;
+}
+
+.null.dot {
+  width: 10px;
+  height: 10px;
+  left: 65px;
+  top: 16px;
+  background-color: #CDC5A1;
+}
+
+.place.dot {
+  background-color: #094EB9;
+  width: 22px;
+  height: 22px;
+  left: 59px;
+  top: 13px;
+  border-radius: 24px;
+}
+
+.awake.dot {
+  background-color: rgb(252, 205, 0);
+  width: 22px;
+  height: 22px;
+  left: 59px;
+  top: 13px;
+  border-radius: 24px;
+}
+
+.asleep.dot {
+  background-color: #094EB9;
+  width: 22px;
+  height: 22px;
+  left: 59px;
+  top: 13px;
+  border-radius: 24px;
+}
+
+.dot img {
+  width: 14px;
+  margin-top: 3px;
+}
+
+.awake.dot img {
+  width: 14px;
+  margin-top: 4px;
+}
+
+.asleep.dot img {
+  width: 12px;
+  margin-top: 4px;
+}
+
 .ambient.text {
   margin-top: 5px;
   margin-left: 90px;
@@ -161,7 +220,7 @@ li.moment:last-child {
 .comments-tip {
   position: absolute;
   margin-top: 4px;
-  left: 100px;
+  left: 104px;
   width: 10px;
   height: 10px;
   background: #fbfbfb;

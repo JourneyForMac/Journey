@@ -26,13 +26,30 @@
             <img src='<%= m.photo.iOSLowResURL %>' alt=''app.css/>
           </div>
         <% } %>
-        <% var ambientMoment = (m.type == 'ambient' || m.type == 'place') && (m.headline || m.subHeadline); %>
+        <% var ambientMoment = (m.type == 'ambient' || m.type == 'place' || m.type == 'thought') && (m.headline || m.subHeadline); %>
         <% if(ambientMoment) { %>
           <div class='ambient text'>
             <p class='headline'><%= m.headline %></p>
             <p class='sub_headline'><%= m.subHeadline %></p>
           </div>
         <% } %>
+
+        <% if (m.type == 'place') { %>
+          <div class='place dot'>
+            <img src='images/place.png'/>
+          </div>
+        <% } else if(m.type == 'ambient' && m.headline.match(/^Awake/)) { %>
+          <div class='awake dot'>
+            <img src='images/awake.png'/>
+          </div>
+        <% } else if(m.type == 'ambient' && m.headline.match(/^Sleeping/)) { %>
+          <div class='asleep dot'>
+            <img src='images/asleep.png'/>
+          </div>
+        <% } else if (m.type == 'ambient' || m.type == 'thought') { %>
+          <div class='null dot'></div>
+        <% } %>
+
         <% var hasComments = m.comments && m.comments.length > 0; %>
         <% if((!ambientMoment && m.headline) || hasComments) { %>
           <div class='comments-tip'></div>
@@ -2113,7 +2130,7 @@
   <script src="js/app.js"></script>
   <script>
     Path.init();
-    // Path.renderTemplate('feed', JSON.parse($('#example_json').text()));
+    Path.renderTemplate('feed', JSON.parse($('#example_json').text()));
   </script>
 </body>
 </html>
