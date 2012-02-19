@@ -26,7 +26,7 @@ body {
   position: relative;
   display: block;
   top: 150px;
-  left: 38px;
+  left: 46px;
   -webkit-border-radius: 24px;
   -webkit-box-shadow: 0px 0px 4px 1px #666;
 }
@@ -57,7 +57,7 @@ body {
   height: 8px;
   position: relative;
   top: 165px;
-  left: 60px;
+  left: 68px;
   background-color: #fff;
   -webkit-border-radius: 24px;
   -webkit-box-shadow: 0px 0px 4px 1px #666;
@@ -68,7 +68,7 @@ body {
   position: relative;
   width: 2px;
   background-color: #CCC;
-  left: 63px;
+  left: 71px;
   top: 160px;
   bottom: 0px;
   z-index: 99;
@@ -96,6 +96,7 @@ li.moment {
   border-top: 1px solid #fdfdfd;
   border-bottom: 1px solid #d6d6d6;
   text-align: right;
+  min-height: 45px;
 }
 
 li.moment:first-child {
@@ -150,9 +151,9 @@ li.moment:last-child {
 }
 
 .ambient.text {
-  margin-top: 10px;
-  margin-left: 80px;
-  width: 300px;
+  margin-top: 5px;
+  margin-left: 90px;
+  width: 290px;
   text-align: left;
   text-shadow: 0 1px 0 white;
 }
@@ -160,7 +161,7 @@ li.moment:last-child {
 .comments-tip {
   position: absolute;
   margin-top: 4px;
-  left: 90px;
+  left: 100px;
   width: 10px;
   height: 10px;
   background: #fbfbfb;
@@ -172,10 +173,10 @@ li.moment:last-child {
 
 ul.comments {
   list-style: none;
-  margin: 10px 0 0 72px;
+  margin: 10px 0 0 85px;
   padding: 0;
   background: #fbfbfb;
-  width: 308px;
+  width: 295px;
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.35);
   -webkit-border-radius: 2px;
 }
