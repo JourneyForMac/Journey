@@ -14,9 +14,8 @@
 
       Path.handleWindowScroll();
       window.setInterval(self.didClickRefreshButton, 30000);
-      $(window).resize(function(){
-        Path.setPathJourneyHeight();
-      });
+      $(window).resize(function(){ Path.setPathJourneyHeight(); });
+      $(img).bind('load', function() { Path.setPathJourneyHeight(); });
     }
 
   , renderTemplate: function(name, object, atTop) {
