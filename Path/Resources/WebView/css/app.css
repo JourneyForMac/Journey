@@ -41,25 +41,28 @@ body {
 }
 
 #loading {
+  position: relative;
   margin: 0 auto;
-  padding: 15px 15px 15px 25px;
-  background: #111;
+  background: black;
   opacity: 0.6;
-  color: white;
   width: 100px;
   -webkit-border-radius: 8px;
-  margin-top: 50%;
-  text-align: center;
+  margin-top: 35%;
   -webkit-font-smoothing: antialiased;
+  text-align: center;
+  -webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.5);
 }
 
-#loading .message {
-  float: left;
-  padding-top: 3px;
+#loading p {
+  padding: 13px 0 15px 0;
+  margin: 0;
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
 }
 
 #loading .icon {
-  padding-top: 1px;
+  padding: 25px 0 0 0;
 }
 
 #path_start {
