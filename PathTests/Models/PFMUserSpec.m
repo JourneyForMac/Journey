@@ -402,6 +402,8 @@ describe(@"-fetchMomentsNewerThan:/-fetchMomentsOlderThan: (with nil date)", ^{
         expect(moment.state).toEqual(@"live");
         expect(moment.shared).toEqual(false);
         expect(moment.private).toEqual(false);
+        expect(moment.subType).toEqual(@"joined");
+
         expect((float)moment.createdAt).toEqual(1328778313.41825f);
 
         PFMMoment * momentWithPlace = (PFMMoment *)[user.fetchedMoments $at:8];

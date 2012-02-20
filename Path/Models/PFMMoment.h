@@ -11,6 +11,7 @@
 @property (nonatomic, copy) NSString * placeId;
 
 @property (nonatomic, copy) NSString * type;
+@property (nonatomic, copy) NSString * subType;
 
 @property (nonatomic, copy) NSString * headline;
 @property (nonatomic, copy) NSString * subHeadline;

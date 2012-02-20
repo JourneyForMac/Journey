@@ -14,6 +14,7 @@
 , placeId=_placeId
 , locationId = _locationId
 , type = _type
+, subType = _subType
 , headline = _headline
 , subHeadline = _subHeadline
 , thought = _thought
@@ -49,6 +50,11 @@
     moment.photo = [PFMPhoto photoFrom:photoDictionary];
   }
 
+  if($eql(moment.type, @"ambient")) {
+    NSDictionary * ambientDict = (NSDictionary *)[rawMoment objectOrNilForKey:@"ambient"];
+    moment.subType = [ambientDict objectOrNilForKey:@"subtype"];
+  }
+
   moment.comments = $marr(nil);
 
   for(NSDictionary * commentDict in (NSArray *)[rawMoment objectOrNilForKey:@"comments"]) {
@@ -67,6 +73,7 @@
   [momentDict setObjectOrNil:self.subHeadline    forKey:@"subHeadline"];
   [momentDict setObjectOrNil:self.thought        forKey:@"thought"];
   [momentDict setObjectOrNil:self.state          forKey:@"state"];
+  [momentDict setObjectOrNil:self.subType        forKey:@"subType"];
   [momentDict setObjectOrNil:[self.photo toHash] forKey:@"photo"];
   [momentDict setObjectOrNil:$bool(self.shared)  forKey:@"shared"];
   [momentDict setObjectOrNil:$bool(self.private) forKey:@"private"];

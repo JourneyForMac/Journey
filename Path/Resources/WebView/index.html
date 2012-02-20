@@ -38,11 +38,11 @@
           <div class='place dot'></div>
         <% } else if (m.type == 'music') { %>
           <div class='music dot'></div>
-        <% } else if(m.type == 'ambient' && m.headline.match(/^Awake/)) { %>
+        <% } else if(m.type == 'ambient' && m.subType == 'awake') { %>
           <div class='awake dot'></div>
-        <% } else if(m.type == 'ambient' && m.headline.match(/^Sleeping/)) { %>
+        <% } else if(m.type == 'ambient' && m.subType == 'asleep') { %>
           <div class='asleep dot'></div>
-        <% } else if(m.type == 'ambient' && m.headline.match(/^Arrived/)) { %>
+        <% } else if(m.type == 'ambient' && m.subType == 'distance'){ %>
           <div class='plane dot'></div>
         <% } else { %>
           <div class='null dot'></div>
