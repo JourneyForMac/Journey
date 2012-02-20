@@ -112,6 +112,19 @@
     },
     "music": {},
     "users": {
+        "4f3ff09b9c6c3f41c90036a6": {
+          "created_at": "2012-02-18 18:40:27",
+          "username": "leeyen-tan",
+          "is_incoming_request": false,
+          "id": "4f3ff09b9c6c3f41c90036a6",
+          "gender": "female",
+          "last_name": "Tan",
+          "primary_network": "path",
+          "is_outgoing_request": false,
+          "state": "enabled",
+          "is_friend": false,
+          "first_name": "Lee Yen"
+        },
         "4f338c49f6b766128d011175": {
             "photo": {
                 "ios": {
@@ -1012,6 +1025,41 @@
             "state": "live",
             "short_hash": "",
             "created": 1328778322.31011
+        },
+        {
+          "visible_ts": 1329749754.59701,
+          "emotions": {
+          "total": 0,
+          "users": [
+
+          ]
+          },
+          "custom_id": "",
+          "comments": [
+
+          ],
+          "private": false,
+          "seen_its": {
+          "total": 1
+          },
+          "headline": "Friends with <b>Lee Yen Tan</b>",
+          "id": "4f425efaf6b7663dc8011d6e",
+          "user_id": "4ce11821c0ce28398e000003",
+          "type": "ambient",
+          "ambient": {
+            "url": "path://users/4f3ff09b9c6c3f41c90036a6",
+            "subtype": "friend",
+            "people": [
+               {
+                 "id": "4f3ff09b9c6c3f41c90036a6",
+                 "type": "path"
+               }
+            ]
+          },
+          "shared": false,
+          "state": "live",
+          "short_hash": "",
+          "created": 1329749754.59701
         },
         {
             "subheadline": "On February 9th, 2012",

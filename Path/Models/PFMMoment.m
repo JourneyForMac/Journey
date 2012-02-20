@@ -24,6 +24,7 @@
 , private = _private
 , photo=_photo
 , comments=_comments
+, people=_people
 ;
 
 + (PFMMoment *)momentFrom:(NSDictionary *)rawMoment {
@@ -50,9 +51,20 @@
     moment.photo = [PFMPhoto photoFrom:photoDictionary];
   }
 
+  moment.people = $marr(nil);
+
   if($eql(moment.type, @"ambient")) {
     NSDictionary * ambientDict = (NSDictionary *)[rawMoment objectOrNilForKey:@"ambient"];
     moment.subType = [ambientDict objectOrNilForKey:@"subtype"];
+    if ($eql(moment.subType, @"friend")) {
+      NSArray * peopleList = (NSArray *)[ambientDict objectOrNilForKey:@"people"];
+      if (peopleList) {
+        for (id obj in peopleList) {
+          PFMUser * user = [[NSApp sharedUsers] $for:[(NSDictionary *)obj $for:@"id"]];
+          if (user) { [moment.people addObject:user]; }
+        }
+      }
+    }
   }
 
   moment.comments = $marr(nil);
@@ -99,6 +111,11 @@
                                         return [(PFMComment *)obj toHash];
                                       }];
   [momentDict setObject:commentsDictionaryArray forKey:@"comments"];
+
+  NSArray * peopleDictionaryArray = [self.people $map:^(id obj) {
+    return [(PFMUser *)obj toHash];
+  }];
+  [momentDict setObject:peopleDictionaryArray forKey:@"people"];
 
   return momentDict;
 }

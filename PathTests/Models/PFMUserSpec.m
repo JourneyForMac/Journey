@@ -216,7 +216,7 @@ describe(@"-fetchMomentsNewerThan: (non-null Date)", ^{
     // There are already moments loaded as part of the user
     [user parseMomentsJSON:loadStringFixture(@"moments_feed.json") insertAtTop:YES];
   });
-  
+
   after(^{
     [NSApp resetSharedUsers];
     [NSApp resetSharedLocations];
@@ -230,24 +230,24 @@ describe(@"-fetchMomentsNewerThan: (non-null Date)", ^{
     expect(request.started).toEqual(YES);
     expect(request.asynchronous).toEqual(YES);
   });
-  
+
   describe(@"when the request is completed", ^{
     before(^{
       // This feed contains one moment which has been already initialized in the allMomentIds hash
       // so it wont be added to fetchedMoments
       [[[mockRequest stub] andReturn:loadStringFixture(@"moments_feed_newer_than.json")] responseString];
     });
-    
+
     void (^doAction)(void) = ^{
       [request completionBlock]();
     };
-    
+
     context(@"when the response code is 200", ^{
       before(^{
         int responseStatusCode = 200;
         [[[mockRequest stub] andReturnValue:OCMOCK_VALUE(responseStatusCode)] responseStatusCode];
       });
-      
+
       it(@"populates the fetchedMoments array with the new moments fetched from the API", ^{
         doAction();
         expect([user.fetchedMoments count]).toEqual(1);
@@ -255,7 +255,7 @@ describe(@"-fetchMomentsNewerThan: (non-null Date)", ^{
 
       it(@"populates the allMoments array with the all moments fetched so far", ^{
         doAction();
-        expect([user.allMoments count]).toEqual(12);
+        expect([user.allMoments count]).toEqual(13);
       });
     });
   });
@@ -272,7 +272,7 @@ describe(@"-fetchMomentsOlderThan: (non-null Date)", ^{
     mockMomentsDelegate = [OCMockObject mockForProtocol:@protocol(PFMUserMomentsDelegate)];
     [user parseMomentsJSON:loadStringFixture(@"moments_feed.json") insertAtTop:YES];
   });
-  
+
   after(^{
     [NSApp resetSharedUsers];
     [NSApp resetSharedLocations];
@@ -286,32 +286,32 @@ describe(@"-fetchMomentsOlderThan: (non-null Date)", ^{
     expect(request.started).toEqual(YES);
     expect(request.asynchronous).toEqual(YES);
   });
-  
+
   describe(@"when the request is completed", ^{
     before(^{
       // This feed contains one moment which has been already initialized in the allMomentIds hash
       // so it wont be added to fetchedMoments
       [[[mockRequest stub] andReturn:loadStringFixture(@"moments_feed_older_than.json")] responseString];
     });
-    
+
     void (^doAction)(void) = ^{
       [request completionBlock]();
     };
-    
+
     context(@"when the response code is 200", ^{
       before(^{
         int responseStatusCode = 200;
         [[[mockRequest stub] andReturnValue:OCMOCK_VALUE(responseStatusCode)] responseStatusCode];
       });
-      
+
       it(@"populates the fetchedMoments array with the new moments fetched from the API", ^{
         doAction();
         expect([user.fetchedMoments count]).toEqual(1);
       });
-      
+
       it(@"populates the allMoments array with the all moments fetched so far", ^{
         doAction();
-        expect([user.allMoments count]).toEqual(12);
+        expect([user.allMoments count]).toEqual(13);
       });
     });
   });
@@ -360,7 +360,7 @@ describe(@"-fetchMomentsNewerThan:/-fetchMomentsOlderThan: (with nil date)", ^{
 
       it(@"populates the fetchedMoments array with the moments fetched from the API", ^{
         doAction();
-        expect([user.fetchedMoments count]).toEqual(11);
+        expect([user.fetchedMoments count]).toEqual(12);
       });
 
       it(@"sets the cover photo of the user", ^{
@@ -408,6 +408,9 @@ describe(@"-fetchMomentsNewerThan:/-fetchMomentsOlderThan: (with nil date)", ^{
 
         PFMMoment * momentWithPlace = (PFMMoment *)[user.fetchedMoments $at:8];
         expect(momentWithPlace.placeId).toEqual(@"4bcd4dc50687ef3b31c6e0cc");
+
+        PFMMoment * momentWithPeople = (PFMMoment *)[user.fetchedMoments $at:([user.fetchedMoments count] - 2)];
+        expect([momentWithPeople.people count]).toEqual(1);
       });
 
       it(@"sets the sharedLocations dictionary with id <-> location mapping", ^{
@@ -452,7 +455,7 @@ describe(@"-fetchMomentsNewerThan:/-fetchMomentsOlderThan: (with nil date)", ^{
 
       it(@"sets the sharedUsers dictionary with id <-> user mapping", ^{
         doAction();
-        expect([[NSApp sharedUsers] count]).toEqual(1);
+        expect([[NSApp sharedUsers] count]).toEqual(2);
 
         PFMUser * user = [[NSApp sharedUsers] $for:@"4f338c49f6b766128d011175"];
         expect(user.id).toEqual(@"4f338c49f6b766128d011175");

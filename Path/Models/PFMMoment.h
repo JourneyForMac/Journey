@@ -21,6 +21,7 @@
 @property (nonatomic, retain) PFMPhoto * photo;
 
 @property (nonatomic, retain) NSMutableArray * comments;
+@property (nonatomic, retain) NSMutableArray * people;
 
 @property (nonatomic, getter=isShared) BOOL shared;
 @property (nonatomic, getter=isPrivate) BOOL private;
