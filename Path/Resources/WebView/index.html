@@ -14,7 +14,7 @@
   </div>
 
   <script id='moment_template' type='application/jst'>
-    <% if(['ambient', 'thought', 'photo', 'place'].indexOf(m.type) !== -1) { %>
+    <% if(['ambient', 'thought', 'photo', 'place', 'music'].indexOf(m.type) !== -1) { %>
       <li class='moment <%- m.type %>' id='<%- m.id %>'>
         <div class='user_photo'>
           <% if(m.user && m.user.profilePhoto && m.user.profilePhoto.iOSLowResURL) { %>
@@ -26,7 +26,7 @@
             <img src='<%= m.photo.iOSLowResURL %>' alt=''app.css/>
           </div>
         <% } %>
-        <% var ambientMoment = (m.type == 'ambient' || m.type == 'place') && (m.headline || m.subHeadline); %>
+        <% var ambientMoment = (m.type == 'ambient' || m.type == 'place' || m.type == 'music') && (m.headline || m.subHeadline); %>
         <% if(ambientMoment) { %>
           <div class='ambient text'>
             <p class='headline'><%= m.headline %></p>
@@ -36,10 +36,14 @@
 
         <% if (m.type == 'place') { %>
           <div class='place dot'></div>
+        <% } else if (m.type == 'music') { %>
+          <div class='music dot'></div>
         <% } else if(m.type == 'ambient' && m.headline.match(/^Awake/)) { %>
           <div class='awake dot'></div>
         <% } else if(m.type == 'ambient' && m.headline.match(/^Sleeping/)) { %>
           <div class='asleep dot'></div>
+        <% } else if(m.type == 'ambient' && m.headline.match(/^Arrived/)) { %>
+          <div class='plane dot'></div>
         <% } else { %>
           <div class='null dot'></div>
         <% } %>

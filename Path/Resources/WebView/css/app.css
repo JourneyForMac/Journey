@@ -194,6 +194,16 @@ li.moment:last-child {
   background-image: url(../images/asleep.png);
 }
 
+.music.dot {
+  background-color: #FF8C00;
+  background-image: url(../images/music.png);
+}
+
+.plane.dot {
+  background-color: #555555;
+  background-image: url(../images/plane.png);
+}
+
 .ambient.text {
   margin-top: 5px;
   margin-left: 90px;
