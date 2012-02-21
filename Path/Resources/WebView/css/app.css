@@ -247,6 +247,10 @@ li.moment.thought ul.comments li:first-child .created_at {
   display: none;
 }
 
+li.moment.fetching {
+  background: url(../images/loading-black.gif) 60% 50% no-repeat;
+}
+
 ul.comments {
   list-style: none;
   margin: 10px 0 0 85px;

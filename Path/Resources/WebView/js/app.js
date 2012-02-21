@@ -34,6 +34,7 @@
         if(atTop) {
           $content.find('.moments').prepend($newMomentHTML);
         } else {
+          Path.removeLoadingMessage();
           $content.find('.moments').append($newMomentHTML);
           Path.killScroll = false;
         }
@@ -70,11 +71,21 @@
         if($(window).scrollTop() + 200 >= ($(document).height() - $(window).height())) {
           if(Path.killScroll === false && Path.loadOldMomentsComplete === false) {
             Path.killScroll = true;
+            Path.showLoadingMessage();
             document.location.replace('#load_old_moments');
           }
         }
       });
-    },
+    }
+
+  , showLoadingMessage: function() {
+      $('ul.moments').append('<li class="moment fetching"></li>');
+    }
+
+  , removeLoadingMessage: function() {
+      $('.moments .fetching').remove();
+    }
+
   };
 }());
 
