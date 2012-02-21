@@ -204,6 +204,13 @@ li.moment:last-child {
   background-image: url(../images/plane.png);
 }
 
+.friend.dot img {
+  display: inline-block;
+  width: 22px;
+  -webkit-border-radius: 14px;
+  position: absolute;
+}
+
 .ambient.text {
   margin-top: 5px;
   margin-left: 90px;

@@ -14,6 +14,7 @@
 
       Path.handleWindowScroll();
       window.setInterval(self.didClickRefreshButton, 30000);
+      $('.friend.dot').cycle({fx: 'fade'});
     }
 
   , renderTemplate: function(name, object, atTop) {
@@ -21,6 +22,7 @@
       if($content.children('.moments').length == 0) {
         $content.html(_.template(self.templates[name], object));
         $('abbr.timeago').timeago();
+        $('.friend.dot').cycle({fx: 'fade'});
         $('#refresh_button').click(self.didClickRefreshButton);
       } else {
         // just prepend moments
@@ -28,6 +30,7 @@
           return _.template(self.templates.moment, {m: m});
         }).join(''));
         $newMomentHTML.find('abbr.timeago').timeago();
+        $newMomentHTML.find('.friend.dot').cycle({fx: 'fade'});
         if(atTop) {
           $content.find('.moments').prepend($newMomentHTML);
         } else {

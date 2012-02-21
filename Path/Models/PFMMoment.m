@@ -60,8 +60,9 @@
       NSArray * peopleList = (NSArray *)[ambientDict objectOrNilForKey:@"people"];
       if (peopleList) {
         for (id obj in peopleList) {
-          PFMUser * user = [[NSApp sharedUsers] $for:[(NSDictionary *)obj $for:@"id"]];
-          if (user) { [moment.people addObject:user]; }
+          NSDictionary * dict = (NSDictionary *)obj;
+          NSString * userId = [dict $for:@"id"];
+          [moment.people addObject:userId];
         }
       }
     }
@@ -113,8 +114,14 @@
   [momentDict setObject:commentsDictionaryArray forKey:@"comments"];
 
   NSArray * peopleDictionaryArray = [self.people $map:^(id obj) {
-    return [(PFMUser *)obj toHash];
+    PFMUser * user = [[NSApp sharedUsers] objectForKey:(NSString *)obj];
+    if (user) {
+      return [user toHash];
+    } else {
+      return nil;
+    }
   }];
+
   [momentDict setObject:peopleDictionaryArray forKey:@"people"];
 
   return momentDict;
