@@ -4,12 +4,18 @@
 #import "PFMToolbarViewController.h"
 #import "PFMView.h"
 
+@interface PFMMainWindowController ()
+
+//- (void)moveWindowButtons;
+
+@end
+
 @implementation PFMMainWindowController
 
 @synthesize
   toolbarViewWrapper=toolbarViewWrapper
 , momentListViewWrapper=_momentListViewWrapper
-, titleBarLogoView=_titleBarLogoView
+, titleBarView=_titleBarView
 , toolbarViewController=_toolbarViewController
 , momentListViewController=_momentListViewController
 ;
@@ -36,16 +42,47 @@
   [super loadWindow];
 
   NSWindow *window = [self window];
-  NSImageView *titleBarLogoView = self.titleBarLogoView;
+
+  // move window buttons
+//  [self moveWindowButtons];
+
+  // set up titlebar view
+  __block PFMView *titleBarView = self.titleBarView;
   NSView *contentView = [window contentView];
   NSView *themeFrame = [contentView superview];
-  [themeFrame addSubview:titleBarLogoView positioned:NSWindowBelow relativeTo:contentView];
+  [themeFrame addSubview:titleBarView positioned:NSWindowBelow relativeTo:contentView];
   NSRect windowFrame = [window frame];
-  NSRect logoFrame = [titleBarLogoView frame];
-  [titleBarLogoView setFrame:NSMakeRect(floorf((windowFrame.size.width - logoFrame.size.width) / 2.0)
-                                      , windowFrame.size.height - logoFrame.size.height - 7.0
-                                      , logoFrame.size.width, logoFrame.size.height)];
+  NSRect titleBarFrame = [titleBarView frame];
+  [titleBarView setFrame:NSMakeRect(0, windowFrame.size.height - titleBarFrame.size.height,
+                                    windowFrame.size.width, titleBarFrame.size.height)];
+  titleBarView.drawRectBlock = ^(NSRect rect) {
+    NSRect bounds = [titleBarView bounds];
+    [[NSColor colorWithCalibratedWhite:0.0 alpha:0.5] set];
+    NSBezierPath *path = [NSBezierPath bezierPath];
+    [path moveToPoint:NSMakePoint(0, 0.5)];
+    [path lineToPoint:NSMakePoint(bounds.size.width, 0.5)];
+    [path stroke];
+    [[NSColor colorWithCalibratedWhite:0.0 alpha:0.2] set];
+    path = [NSBezierPath bezierPath];
+    [path moveToPoint:NSMakePoint(0, 1.5)];
+    [path lineToPoint:NSMakePoint(bounds.size.width, 1.5)];
+    [path stroke];
+    [[NSColor colorWithCalibratedWhite:1.0 alpha:0.5] set];
+    CGFloat lineDash[] = { 4.0, 2.0 };
+    path = [NSBezierPath bezierPath];
+    [path setLineDash:lineDash count:2 phase:1.0];
+    [path moveToPoint:NSMakePoint(0.0, 3.5)];
+    [path lineToPoint:NSMakePoint(bounds.size.width, 3.5)];
+    [path stroke];
+    [[NSColor colorWithCalibratedWhite:0.0 alpha:0.2] set];
+    path = [NSBezierPath bezierPath];
+    [path setLineDash:lineDash count:2 phase:1.0];
+    [path moveToPoint:NSMakePoint(0.0, 2.5)];
+    [path lineToPoint:NSMakePoint(bounds.size.width, 2.5)];
+    [path stroke];
+  };
 
+  // load subviews
   self.momentListViewWrapper.backgroundColor = [NSColor whiteColor];
 
   self.momentListViewController = [PFMMomentListViewController new];
@@ -58,6 +95,18 @@
   [self.toolbarViewWrapper addSubview:toolbarView];
   [toolbarView setFrame:[self.toolbarViewWrapper bounds]];
 }
+
+//- (void)moveWindowButtons {
+//  NSWindow *window = [self window];
+//  NSArray *buttons = $arr([window standardWindowButton:NSWindowCloseButton], [window standardWindowButton:NSWindowMiniaturizeButton], [window standardWindowButton:NSWindowZoomButton]);
+//  for(NSButton *button in buttons) {
+//    NSRect frame = [button frame];
+//    [button setFrame:NSMakeRect(frame.origin.x,   frame.origin.y - 11.0,
+//                                frame.size.width, frame.size.height)];
+//  }
+//}
+
+#pragma mark - NSWindowDelegate
 
 - (BOOL)windowShouldClose:(id)sender {
   [sender orderOut:self];

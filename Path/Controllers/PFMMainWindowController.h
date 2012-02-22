@@ -7,11 +7,13 @@
 , PFMView
 ;
 
-@interface PFMMainWindowController : NSWindowController <NSWindowDelegate>
+@interface PFMMainWindowController : NSWindowController <
+  NSWindowDelegate
+>
 
 @property (nonatomic, retain) IBOutlet NSView *toolbarViewWrapper;
 @property (nonatomic, retain) IBOutlet PFMView *momentListViewWrapper;
-@property (nonatomic, retain) IBOutlet NSImageView *titleBarLogoView;
+@property (nonatomic, retain) IBOutlet PFMView *titleBarView;
 @property (nonatomic, retain) PFMToolbarViewController *toolbarViewController;
 @property (nonatomic, retain) PFMMomentListViewController *momentListViewController;
 

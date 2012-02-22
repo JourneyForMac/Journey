@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1070</int>
-		<string key="IBDocument.SystemVersion">11D50b</string>
-		<string key="IBDocument.InterfaceBuilderVersion">1938</string>
+		<string key="IBDocument.SystemVersion">11D50</string>
+		<string key="IBDocument.InterfaceBuilderVersion">2177</string>
 		<string key="IBDocument.AppKitVersion">1138.32</string>
 		<string key="IBDocument.HIToolboxVersion">568.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">1938</string>
+			<string key="NS.object.0">2177</string>
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -56,7 +56,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSCustomView" id="741870961">
 							<reference key="NSNextResponder" ref="1006"/>
-							<int key="NSvFlags">266</int>
+							<int key="NSvFlags">-2147483382</int>
 							<string key="NSFrame">{{0, 413}, {404, 45}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
@@ -67,10 +67,9 @@
 						<object class="NSCustomView" id="115924046">
 							<reference key="NSNextResponder" ref="1006"/>
 							<int key="NSvFlags">274</int>
-							<string key="NSFrameSize">{404, 413}</string>
+							<string key="NSFrameSize">{404, 458}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:1192</string>
 							<string key="NSClassName">PFMView</string>
 						</object>
@@ -80,43 +79,58 @@
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="741870961"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1920, 1058}}</string>
 				<string key="NSMinSize">{405, 412}</string>
 				<string key="NSMaxSize">{405, 10021}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
-			<object class="NSImageView" id="608012764">
-				<nil key="NSNextResponder"/>
-				<int key="NSvFlags">269</int>
-				<object class="NSMutableSet" key="NSDragTypes">
+			<object class="NSCustomView" id="396936471">
+				<reference key="NSNextResponder"/>
+				<int key="NSvFlags">266</int>
+				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="NSArray" key="set.sortedObjects">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<string>Apple PDF pasteboard type</string>
-						<string>Apple PICT pasteboard type</string>
-						<string>Apple PNG pasteboard type</string>
-						<string>NSFilenamesPboardType</string>
-						<string>NeXT Encapsulated PostScript v1.2 pasteboard type</string>
-						<string>NeXT TIFF v4.0 pasteboard type</string>
+					<object class="NSImageView" id="608012764">
+						<reference key="NSNextResponder" ref="396936471"/>
+						<int key="NSvFlags">269</int>
+						<object class="NSMutableSet" key="NSDragTypes">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="NSArray" key="set.sortedObjects">
+								<bool key="EncodedWithXMLCoder">YES</bool>
+								<string>Apple PDF pasteboard type</string>
+								<string>Apple PICT pasteboard type</string>
+								<string>Apple PNG pasteboard type</string>
+								<string>NSFilenamesPboardType</string>
+								<string>NeXT Encapsulated PostScript v1.2 pasteboard type</string>
+								<string>NeXT TIFF v4.0 pasteboard type</string>
+							</object>
+						</object>
+						<string key="NSFrame">{{154, 7}, {96, 30}}</string>
+						<reference key="NSSuperview" ref="396936471"/>
+						<reference key="NSWindow"/>
+						<string key="NSReuseIdentifierKey">_NS:2141</string>
+						<bool key="NSEnabled">YES</bool>
+						<object class="NSImageCell" key="NSCell" id="768508872">
+							<int key="NSCellFlags">130560</int>
+							<int key="NSCellFlags2">33554432</int>
+							<object class="NSCustomResource" key="NSContents">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">TitleBarLogo</string>
+							</object>
+							<string key="NSCellIdentifier">_NS:2141</string>
+							<int key="NSAlign">0</int>
+							<int key="NSScale">2</int>
+							<int key="NSStyle">0</int>
+							<bool key="NSAnimates">NO</bool>
+						</object>
+						<bool key="NSEditable">YES</bool>
 					</object>
 				</object>
-				<string key="NSFrameSize">{147, 30}</string>
-				<string key="NSReuseIdentifierKey">_NS:2141</string>
-				<bool key="NSEnabled">YES</bool>
-				<object class="NSImageCell" key="NSCell" id="768508872">
-					<int key="NSCellFlags">130560</int>
-					<int key="NSCellFlags2">33554432</int>
-					<object class="NSCustomResource" key="NSContents">
-						<string key="NSClassName">NSImage</string>
-						<string key="NSResourceName">TitleBarLogo</string>
-					</object>
-					<string key="NSCellIdentifier">_NS:2141</string>
-					<int key="NSAlign">0</int>
-					<int key="NSScale">2</int>
-					<int key="NSStyle">0</int>
-					<bool key="NSAnimates">NO</bool>
-				</object>
-				<bool key="NSEditable">YES</bool>
+				<string key="NSFrameSize">{404, 44}</string>
+				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
+				<reference key="NSNextKeyView" ref="608012764"/>
+				<string key="NSReuseIdentifierKey">_NS:9</string>
+				<string key="NSClassName">PFMView</string>
 			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -140,19 +154,19 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">titleBarLogoView</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="608012764"/>
-					</object>
-					<int key="connectionID">16</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">toolbarViewWrapper</string>
 						<reference key="source" ref="1001"/>
 						<reference key="destination" ref="741870961"/>
 					</object>
 					<int key="connectionID">13</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">titleBarView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="396936471"/>
+					</object>
+					<int key="connectionID">18</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -220,23 +234,33 @@
 						<reference key="parent" ref="1006"/>
 					</object>
 					<object class="IBObjectRecord">
+						<int key="objectID">11</int>
+						<reference key="object" ref="741870961"/>
+						<reference key="parent" ref="1006"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">17</int>
+						<reference key="object" ref="396936471"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="608012764"/>
+						</object>
+						<reference key="parent" ref="1002"/>
+						<string key="objectName">Title Bar Decoration View</string>
+					</object>
+					<object class="IBObjectRecord">
 						<int key="objectID">14</int>
 						<reference key="object" ref="608012764"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="768508872"/>
 						</object>
-						<reference key="parent" ref="1002"/>
+						<reference key="parent" ref="396936471"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">15</int>
 						<reference key="object" ref="768508872"/>
 						<reference key="parent" ref="608012764"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">11</int>
-						<reference key="object" ref="741870961"/>
-						<reference key="parent" ref="1006"/>
 					</object>
 				</object>
 			</object>
@@ -256,10 +280,11 @@
 					<string>14.CustomClassName</string>
 					<string>14.IBPluginDependency</string>
 					<string>15.IBPluginDependency</string>
+					<string>17.IBPluginDependency</string>
 					<string>2.IBPluginDependency</string>
 					<string>9.IBPluginDependency</string>
 				</object>
-				<object class="NSMutableArray" key="dict.values">
+				<object class="NSArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -271,6 +296,7 @@
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>PFMUnclickableImageView</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -302,13 +328,13 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>momentListViewWrapper</string>
-							<string>titleBarLogoView</string>
+							<string>titleBarView</string>
 							<string>toolbarViewWrapper</string>
 						</object>
-						<object class="NSMutableArray" key="dict.values">
+						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>PFMView</string>
-							<string>NSImageView</string>
+							<string>PFMView</string>
 							<string>NSView</string>
 						</object>
 					</object>
@@ -317,18 +343,18 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>momentListViewWrapper</string>
-							<string>titleBarLogoView</string>
+							<string>titleBarView</string>
 							<string>toolbarViewWrapper</string>
 						</object>
-						<object class="NSMutableArray" key="dict.values">
+						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
 								<string key="name">momentListViewWrapper</string>
 								<string key="candidateClassName">PFMView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">titleBarLogoView</string>
-								<string key="candidateClassName">NSImageView</string>
+								<string key="name">titleBarView</string>
+								<string key="candidateClassName">PFMView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">toolbarViewWrapper</string>
@@ -377,7 +403,7 @@
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="NS.key.0">TitleBarLogo</string>
-			<string key="NS.object.0">{147, 30}</string>
+			<string key="NS.object.0">{96, 30}</string>
 		</object>
 	</data>
 </archive>
