@@ -2,7 +2,7 @@
 
 @interface PFMComment : NSObject
 
-@property (nonatomic, copy) NSString * id;
+@property (nonatomic, copy) NSString * oid;
 @property (nonatomic, copy) NSString * locationId;
 @property (nonatomic, copy) NSString * momentId;
 @property (nonatomic, copy) NSString * userId;

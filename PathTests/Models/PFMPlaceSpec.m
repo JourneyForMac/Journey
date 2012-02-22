@@ -9,7 +9,7 @@ __block PFMPlace *place;
 
 before(^{
   place = [PFMPlace new];
-  place.id = @"place.id";
+  place.oid = @"place.id";
 
   place.name = @"Anideo HQ";
   place.latitude = 1.212312;

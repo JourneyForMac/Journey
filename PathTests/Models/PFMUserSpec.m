@@ -183,7 +183,7 @@ describe(@"-loadCredentials", ^{
 
 describe(@"-deleteCredentials", ^{
   before(^{
-    user.id = @"";
+    user.oid = @"";
     user.signedIn = YES;
     user.signingIn = YES;
     user.fetchingMoments = YES;
@@ -207,7 +207,7 @@ describe(@"-deleteCredentials", ^{
   });
 
   it(@"resets the user object", ^{
-    expect(user.id).toBeNil();
+    expect(user.oid).toBeNil();
     expect(user.email).toBeNil();
     expect(user.password).toBeNil();
     expect(user.signedIn).toEqual(NO);
@@ -392,7 +392,7 @@ describe(@"-fetchMomentsNewerThan:/-fetchMomentsOlderThan: (with nil date)", ^{
 
       it(@"sets the id of the user", ^{
         doAction();
-        expect(user.id).toEqual(@"4f338c49f6b766128d011175");
+        expect(user.oid).toEqual(@"4f338c49f6b766128d011175");
       });
 
       it(@"sets the profile photo of the user", ^{
@@ -411,7 +411,7 @@ describe(@"-fetchMomentsNewerThan:/-fetchMomentsOlderThan: (with nil date)", ^{
         doAction();
         [mockMomentsDelegate verify];
         PFMMoment *moment = [user.fetchedMoments lastObject];
-        expect(moment.id).toEqual(@"4f338c49f6b766128d011178");
+        expect(moment.oid).toEqual(@"4f338c49f6b766128d011178");
         expect(moment.userId).toEqual(@"4f338c49f6b766128d011175");
         expect(moment.locationId).toEqual(@"4f34078be7cf662b9d09e2d2");
         expect(moment.type).toEqual(@"ambient");
@@ -437,7 +437,7 @@ describe(@"-fetchMomentsNewerThan:/-fetchMomentsOlderThan: (with nil date)", ^{
         expect([[NSApp sharedLocations] count]).toEqual(14);
 
         PFMLocation * location = [[NSApp sharedLocations] $for:@"4f33b224e7cf662ba2082b6b"];
-        expect(location.id).toEqual(@"4f33b224e7cf662ba2082b6b");
+        expect(location.oid).toEqual(@"4f33b224e7cf662ba2082b6b");
         expect(location.weatherConditions).toEqual(@"Mostly cloudy");
         expect(location.cloudCover).toEqual(@"75%");
         expect(location.windSpeed).toEqual(@"4 meters per second");
@@ -458,7 +458,7 @@ describe(@"-fetchMomentsNewerThan:/-fetchMomentsOlderThan: (with nil date)", ^{
         expect([[NSApp sharedPlaces] count]).toEqual(1);
 
         PFMPlace * place = [[NSApp sharedPlaces] $for:@"4bcd4dc50687ef3b31c6e0cc"];
-        expect(place.id).toEqual(@"4bcd4dc50687ef3b31c6e0cc");
+        expect(place.oid).toEqual(@"4bcd4dc50687ef3b31c6e0cc");
         expect(place.name).toEqual(@"Mescluns");
         expect(place.address).toEqual(@"64 Circular Road");
         expect(place.city).toEqual(@"Singapore");
@@ -477,7 +477,7 @@ describe(@"-fetchMomentsNewerThan:/-fetchMomentsOlderThan: (with nil date)", ^{
         expect([[NSApp sharedUsers] count]).toEqual(2);
 
         PFMUser * user = [[NSApp sharedUsers] $for:@"4f338c49f6b766128d011175"];
-        expect(user.id).toEqual(@"4f338c49f6b766128d011175");
+        expect(user.oid).toEqual(@"4f338c49f6b766128d011175");
         expect(user.firstName).toEqual(@"Aloha");
         expect(user.lastName).toEqual(@"Boss");
         expect(user.profilePhoto.originalURL).toEqual(@"https://s3-us-west-1.amazonaws.com/images.path.com/profile_photos/bef62e4fdd1b2a4e1df408443fcb4e2cde6f2a03/original.jpg");
@@ -501,7 +501,7 @@ describe(@"-fetchMomentsNewerThan:/-fetchMomentsOlderThan: (with nil date)", ^{
         PFMComment * comment1 = (PFMComment *)[moment.comments $at:0];
         PFMComment * comment2 = (PFMComment *)[moment.comments $at:1];
 
-        expect(comment1.id).toEqual(@"4f34078de7cf662b9d09e2d8");
+        expect(comment1.oid).toEqual(@"4f34078de7cf662b9d09e2d8");
         expect(comment1.body).toEqual(@"Hello");
         expect(comment1.userId).toEqual(@"4f338c49f6b766128d011175");
         expect(comment1.locationId).toEqual(@"4f34078be7cf662b9d09e2d2");
@@ -509,7 +509,7 @@ describe(@"-fetchMomentsNewerThan:/-fetchMomentsOlderThan: (with nil date)", ^{
         expect(comment1.state).toEqual(@"live");
         expect(comment1.createdAt).toEqual([NSDate dateWithTimeIntervalSince1970:1328809735]);
 
-        expect(comment2.id).toEqual(@"4f343a20d2bfa87b380074de");
+        expect(comment2.oid).toEqual(@"4f343a20d2bfa87b380074de");
         expect(comment2.body).toEqual(@"xdt");
         expect(comment2.userId).toEqual(@"4f338c49f6b766128d011175");
         expect(comment2.locationId).toEqual(@"4f343a1fd2bfa87b380074dd");
@@ -531,7 +531,7 @@ describe(@"-JSONRepresentation", ^{
   before(^{
     user.firstName = @"Aloha";
     user.lastName = @"Boss";
-    user.id = @"user.id";
+    user.oid = @"user.id";
 
     PFMPhoto * coverPhoto = [PFMPhoto new];
 

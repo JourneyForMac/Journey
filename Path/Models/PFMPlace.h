@@ -2,7 +2,7 @@
 
 @interface PFMPlace : NSObject
 
-@property(nonatomic, copy) NSString * id;
+@property(nonatomic, copy) NSString * oid;
 @property(nonatomic, copy) NSString * name;
 @property(nonatomic, copy) NSString * address;
 @property(nonatomic, copy) NSString * city;

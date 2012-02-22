@@ -9,7 +9,7 @@
 @implementation PFMMoment
 
 @synthesize
-  id = _id
+  oid = _oid
 , userId = _userId
 , placeId=_placeId
 , locationId = _locationId
@@ -30,7 +30,7 @@
 + (PFMMoment *)momentFrom:(NSDictionary *)rawMoment {
   PFMMoment * moment = [PFMMoment new];
 
-  moment.id          = [rawMoment objectOrNilForKey:@"id"];
+  moment.oid         = [rawMoment objectOrNilForKey:@"id"];
   moment.locationId  = [rawMoment objectOrNilForKey:@"location_id"];
   moment.userId      = [rawMoment objectOrNilForKey:@"user_id"];
 
@@ -79,8 +79,8 @@
 }
 
 - (NSDictionary *) toHash {
-  NSMutableDictionary * momentDict = $mdict(self.id, @"id",
-                                          self.type, @"type");
+  NSMutableDictionary * momentDict = $mdict(self.oid, @"id",
+                                           self.type, @"type");
 
   [momentDict setObjectOrNil:self.headline       forKey:@"headline"];
   [momentDict setObjectOrNil:self.subHeadline    forKey:@"subHeadline"];

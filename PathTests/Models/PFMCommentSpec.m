@@ -13,7 +13,7 @@ __block PFMUser *user;
 
 before(^{
   comment = [PFMComment new];
-  comment.id = @"comment.id";
+  comment.oid = @"comment.id";
   comment.body = @"Comment Body";
   comment.state = @"Live";
 
@@ -22,7 +22,7 @@ before(^{
   user.lastName = @"Boss";
 
   location = [PFMLocation new];
-  location.id = @"location.id";
+  location.oid = @"location.id";
   location.latitude = 1.23456;
   location.longitude = 123.456;
 

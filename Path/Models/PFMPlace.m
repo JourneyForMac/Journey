@@ -5,7 +5,7 @@
 @implementation PFMPlace
 
 @synthesize
-  id=_id
+  oid=_oid
 , name=_name
 , city=_city
 , country=_country
@@ -21,7 +21,7 @@
 + (PFMPlace *)placeFrom:(NSDictionary *)placeDict {
   PFMPlace * place = [PFMPlace new];
 
-  place.id   = [placeDict objectOrNilForKey:@"id"];
+  place.oid  = [placeDict objectOrNilForKey:@"id"];
   place.name = [placeDict objectOrNilForKey:@"name"];
 
   NSDictionary * locationDict = [placeDict objectOrNilForKey:@"location"];
@@ -49,10 +49,10 @@
 }
 
 - (NSDictionary *) toHash {
-  NSMutableDictionary * placeDict = $mdict(self.id, @"id",
-                            $double(self.latitude), @"latitude",
-                           $double(self.longitude), @"longitude",
-                      $integer(self.totalCheckins), @"totalCheckins");
+  NSMutableDictionary * placeDict = $mdict(self.oid, @"id",
+                             $double(self.latitude), @"latitude",
+                            $double(self.longitude), @"longitude",
+                       $integer(self.totalCheckins), @"totalCheckins");
 
   [placeDict setObjectOrNil:self.name           forKey:@"name"];
   [placeDict setObjectOrNil:self.address        forKey:@"address"];

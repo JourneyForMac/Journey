@@ -6,7 +6,7 @@
 @implementation PFMComment
 
 @synthesize
-  id=_id
+  oid=_oid
 , userId=_userId
 , locationId=_locationId
 , momentId=_momentId
@@ -17,7 +17,7 @@
 + (PFMComment *)commentFrom:(NSDictionary *)commentDict {
   PFMComment * comment = [PFMComment new];
 
-  comment.id         = [commentDict objectOrNilForKey:@"id"];
+  comment.oid        = [commentDict objectOrNilForKey:@"id"];
   comment.userId     = [commentDict objectOrNilForKey:@"user_id"];
   comment.locationId = [commentDict objectOrNilForKey:@"location_id"];
   comment.body       = [commentDict objectOrNilForKey:@"body"];
@@ -30,9 +30,9 @@
 }
 
 - (NSDictionary *) toHash {
-  NSMutableDictionary * commentDict =  $mdict(self.id, @"id",
-                                              self.body, @"body",
-                                              self.state, @"state");
+  NSMutableDictionary *commentDict =  $mdict(self.oid, @"id",
+                                            self.body, @"body",
+                                           self.state, @"state");
 
   if(self.locationId != nil) {
     PFMLocation * location = [[NSApp sharedLocations] objectForKey:self.locationId];

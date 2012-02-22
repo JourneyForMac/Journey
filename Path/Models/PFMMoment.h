@@ -5,7 +5,7 @@
 
 @interface PFMMoment : PFMModel
 
-@property (nonatomic, copy) NSString * id;
+@property (nonatomic, copy) NSString * oid;
 @property (nonatomic, copy) NSString * userId;
 @property (nonatomic, copy) NSString * locationId;
 @property (nonatomic, copy) NSString * placeId;

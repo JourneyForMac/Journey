@@ -9,7 +9,7 @@ __block PFMLocation *location;
 
 before(^{
   location = [PFMLocation new];
-  location.id = @"comment.id";
+  location.oid = @"comment.id";
   location.weatherConditions = @"Nice and Breezy";
   location.latitude = 1.212312;
   location.longitude = 123.31232;

@@ -5,7 +5,7 @@
 @implementation PFMLocation
 
 @synthesize
-  id=_id
+  oid=_oid
 , weatherConditions=_weatherConditions
 , cloudCover=_cloudCover
 , windSpeed=_windSpeed
@@ -26,7 +26,7 @@
   NSDictionary * weatherDict         = (NSDictionary *)[locationDict objectOrNilForKey:@"weather"];
   NSDictionary * locationDetailsDict = (NSDictionary *)[locationDict objectOrNilForKey:@"location"];
 
-  location.id = [locationDict objectOrNilForKey:@"id"];
+  location.oid = [locationDict objectOrNilForKey:@"id"];
 
   if (weatherDict != nil) {
     location.weatherConditions = [weatherDict objectOrNilForKey:@"conditions"];
@@ -52,11 +52,11 @@
 }
 
 - (NSDictionary *) toHash {
-  NSMutableDictionary * locationDict = $mdict(self.id, @"id",
-                              $double(self.elevation), @"elevation",
-                               $double(self.latitude), @"latitude",
-                              $double(self.longitude), @"longitude",
-                               $double(self.accuracy), @"accuracy");
+  NSMutableDictionary * locationDict = $mdict(self.oid, @"id",
+                               $double(self.elevation), @"elevation",
+                                $double(self.latitude), @"latitude",
+                               $double(self.longitude), @"longitude",
+                                $double(self.accuracy), @"accuracy");
 
   [locationDict setObjectOrNil:self.weatherConditions forKey:@"weatherConditions"];
   [locationDict setObjectOrNil:self.cloudCover        forKey:@"cloudCover"];

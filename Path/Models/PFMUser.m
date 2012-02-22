@@ -19,7 +19,7 @@
 @implementation PFMUser
 
 @synthesize
-  id=_id
+  oid=_oid
 , email=_email
 , password=_password
 , signingIn=_signingIn
@@ -44,7 +44,7 @@
 }
 
 - (void)reset {
-  self.id = nil;
+  self.oid = nil;
   self.email = nil;
   self.password = nil;
   self.signingIn = NO;
@@ -143,9 +143,9 @@
   NSDictionary *dict = [json JSONValue];
   for(NSDictionary * rawMoment in [dict objectOrNilForKey:@"moments"]) {
     PFMMoment * moment = [PFMMoment momentFrom:rawMoment];
-    if (![self.allMomentIds objectForKey:moment.id]) {
+    if (![self.allMomentIds objectForKey:moment.oid]) {
       [self.fetchedMoments addObject:moment];
-      [self.allMomentIds setObject:moment forKey:moment.id];
+      [self.allMomentIds setObject:moment forKey:moment.oid];
     }
   }
 
@@ -163,12 +163,12 @@
   }
 
   // Set the ID
-  self.id = [(NSDictionary *)[(NSDictionary *)[dict objectOrNilForKey:@"cover"] objectOrNilForKey:@"user"] objectOrNilForKey:@"id"];
+  self.oid = [(NSDictionary *)[(NSDictionary *)[dict objectOrNilForKey:@"cover"] objectOrNilForKey:@"user"] objectOrNilForKey:@"id"];
   // Get the Cover Photo
   NSDictionary * coverPhotoDictionary = [(NSDictionary *)[dict objectOrNilForKey:@"cover"] objectOrNilForKey:@"photo"];
   self.coverPhoto = [PFMPhoto photoFrom:coverPhotoDictionary];
   // Get the Profile Photo dictionary from the users dictionary and set the profile photo
-  NSDictionary * profilePhotoDictionary = [(NSDictionary *)[(NSDictionary *)[dict objectOrNilForKey:@"users"] objectOrNilForKey:self.id] objectOrNilForKey:@"photo"];
+  NSDictionary * profilePhotoDictionary = [(NSDictionary *)[(NSDictionary *)[dict objectOrNilForKey:@"users"] objectOrNilForKey:self.oid] objectOrNilForKey:@"photo"];
   self.profilePhoto = [PFMPhoto photoFrom:profilePhotoDictionary];
   // Get the locations map
   NSDictionary * locationsDict = (NSDictionary *)[dict objectOrNilForKey:@"locations"];
@@ -193,7 +193,7 @@
     NSString * userId = (NSString *)key;
 
     PFMUser * user = [PFMUser new];
-    user.id = userId;
+    user.oid = userId;
     user.firstName    = [userDict objectOrNilForKey:@"first_name"];
     user.lastName     = [userDict objectOrNilForKey:@"last_name"];
     user.profilePhoto = [PFMPhoto photoFrom:[userDict objectOrNilForKey:@"photo"]];
@@ -223,7 +223,7 @@
 }
 
 - (NSDictionary *) toHash {
-  NSMutableDictionary * userDict = $mdict(self.id, @"id");
+  NSMutableDictionary * userDict = $mdict(self.oid, @"id");
 
   [userDict setObjectOrNil:self.email                 forKey:@"email"];
   [userDict setObjectOrNil:self.firstName             forKey:@"firstName"];

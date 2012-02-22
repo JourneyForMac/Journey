@@ -1,16 +1,8 @@
-//
-//  PFMLocation.h
-//  Path for Mac
-//
-//  Created by Arun Thampi on 11/2/12.
-//  Copyright (c) 2012 DecisiveBits. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 
 @interface PFMLocation : NSObject
 
-@property(nonatomic, copy) NSString * id;
+@property(nonatomic, copy) NSString * oid;
 @property(nonatomic, copy) NSString * weatherConditions;
 @property(nonatomic, copy) NSString * cloudCover;
 @property(nonatomic, copy) NSString * windSpeed;
