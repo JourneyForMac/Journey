@@ -27,4 +27,17 @@
   [window makeKeyWindow];
 }
 
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication
+                    hasVisibleWindows:(BOOL)flag {
+  if (![NSApp keyWindow]) {
+    if (self.mainWindowController) {
+      [self.mainWindowController showWindow:self];
+    } else if (self.signInWindowController) {
+      [self.signInWindowController showWindow:self];
+    }
+  }
+
+  return YES;
+}
+
 @end

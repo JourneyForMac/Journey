@@ -59,4 +59,9 @@
   [toolbarView setFrame:[self.toolbarViewWrapper bounds]];
 }
 
+- (BOOL)windowShouldClose:(id)sender {
+  [sender orderOut:self];
+  return NO;
+}
+
 @end
