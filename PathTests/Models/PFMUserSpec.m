@@ -110,6 +110,25 @@ describe(@"-signIn", ^{
         expect(user.signingIn).toEqual(NO);
       });
     });
+
+    context(@"when the response code is 500", ^{
+      before(^{
+        int responseStatusCode = 500;
+        [[[mockRequest stub] andReturnValue:OCMOCK_VALUE(responseStatusCode)] responseStatusCode];
+      });
+
+      it(@"sends -didFailSignInDueToInvalidCredentials message to the signInDelegate", ^{
+        user.signInDelegate = mockSignInDelegate;
+        [[mockSignInDelegate expect] didFailSignInDueToPathError];
+        doAction();
+        [mockSignInDelegate verify];
+      });
+
+      it(@"sets user's signingIn property to NO", ^{
+        doAction();
+        expect(user.signingIn).toEqual(NO);
+      });
+    });
   });
 
   describe(@"when the request fails", ^{

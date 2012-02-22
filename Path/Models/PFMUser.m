@@ -72,6 +72,8 @@
       [self saveCredentials];
       self.signedIn = YES;
       [self.signInDelegate didSignIn];
+    } else if (request.responseStatusCode == 500) {
+      [self.signInDelegate didFailSignInDueToPathError];
     } else {
       [self.signInDelegate didFailSignInDueToInvalidCredentials];
     }

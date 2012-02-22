@@ -65,4 +65,8 @@
   [[PFMHelper helper] showAlertSheetWithTitle:@"Failed to sign in!" message:@"An error occured while trying to connect to the server. Please check your Internet connection and try again." window:[self window]];
 }
 
+- (void)didFailSignInDueToPathError {
+  [[PFMHelper helper] showAlertSheetWithTitle:@"Failed to sign in!" message:@"Unable to login at this time. Please try again later." window:[self window]];
+}
+
 @end

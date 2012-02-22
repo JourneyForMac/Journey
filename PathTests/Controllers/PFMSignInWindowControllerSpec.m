@@ -156,6 +156,15 @@ describe(@"PFMUserSignInDelegate", ^{
       [mockHelper verify];
     });
   });
+
+  describe(@"-didFailSignInDueToPathError", ^{
+    it(@"shows alert sheet", ^{
+      id mockHelper = [OCMockObject partialMockForObject:[PFMHelper helper]];
+      [[mockHelper expect] showAlertSheetWithTitle:(id)containsString(@"Failed") message:(id)containsString(@"Unable to login") window:OCMOCK_ANY];
+      [controller didFailSignInDueToPathError];
+      [mockHelper verify];
+    });
+  });
 });
 
 describe(@"auto sign in", ^{

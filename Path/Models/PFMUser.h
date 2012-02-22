@@ -50,6 +50,7 @@
 
 - (void)didSignIn;
 - (void)didFailSignInDueToInvalidCredentials;
+- (void)didFailSignInDueToPathError;
 - (void)didFailSignInDueToRequestError;
 
 @end
