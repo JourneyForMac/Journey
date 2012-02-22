@@ -11,6 +11,7 @@
 		E91CCEDA14E4413100DA6E96 /* ASIHTTPRequest+Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = E91CCED914E4413100DA6E96 /* ASIHTTPRequest+Spec.m */; };
 		E91CCEF614E4655400DA6E96 /* PFMMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E91CCEF514E4655400DA6E96 /* PFMMainWindowController.m */; };
 		E91CCEFC14E46ACB00DA6E96 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91CCEFA14E4695600DA6E96 /* WebKit.framework */; };
+		E93EC9A314F52ADC0060DB49 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = E93EC9A214F52ADC0060DB49 /* Icon.icns */; };
 		E954C6C214E40A5700DF093C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E954C6C114E40A5700DF093C /* Cocoa.framework */; };
 		E954C6E014E40A5800DF093C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E954C6DF14E40A5800DF093C /* SenTestingKit.framework */; };
 		E954C6E114E40A5800DF093C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E954C6C114E40A5700DF093C /* Cocoa.framework */; };
@@ -87,6 +88,7 @@
 		E91CCEF414E4655300DA6E96 /* PFMMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMMainWindowController.h; sourceTree = "<group>"; };
 		E91CCEF514E4655400DA6E96 /* PFMMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMMainWindowController.m; sourceTree = "<group>"; };
 		E91CCEFA14E4695600DA6E96 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		E93EC9A214F52ADC0060DB49 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		E954C6BD14E40A5700DF093C /* Path.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Path.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E954C6C114E40A5700DF093C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		E954C6C414E40A5700DF093C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -399,6 +401,7 @@
 				E9B9D9C814E686E9005D5B5B /* TitleBarLogo.png */,
 				E9FD375614E40C80007F90AF /* InfoPlist.strings */,
 				E9926A4114E4C13000F4EFA5 /* Credits.rtf */,
+				E93EC9A214F52ADC0060DB49 /* Icon.icns */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -481,7 +484,7 @@
 		E954C6B414E40A5700DF093C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = DecisiveBits;
 			};
 			buildConfigurationList = E954C6B714E40A5700DF093C /* Build configuration list for PBXProject "Path for Mac" */;
@@ -519,6 +522,7 @@
 				E9B9D9C914E686E9005D5B5B /* TitleBarLogo.png in Resources */,
 				E994D49414E6CAAE00B3F011 /* DefaultPortrait.png in Resources */,
 				E994D49914E7E20600B3F011 /* WebView in Resources */,
+				E93EC9A314F52ADC0060DB49 /* Icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
