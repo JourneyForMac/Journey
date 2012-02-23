@@ -48,11 +48,10 @@
 		E9B9D9C614E68017005D5B5B /* PFMThemedWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B9D9C514E68017005D5B5B /* PFMThemedWindow.m */; };
 		E9B9D9C914E686E9005D5B5B /* TitleBarLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E9B9D9C814E686E9005D5B5B /* TitleBarLogo.png */; };
 		E9B9D9CC14E68D5F005D5B5B /* PFMUnclickableImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B9D9CB14E68D5F005D5B5B /* PFMUnclickableImageView.m */; };
-		E9C75DBB14F6972600F564A0 /* PFMBooleanToShowHideJourneyStringTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C75DBA14F6972600F564A0 /* PFMBooleanToShowHideJourneyStringTransformer.m */; };
-		E9C75DBF14F697CF00F564A0 /* PFMMainWindowControllerObjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C75DBE14F697CF00F564A0 /* PFMMainWindowControllerObjectController.m */; };
 		E9C75DC214F6A44600F564A0 /* StatusItemIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E9C75DC014F6A44600F564A0 /* StatusItemIcon.png */; };
 		E9C75DC314F6A44600F564A0 /* StatusItemIconHighlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = E9C75DC114F6A44600F564A0 /* StatusItemIconHighlighted.png */; };
 		E9C75DC514F6A5C700F564A0 /* StatusItemIconSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = E9C75DC414F6A5C700F564A0 /* StatusItemIconSelected.png */; };
+		E9C75DC814F6C1D300F564A0 /* NSWindow+PFMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C75DC714F6C1D300F564A0 /* NSWindow+PFMAdditions.m */; };
 		E9CE16F914E54E3700B199AF /* RedLinenBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CE16F814E54E3700B199AF /* RedLinenBg.png */; };
 		E9CE170114E5557100B199AF /* PFMRedLinenView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CE170014E5557100B199AF /* PFMRedLinenView.m */; };
 		E9CE170314E55A9F00B199AF /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CE170214E55A9F00B199AF /* Logo.png */; };
@@ -147,13 +146,11 @@
 		E9B9D9C814E686E9005D5B5B /* TitleBarLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TitleBarLogo.png; sourceTree = "<group>"; };
 		E9B9D9CA14E68D5F005D5B5B /* PFMUnclickableImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMUnclickableImageView.h; sourceTree = "<group>"; };
 		E9B9D9CB14E68D5F005D5B5B /* PFMUnclickableImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMUnclickableImageView.m; sourceTree = "<group>"; };
-		E9C75DB914F6972600F564A0 /* PFMBooleanToShowHideJourneyStringTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMBooleanToShowHideJourneyStringTransformer.h; sourceTree = "<group>"; };
-		E9C75DBA14F6972600F564A0 /* PFMBooleanToShowHideJourneyStringTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMBooleanToShowHideJourneyStringTransformer.m; sourceTree = "<group>"; };
-		E9C75DBD14F697CF00F564A0 /* PFMMainWindowControllerObjectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMMainWindowControllerObjectController.h; sourceTree = "<group>"; };
-		E9C75DBE14F697CF00F564A0 /* PFMMainWindowControllerObjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMMainWindowControllerObjectController.m; sourceTree = "<group>"; };
 		E9C75DC014F6A44600F564A0 /* StatusItemIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusItemIcon.png; sourceTree = "<group>"; };
 		E9C75DC114F6A44600F564A0 /* StatusItemIconHighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusItemIconHighlighted.png; sourceTree = "<group>"; };
 		E9C75DC414F6A5C700F564A0 /* StatusItemIconSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusItemIconSelected.png; sourceTree = "<group>"; };
+		E9C75DC614F6C1D300F564A0 /* NSWindow+PFMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindow+PFMAdditions.h"; sourceTree = "<group>"; };
+		E9C75DC714F6C1D300F564A0 /* NSWindow+PFMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+PFMAdditions.m"; sourceTree = "<group>"; };
 		E9CE16F814E54E3700B199AF /* RedLinenBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedLinenBg.png; sourceTree = "<group>"; };
 		E9CE16FF14E5557100B199AF /* PFMRedLinenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMRedLinenView.h; sourceTree = "<group>"; };
 		E9CE170014E5557100B199AF /* PFMRedLinenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMRedLinenView.m; sourceTree = "<group>"; };
@@ -301,10 +298,8 @@
 				E972ADF314E825220049FFEA /* NSMutableDictionary+PFMAdditions.m */,
 				E972ADF514E829220049FFEA /* NSDictionary+PFMAdditions.h */,
 				E972ADF614E829220049FFEA /* NSDictionary+PFMAdditions.m */,
-				E9C75DB914F6972600F564A0 /* PFMBooleanToShowHideJourneyStringTransformer.h */,
-				E9C75DBA14F6972600F564A0 /* PFMBooleanToShowHideJourneyStringTransformer.m */,
-				E9C75DBD14F697CF00F564A0 /* PFMMainWindowControllerObjectController.h */,
-				E9C75DBE14F697CF00F564A0 /* PFMMainWindowControllerObjectController.m */,
+				E9C75DC614F6C1D300F564A0 /* NSWindow+PFMAdditions.h */,
+				E9C75DC714F6C1D300F564A0 /* NSWindow+PFMAdditions.m */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -618,8 +613,7 @@
 				E972ADF414E825220049FFEA /* NSMutableDictionary+PFMAdditions.m in Sources */,
 				E972ADF714E829220049FFEA /* NSDictionary+PFMAdditions.m in Sources */,
 				E972ADFA14E832920049FFEA /* NSDate+SCAdditions.m in Sources */,
-				E9C75DBB14F6972600F564A0 /* PFMBooleanToShowHideJourneyStringTransformer.m in Sources */,
-				E9C75DBF14F697CF00F564A0 /* PFMMainWindowControllerObjectController.m in Sources */,
+				E9C75DC814F6C1D300F564A0 /* NSWindow+PFMAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

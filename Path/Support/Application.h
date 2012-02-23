@@ -3,6 +3,7 @@
 #import "NSDictionary+PFMAdditions.h"
 #import "NSMutableDictionary+PFMAdditions.h"
 #import "NSDate+SCAdditions.h"
+#import "NSWindow+PFMAdditions.h"
 
 #define kPathAPIHost                  @"https://api.path.com"
 #define kPathDefaultsEmailKey         @"user_email"

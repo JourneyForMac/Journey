@@ -1,6 +1,7 @@
 #import "PathAppDelegate.h"
 #import "PFMSignInWindowController.h"
 #import "PFMMainWindowController.h"
+#import "PFMMomentListViewController.h"
 #import "Application.h"
 
 @implementation PathAppDelegate
@@ -15,27 +16,20 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
   self.signInWindowController = [PFMSignInWindowController new];
   NSWindow *window = [self.signInWindowController window];
-  [window orderFrontRegardless];
-  [window makeMainWindow];
-  [window makeKeyWindow];
+  [window focus];
 }
 
 - (IBAction)signOut:(id)sender {
   [self.mainWindowController close];
   self.mainWindowController = nil;
   [[NSApp sharedUser] deleteCredentials];
-  NSWindow *window = [self.signInWindowController window];
-  [window orderFrontRegardless];
-  [window makeMainWindow];
-  [window makeKeyWindow];
+  [[self.signInWindowController window] focus];
 }
 
-- (IBAction)toggleWindowDisplay:(id)sender {
-  if (self.mainWindowController && [[self.mainWindowController window] isVisible] == YES) {
-    [self.mainWindowController hideWindow];
-  } else {
-    [self.mainWindowController showWindow:self];
-  }
+- (IBAction)showMainWindow:(id)sender {
+  [[self.mainWindowController window] focus];
+  NSScrollView *scrollView = [[[[self.mainWindowController.momentListViewController.webView mainFrame] frameView] documentView] enclosingScrollView];
+  [[scrollView documentView] scrollPoint:NSMakePoint(0, 0)];
 }
 
 - (IBAction)quitApp:(id)sender {

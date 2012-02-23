@@ -51,9 +51,7 @@
   PathAppDelegate *appDelegate = [NSApp delegate];
   appDelegate.mainWindowController = [PFMMainWindowController new];
   NSWindow *window = [appDelegate.mainWindowController window];
-  [window orderFrontRegardless];
-  [window makeMainWindow];
-  [window makeKeyWindow];
+  [window focus];
 }
 
 - (void)didFailSignInDueToInvalidCredentials {

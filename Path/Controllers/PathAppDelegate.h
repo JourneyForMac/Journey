@@ -15,7 +15,7 @@
 @property (nonatomic, retain) NSStatusItem    * statusItem;
 
 - (IBAction)signOut:(id)sender;
-- (IBAction)toggleWindowDisplay:(id)sender;
+- (IBAction)showMainWindow:(id)sender;
 - (IBAction)quitApp:(id)sender;
 - (void)highlightStatusItem:(BOOL)highlighted;
 
