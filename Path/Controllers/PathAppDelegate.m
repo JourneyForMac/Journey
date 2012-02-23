@@ -44,10 +44,11 @@
 }
 
 -(void)awakeFromNib{
-  self.statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
-  [self.statusItem setMenu:self.statusMenu];
-  [self.statusItem setTitle:@"Path"];
-  [self.statusItem setHighlightMode:YES];
+  NSStatusItem *statusItem = self.statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
+  [statusItem setMenu:self.statusMenu];
+  [statusItem setHighlightMode:YES];
+  [statusItem setImage:[NSImage imageNamed:@"StatusItemIcon.png"]];
+  [statusItem setAlternateImage:[NSImage imageNamed:@"StatusItemIconSelected.png"]];
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication

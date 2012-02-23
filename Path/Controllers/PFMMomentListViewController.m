@@ -46,7 +46,7 @@
   if(fetchedMoments && [fetchedMoments count] > 0) {
     lastMoment = [fetchedMoments $at:([fetchedMoments count] - 1)];
   }
-  
+
   [user fetchMomentsOlderThan:lastMoment.createdAt];
 }
 
@@ -56,20 +56,20 @@
                   atTop:(BOOL)atTop {
   PFMUser *user = [NSApp sharedUser];
   NSString * javascriptToExecute = nil;
-  
+
   NSDictionary *dict = $dict([moments $map:^id (id moment) {
                                return [(PFMMoment *)moment toHash];
                              }], @"moments",
                              [user.coverPhoto iOSHighResURL], @"coverPhoto",
                              [user.profilePhoto iOSHighResURL], @"profilePhoto");
   NSString *json = [dict JSONRepresentation];
-//  NSLog(@">> %@", json);
+  NSLog(@">> %@", json);
   if (atTop) {
     javascriptToExecute = $str(@"Path.renderTemplate('feed', %@, true)", json);
   } else {
     javascriptToExecute = $str(@"Path.renderTemplate('feed', %@, false)", json);
   }
-  
+
   [self.webView stringByEvaluatingJavaScriptFromString:javascriptToExecute];
 }
 
