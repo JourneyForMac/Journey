@@ -128,9 +128,13 @@
 
       [self.momentsDelegate didFetchMoments:[self fetchedMoments] atTop:atTop];
     } else {
-      // Delegate method for Home Feed
+      [self.momentsDelegate didFailToFetchMoments];
     }
     self.fetchingMoments = NO;
+  }];
+
+  [request setFailedBlock:^{
+    [self.momentsDelegate didFailToFetchMoments];
   }];
 
   [request startAsynchronous];
@@ -157,7 +161,7 @@
     NSUInteger insertAt = 0;
     if (!atTop) { insertAt = [self.allMoments count]; }
 
-    NSRange range = NSMakeRange(insertAt, [self.fetchedMoments count]);     
+    NSRange range = NSMakeRange(insertAt, [self.fetchedMoments count]);
     NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
     [self.allMoments insertObjects:self.fetchedMoments atIndexes:indexSet];
   }

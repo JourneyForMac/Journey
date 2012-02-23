@@ -73,6 +73,10 @@
   [self.webView stringByEvaluatingJavaScriptFromString:javascriptToExecute];
 }
 
+- (void)didFailToFetchMoments {
+  [self.webView stringByEvaluatingJavaScriptFromString:@"Path.didCompleteRefresh()"];
+}
+
 #pragma mark - WebUIDelegate
 
 - (NSArray *)webView:(WebView *)sender contextMenuItemsForElement:(NSDictionary *)element defaultMenuItems:(NSArray *)defaultMenuItems {

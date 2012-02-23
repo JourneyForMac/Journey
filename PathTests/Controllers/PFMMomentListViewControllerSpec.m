@@ -50,6 +50,10 @@ describe(@"PFMUserMomentsDelegate", ^{
 
     });
   });
+
+  describe(@"-didFailToFetchMoments", ^{
+
+  });
 });
 
 describe(@"-refreshFeed", ^{

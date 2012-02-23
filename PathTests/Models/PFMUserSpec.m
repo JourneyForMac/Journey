@@ -523,8 +523,28 @@ describe(@"-fetchMomentsNewerThan:/-fetchMomentsOlderThan: (with nil date)", ^{
         expect(user.fetchingMoments).toEqual(NO);
       });
     });
-  });
 
+    context(@"When the response code is not 200 (404/500)", ^{
+      before(^{
+        int responseStatusCode = 500;
+        [[[mockRequest stub] andReturnValue:OCMOCK_VALUE(responseStatusCode)] responseStatusCode];
+      });
+
+      after(^{
+        [NSApp resetSharedUsers];
+        [NSApp resetSharedLocations];
+        [NSApp resetSharedPlaces];
+        [NSApp resetSharedLocations];
+      });
+
+      it(@"should call the didFailToFetchMoments", ^{
+        user.momentsDelegate = mockMomentsDelegate;
+        [[mockMomentsDelegate expect] didFailToFetchMoments];
+        doAction();
+        [mockMomentsDelegate verify];
+      });
+    });
+  });
 });
 
 describe(@"-JSONRepresentation", ^{

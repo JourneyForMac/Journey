@@ -60,4 +60,6 @@
 - (void)didFetchMoments:(NSArray *)moments
                   atTop:(BOOL)atTop;
 
+- (void)didFailToFetchMoments;
+
 @end
