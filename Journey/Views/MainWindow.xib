@@ -43,14 +43,14 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{0, 0}, {404, 480}}</string>
 				<int key="NSWTFlags">544735232</int>
-				<string key="NSWindowTitle">Path for Mac</string>
+				<string key="NSWindowTitle">Journey</string>
 				<string key="NSWindowClass">PFMThemedWindow</string>
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<string key="NSWindowContentMaxSize">{405, 9999}</string>
 				<string key="NSWindowContentMinSize">{405, 390}</string>
 				<object class="NSView" key="NSWindowView" id="1006">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -59,7 +59,6 @@
 							<int key="NSvFlags">-2147483382</int>
 							<string key="NSFrame">{{0, 413}, {404, 45}}</string>
 							<reference key="NSSuperview" ref="1006"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="115924046"/>
 							<string key="NSReuseIdentifierKey">_NS:1192</string>
 							<string key="NSClassName">NSView</string>
@@ -69,14 +68,11 @@
 							<int key="NSvFlags">274</int>
 							<string key="NSFrameSize">{404, 458}</string>
 							<reference key="NSSuperview" ref="1006"/>
-							<reference key="NSWindow"/>
 							<string key="NSReuseIdentifierKey">_NS:1192</string>
 							<string key="NSClassName">PFMView</string>
 						</object>
 					</object>
 					<string key="NSFrameSize">{404, 480}</string>
-					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="741870961"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1920, 1058}}</string>
@@ -85,7 +81,7 @@
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
 			<object class="NSCustomView" id="396936471">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">266</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -106,7 +102,6 @@
 						</object>
 						<string key="NSFrame">{{154, 9}, {96, 30}}</string>
 						<reference key="NSSuperview" ref="396936471"/>
-						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:2141</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSImageCell" key="NSCell" id="768508872">
@@ -126,8 +121,6 @@
 					</object>
 				</object>
 				<string key="NSFrameSize">{404, 44}</string>
-				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="608012764"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="NSClassName">PFMView</string>

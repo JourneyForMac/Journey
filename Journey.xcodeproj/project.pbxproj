@@ -63,7 +63,6 @@
 		F44997A214E6571F00306056 /* PFMPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = F44997A114E6571F00306056 /* PFMPhoto.m */; };
 		F44997A514E6582300306056 /* PFMPhotoSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F44997A414E6582300306056 /* PFMPhotoSpec.m */; };
 		F47A489B14E6D987007D0B9F /* PFMPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = F47A489A14E6D987007D0B9F /* PFMPlace.m */; };
-		F47A489C14E6D987007D0B9F /* PFMPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = F47A489A14E6D987007D0B9F /* PFMPlace.m */; };
 		F4B7F73D14E676CC005E8AF4 /* PFMComment.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B7F73C14E676CC005E8AF4 /* PFMComment.m */; };
 		F4B7F74214E68110005E8AF4 /* PFMLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B7F74114E68110005E8AF4 /* PFMLocation.m */; };
 		F4DB598E14E7FEBF009E92E8 /* PFMCommentSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB598D14E7FEBF009E92E8 /* PFMCommentSpec.m */; };
@@ -93,12 +92,12 @@
 		E91CCEF514E4655400DA6E96 /* PFMMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMMainWindowController.m; sourceTree = "<group>"; };
 		E91CCEFA14E4695600DA6E96 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		E93EC9A214F52ADC0060DB49 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
-		E954C6BD14E40A5700DF093C /* Path.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Path.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E954C6BD14E40A5700DF093C /* Journey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E954C6C114E40A5700DF093C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		E954C6C414E40A5700DF093C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		E954C6C514E40A5700DF093C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E954C6C614E40A5700DF093C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		E954C6DE14E40A5800DF093C /* PathTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PathTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E954C6DE14E40A5800DF093C /* JourneyTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JourneyTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E954C6DF14E40A5800DF093C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		E96080E914E4D1A100127E58 /* PFMHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMHelper.h; sourceTree = "<group>"; };
 		E96080EA14E4D1A100127E58 /* PFMHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMHelper.m; sourceTree = "<group>"; };
@@ -131,7 +130,7 @@
 		E9ADC81814E41BE700E39527 /* PFMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMUser.h; sourceTree = "<group>"; };
 		E9ADC81914E41BE700E39527 /* PFMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMUser.m; sourceTree = "<group>"; };
 		E9ADC81B14E41C1700E39527 /* PFMUserSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMUserSpec.m; sourceTree = "<group>"; };
-		E9ADC81E14E4222F00E39527 /* PathTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PathTests-Info.plist"; sourceTree = "<group>"; };
+		E9ADC81E14E4222F00E39527 /* JourneyTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "JourneyTests-Info.plist"; sourceTree = "<group>"; };
 		E9ADC81F14E4222F00E39527 /* TestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
 		E9B9D9A914E672B4005D5B5B /* PFMMomentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMMomentListViewController.h; sourceTree = "<group>"; };
 		E9B9D9AA14E672B4005D5B5B /* PFMMomentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMMomentListViewController.m; sourceTree = "<group>"; };
@@ -159,8 +158,8 @@
 		E9FD375114E40C80007F90AF /* PathAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathAppDelegate.m; sourceTree = "<group>"; };
 		E9FD375714E40C80007F90AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E9FD375B14E40C80007F90AF /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E9FD375C14E40C80007F90AF /* Path-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Path-Info.plist"; sourceTree = "<group>"; };
-		E9FD375D14E40C80007F90AF /* Path-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Path-Prefix.pch"; sourceTree = "<group>"; };
+		E9FD375C14E40C80007F90AF /* Journey-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Journey-Info.plist"; sourceTree = "<group>"; };
+		E9FD375D14E40C80007F90AF /* Journey-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Journey-Prefix.pch"; sourceTree = "<group>"; };
 		EAEC0C9312904ABA8CE686A2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F449978414E6215000306056 /* moments_feed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = moments_feed.json; sourceTree = "<group>"; };
 		F449978714E6295C00306056 /* PFMMoment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMMoment.h; sourceTree = "<group>"; };
@@ -220,8 +219,8 @@
 		E954C6B214E40A5700DF093C = {
 			isa = PBXGroup;
 			children = (
-				E9FD374E14E40C80007F90AF /* Path */,
-				E954C6E414E40A5800DF093C /* PathTests */,
+				E9FD374E14E40C80007F90AF /* Journey */,
+				E954C6E414E40A5800DF093C /* JourneyTests */,
 				E954C6C014E40A5700DF093C /* Frameworks */,
 				E954C6BE14E40A5700DF093C /* Products */,
 				3762FDED24BF40BDAF87D96A /* Pods.xcconfig */,
@@ -231,8 +230,8 @@
 		E954C6BE14E40A5700DF093C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E954C6BD14E40A5700DF093C /* Path.app */,
-				E954C6DE14E40A5800DF093C /* PathTests.octest */,
+				E954C6BD14E40A5700DF093C /* Journey.app */,
+				E954C6DE14E40A5800DF093C /* JourneyTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -260,7 +259,7 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		E954C6E414E40A5800DF093C /* PathTests */ = {
+		E954C6E414E40A5800DF093C /* JourneyTests */ = {
 			isa = PBXGroup;
 			children = (
 				E91CCEE314E44D0F00DA6E96 /* Fixtures */,
@@ -270,7 +269,7 @@
 				E9ADC80914E4118700E39527 /* Controllers */,
 				E9ADC81D14E4222F00E39527 /* Support */,
 			);
-			path = PathTests;
+			path = JourneyTests;
 			sourceTree = "<group>";
 		};
 		E95BAB6F14E4C544007383EC /* Lib */ = {
@@ -339,7 +338,7 @@
 		E9ADC81D14E4222F00E39527 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				E9ADC81E14E4222F00E39527 /* PathTests-Info.plist */,
+				E9ADC81E14E4222F00E39527 /* JourneyTests-Info.plist */,
 				E91CCED814E4413100DA6E96 /* ASIHTTPRequest+Spec.h */,
 				E91CCED914E4413100DA6E96 /* ASIHTTPRequest+Spec.m */,
 				E9ADC81F14E4222F00E39527 /* TestHelper.h */,
@@ -348,7 +347,7 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
-		E9FD374E14E40C80007F90AF /* Path */ = {
+		E9FD374E14E40C80007F90AF /* Journey */ = {
 			isa = PBXGroup;
 			children = (
 				E972ADF014E825000049FFEA /* Lib */,
@@ -359,7 +358,7 @@
 				E9FD375314E40C80007F90AF /* Resources */,
 				E9FD375A14E40C80007F90AF /* Support */,
 			);
-			path = Path;
+			path = Journey;
 			sourceTree = "<group>";
 		};
 		E9FD374F14E40C80007F90AF /* Controllers */ = {
@@ -425,8 +424,8 @@
 			children = (
 				E91CCED414E4349100DA6E96 /* Application.h */,
 				E9FD375B14E40C80007F90AF /* main.m */,
-				E9FD375C14E40C80007F90AF /* Path-Info.plist */,
-				E9FD375D14E40C80007F90AF /* Path-Prefix.pch */,
+				E9FD375C14E40C80007F90AF /* Journey-Info.plist */,
+				E9FD375D14E40C80007F90AF /* Journey-Prefix.pch */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -454,9 +453,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E954C6BC14E40A5700DF093C /* Path */ = {
+		E954C6BC14E40A5700DF093C /* Journey */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E954C6EF14E40A5800DF093C /* Build configuration list for PBXNativeTarget "Path" */;
+			buildConfigurationList = E954C6EF14E40A5800DF093C /* Build configuration list for PBXNativeTarget "Journey" */;
 			buildPhases = (
 				E954C6B914E40A5700DF093C /* Sources */,
 				E954C6BA14E40A5700DF093C /* Frameworks */,
@@ -467,14 +466,14 @@
 			);
 			dependencies = (
 			);
-			name = Path;
+			name = Journey;
 			productName = Path;
-			productReference = E954C6BD14E40A5700DF093C /* Path.app */;
+			productReference = E954C6BD14E40A5700DF093C /* Journey.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E954C6DD14E40A5800DF093C /* PathTests */ = {
+		E954C6DD14E40A5800DF093C /* JourneyTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E954C6F214E40A5800DF093C /* Build configuration list for PBXNativeTarget "PathTests" */;
+			buildConfigurationList = E954C6F214E40A5800DF093C /* Build configuration list for PBXNativeTarget "JourneyTests" */;
 			buildPhases = (
 				E954C6D914E40A5800DF093C /* Sources */,
 				E954C6DA14E40A5800DF093C /* Frameworks */,
@@ -487,9 +486,9 @@
 			dependencies = (
 				E954C6E314E40A5800DF093C /* PBXTargetDependency */,
 			);
-			name = PathTests;
+			name = JourneyTests;
 			productName = PathTests;
-			productReference = E954C6DE14E40A5800DF093C /* PathTests.octest */;
+			productReference = E954C6DE14E40A5800DF093C /* JourneyTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -501,7 +500,7 @@
 				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = DecisiveBits;
 			};
-			buildConfigurationList = E954C6B714E40A5700DF093C /* Build configuration list for PBXProject "Path for Mac" */;
+			buildConfigurationList = E954C6B714E40A5700DF093C /* Build configuration list for PBXProject "Journey" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -513,8 +512,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E954C6BC14E40A5700DF093C /* Path */,
-				E954C6DD14E40A5800DF093C /* PathTests */,
+				E954C6BC14E40A5700DF093C /* Journey */,
+				E954C6DD14E40A5800DF093C /* JourneyTests */,
 			);
 		};
 /* End PBXProject section */
@@ -631,7 +630,6 @@
 				E966221414E661DA003F8861 /* PFMMainWindowControllerSpec.m in Sources */,
 				E9B9D9B014E672D8005D5B5B /* PFMMomentListViewControllerSpec.m in Sources */,
 				E9B9D9BB14E67C15005D5B5B /* PFMToolbarViewControllerSpec.m in Sources */,
-				F47A489C14E6D987007D0B9F /* PFMPlace.m in Sources */,
 				F4DB598E14E7FEBF009E92E8 /* PFMCommentSpec.m in Sources */,
 				F4DB599114E80A6E009E92E8 /* PFMLocationSpec.m in Sources */,
 				F4DB599314E80D12009E92E8 /* PFMPlaceSpec.m in Sources */,
@@ -643,7 +641,7 @@
 /* Begin PBXTargetDependency section */
 		E954C6E314E40A5800DF093C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E954C6BC14E40A5700DF093C /* Path */;
+			target = E954C6BC14E40A5700DF093C /* Journey */;
 			targetProxy = E954C6E214E40A5800DF093C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -713,9 +711,9 @@
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Path/Support/Path-Prefix.pch";
+				GCC_PREFIX_HEADER = "Journey/Support/Journey-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = "Path/Support/Path-Info.plist";
+				INFOPLIST_FILE = "Journey/Support/Journey-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -731,9 +729,9 @@
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Path/Support/Path-Prefix.pch";
+				GCC_PREFIX_HEADER = "Journey/Support/Journey-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = "Path/Support/Path-Info.plist";
+				INFOPLIST_FILE = "Journey/Support/Journey-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -745,14 +743,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3762FDED24BF40BDAF87D96A /* Pods.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Path.app/Contents/MacOS/Path";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Journey.app/Contents/MacOS/Journey";
 				DSTROOT = /tmp/xcodeproj.dst;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Path/Support/Path-Prefix.pch";
+				GCC_PREFIX_HEADER = "Journey/Support/Journey-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = "PathTests/Support/PathTests-Info.plist";
+				INFOPLIST_FILE = "JourneyTests/Support/JourneyTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -764,14 +762,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3762FDED24BF40BDAF87D96A /* Pods.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Path.app/Contents/MacOS/Path";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Journey.app/Contents/MacOS/Journey";
 				DSTROOT = /tmp/xcodeproj.dst;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Path/Support/Path-Prefix.pch";
+				GCC_PREFIX_HEADER = "Journey/Support/Journey-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = "PathTests/Support/PathTests-Info.plist";
+				INFOPLIST_FILE = "JourneyTests/Support/JourneyTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -782,7 +780,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E954C6B714E40A5700DF093C /* Build configuration list for PBXProject "Path for Mac" */ = {
+		E954C6B714E40A5700DF093C /* Build configuration list for PBXProject "Journey" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E954C6ED14E40A5800DF093C /* Debug */,
@@ -791,7 +789,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E954C6EF14E40A5800DF093C /* Build configuration list for PBXNativeTarget "Path" */ = {
+		E954C6EF14E40A5800DF093C /* Build configuration list for PBXNativeTarget "Journey" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E954C6F014E40A5800DF093C /* Debug */,
@@ -800,7 +798,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E954C6F214E40A5800DF093C /* Build configuration list for PBXNativeTarget "PathTests" */ = {
+		E954C6F214E40A5800DF093C /* Build configuration list for PBXNativeTarget "JourneyTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E954C6F314E40A5800DF093C /* Debug */,

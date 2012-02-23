@@ -14,6 +14,11 @@
 ;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  if(![defaults objectForKey:@"ApplePersistenceIgnoreState"]) {
+    [defaults setBool:YES forKey:@"ApplePersistenceIgnoreState"];
+    [defaults synchronize];
+  }
   self.signInWindowController = [PFMSignInWindowController new];
   NSWindow *window = [self.signInWindowController window];
   [window focus];
