@@ -1,5 +1,6 @@
 #import "PathAppDelegate.h"
 #import "PFMSignInWindowController.h"
+#import "PFMMainWindowController.h"
 #import "Application.h"
 
 @implementation PathAppDelegate
@@ -7,6 +8,8 @@
 @synthesize
   signInWindowController=_signInWindowController
 , mainWindowController=_mainWindowController
+, statusMenu=_statusMenu
+, statusItem=_statusItem
 ;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
@@ -25,6 +28,23 @@
   [window orderFrontRegardless];
   [window makeMainWindow];
   [window makeKeyWindow];
+}
+
+- (IBAction)toggleWindowDisplay:(id)sender {
+//  NSMenuItem * menuItem = (NSMenuItem *)sender;
+  if (self.mainWindowController && [[self.mainWindowController window] isVisible] == YES) {
+    [self.mainWindowController hideWindow];
+  } else {
+    [self.mainWindowController showWindow:self];
+  }
+
+}
+
+-(void)awakeFromNib{
+  self.statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
+  [self.statusItem setMenu:self.statusMenu];
+  [self.statusItem setTitle:@"Path"];
+  [self.statusItem setHighlightMode:YES];
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication

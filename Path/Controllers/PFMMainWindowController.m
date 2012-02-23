@@ -109,8 +109,12 @@
 #pragma mark - NSWindowDelegate
 
 - (BOOL)windowShouldClose:(id)sender {
-  [sender orderOut:self];
+  [self hideWindow];
   return NO;
+}
+
+- (void)hideWindow {
+  [self.window orderOut:self];
 }
 
 @end

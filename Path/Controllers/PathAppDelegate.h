@@ -11,7 +11,10 @@
 
 @property (nonatomic, retain) PFMSignInWindowController *signInWindowController;
 @property (nonatomic, retain) PFMMainWindowController   *mainWindowController;
+@property (nonatomic, retain) IBOutlet NSMenu * statusMenu;
+@property (nonatomic, retain) NSStatusItem    * statusItem;
 
 - (IBAction)signOut:(id)sender;
+- (IBAction)toggleWindowDisplay:(id)sender;
 
 @end

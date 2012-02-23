@@ -17,4 +17,6 @@
 @property (nonatomic, retain) PFMToolbarViewController *toolbarViewController;
 @property (nonatomic, retain) PFMMomentListViewController *momentListViewController;
 
+- (void)hideWindow;
+
 @end
