@@ -31,7 +31,6 @@
 }
 
 - (IBAction)toggleWindowDisplay:(id)sender {
-//  NSMenuItem * menuItem = (NSMenuItem *)sender;
   if (self.mainWindowController && [[self.mainWindowController window] isVisible] == YES) {
     [self.mainWindowController hideWindow];
   } else {
@@ -47,12 +46,11 @@
   NSStatusItem *statusItem = self.statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
   [statusItem setMenu:self.statusMenu];
   [statusItem setHighlightMode:YES];
-  [statusItem setImage:[NSImage imageNamed:@"StatusItemIcon.png"]];
   [statusItem setAlternateImage:[NSImage imageNamed:@"StatusItemIconSelected.png"]];
+  [self highlightStatusItem:NO];
 }
 
-- (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication
-                    hasVisibleWindows:(BOOL)flag {
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag {
   if (![NSApp keyWindow]) {
     if (self.mainWindowController) {
       [self.mainWindowController showWindow:self];
@@ -60,8 +58,15 @@
       [self.signInWindowController showWindow:self];
     }
   }
-
   return YES;
+}
+
+- (void)highlightStatusItem:(BOOL)highlighted {
+  if(highlighted) {
+    [self.statusItem setImage:[NSImage imageNamed:@"StatusItemIconHighlighted.png"]];
+  } else {
+    [self.statusItem setImage:[NSImage imageNamed:@"StatusItemIcon.png"]];
+  }
 }
 
 @end

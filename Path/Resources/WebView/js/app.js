@@ -13,7 +13,7 @@
       Path.loadOldMomentsComplete = false;
 
       Path.handleWindowScroll();
-      window.setInterval(self.didClickRefreshButton, 30000);
+      window.setInterval(self.didClickRefreshButton, 15000);
       $('.friend.dot').cycle({fx: 'fade'});
     }
 
@@ -52,7 +52,7 @@
     }
 
   , didCompleteRefresh: function() {
-      document.location.replace('#complete_refresh');
+      self.removeHashFragment();
       self.refreshing = false;
       self.animateRefreshButton(false);
     }
@@ -68,12 +68,15 @@
 
   , handleWindowScroll: function() {
       $(window).scroll(function() {
-        if($(window).scrollTop() + 200 >= ($(document).height() - $(window).height())) {
+        var scrollTop = $(window).scrollTop();
+        if(scrollTop + 200 >= ($(document).height() - $(window).height())) {
           if(Path.killScroll === false && Path.loadOldMomentsComplete === false) {
             Path.killScroll = true;
             Path.showLoadingMessage();
             document.location.replace('#load_old_moments');
           }
+        } else if(scrollTop <= 243) {
+          document.location.replace('#clear_status_item_highlight');
         }
       });
     }
@@ -84,6 +87,10 @@
 
   , removeLoadingMessage: function() {
       $('.moments .fetching').remove();
+    }
+
+  , removeHashFragment: function() {
+      document.location.replace('#_');
     }
 
   };

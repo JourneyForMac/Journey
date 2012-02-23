@@ -4,6 +4,7 @@
 #import "PFMMoment.h"
 #import "PFMUser.h"
 #import "PFMPhoto.h"
+#import "PathAppDelegate.h"
 
 @implementation PFMMomentListViewController
 
@@ -63,11 +64,19 @@
                              [user.coverPhoto iOSHighResURL], @"coverPhoto",
                              [user.profilePhoto iOSHighResURL], @"profilePhoto");
   NSString *json = [dict JSONRepresentation];
-  NSLog(@">> %@", json);
-  if (atTop) {
-    javascriptToExecute = $str(@"Path.renderTemplate('feed', %@, true)", json);
+  //  NSLog(@">> %@", json);
+  if([moments count] > 0) {
+    if (atTop) {
+      javascriptToExecute = $str(@"Path.renderTemplate('feed', %@, true)", json);
+      NSInteger scrollTop = [self webViewScrollTop];
+      if(scrollTop > 0 || ![self.view.window isKeyWindow]) {
+        [(PathAppDelegate *)[NSApp delegate] highlightStatusItem:YES];
+      }
+    } else {
+      javascriptToExecute = $str(@"Path.renderTemplate('feed', %@, false)", json);
+    }
   } else {
-    javascriptToExecute = $str(@"Path.renderTemplate('feed', %@, false)", json);
+    javascriptToExecute = @"Path.didCompleteRefresh()";
   }
 
   [self.webView stringByEvaluatingJavaScriptFromString:javascriptToExecute];
@@ -75,6 +84,10 @@
 
 - (void)didFailToFetchMoments {
   [self.webView stringByEvaluatingJavaScriptFromString:@"Path.didCompleteRefresh()"];
+}
+
+- (NSInteger)webViewScrollTop {
+  return [[self.webView stringByEvaluatingJavaScriptFromString:@"$(document).scrollTop()"] integerValue];
 }
 
 #pragma mark - WebUIDelegate
@@ -89,11 +102,16 @@
   if([actionInformation objectForKey:WebActionNavigationTypeKey]) {
     NSURL *url = [actionInformation objectForKey:WebActionOriginalURLKey];
     if(url) {
-      if([[url absoluteString] hasSuffix:@"#refresh_feed"]) {
+      NSString *urlString = [url absoluteString];
+      if([urlString hasSuffix:@"#refresh_feed"]) {
         [self refreshFeed];
         return;
-      } else if([[url absoluteString] hasSuffix:@"#load_old_moments"]) {
+      } else if([urlString hasSuffix:@"#load_old_moments"]) {
         [self loadOldMoments];
+        return;
+      } else if([urlString hasSuffix:@"#clear_status_item_highlight"]) {
+        [(PathAppDelegate *)[NSApp delegate] highlightStatusItem:NO];
+        [self.webView stringByEvaluatingJavaScriptFromString:@"Path.removeHashFragment()"];
         return;
       }
     }

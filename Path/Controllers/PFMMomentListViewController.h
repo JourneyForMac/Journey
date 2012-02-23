@@ -10,5 +10,6 @@
 
 - (void)refreshFeed;
 - (void)loadOldMoments;
+- (NSInteger)webViewScrollTop;
 
 @end

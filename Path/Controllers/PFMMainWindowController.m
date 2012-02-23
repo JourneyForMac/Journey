@@ -3,11 +3,9 @@
 #import "PFMMomentListViewController.h"
 #import "PFMToolbarViewController.h"
 #import "PFMView.h"
+#import "PathAppDelegate.h"
 
 @interface PFMMainWindowController ()
-
-//- (void)moveWindowButtons;
-
 @end
 
 @implementation PFMMainWindowController
@@ -42,9 +40,6 @@
   [super loadWindow];
 
   NSWindow *window = [self window];
-
-  // move window buttons
-//  [self moveWindowButtons];
 
   // set up titlebar view
   __block PFMView *titleBarView = self.titleBarView;
@@ -96,16 +91,6 @@
   [toolbarView setFrame:[self.toolbarViewWrapper bounds]];
 }
 
-//- (void)moveWindowButtons {
-//  NSWindow *window = [self window];
-//  NSArray *buttons = $arr([window standardWindowButton:NSWindowCloseButton], [window standardWindowButton:NSWindowMiniaturizeButton], [window standardWindowButton:NSWindowZoomButton]);
-//  for(NSButton *button in buttons) {
-//    NSRect frame = [button frame];
-//    [button setFrame:NSMakeRect(frame.origin.x,   frame.origin.y - 11.0,
-//                                frame.size.width, frame.size.height)];
-//  }
-//}
-
 - (void)hideWindow {
   [self.window orderOut:self];
 }
@@ -117,5 +102,10 @@
   return NO;
 }
 
+- (void)windowDidBecomeKey:(NSNotification *)notification {
+  if([self.momentListViewController webViewScrollTop] <= 243) {
+    [(PathAppDelegate *)[NSApp delegate] highlightStatusItem:NO];
+  }
+}
 
 @end
