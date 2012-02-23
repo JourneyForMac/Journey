@@ -23,7 +23,7 @@
         </div>
         <% if(m.photo && m.photo.iOSLowResURL) { %>
           <div class='moment_photo'>
-            <img src='<%= m.photo.iOSLowResURL %>' alt=''app.css/>
+            <img src='<%= m.photo.iOSLowResURL %>' alt='' />
           </div>
         <% } %>
         <% var ambientMoment = (m.type == 'ambient' || m.type == 'place' || m.type == 'music') && (m.headline || m.subHeadline); %>
@@ -49,9 +49,9 @@
             <% _.each(m.people, function(p) { %>
               <% var displayProfilePhoto = p && p.profilePhoto && p.profilePhoto.iOSLowResURL; %>
               <% if(displayProfilePhoto) { %>
-                <img src='<%= displayProfilePhoto %>'/>
+                <div style='background-image: url(<%= displayProfilePhoto %>)'></div>
               <% } else { %>
-                <img src='images/user.png'/>
+                <div style='background-image: url(images/user.png)'></div>
               <% } %>
             <% }); %>
           </div>

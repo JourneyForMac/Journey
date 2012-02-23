@@ -168,6 +168,7 @@ li.moment:last-child {
   -webkit-border-radius: 14px;
   background-repeat: no-repeat;
   background-position: center center;
+  overflow: hidden;
 }
 
 .null.dot {
@@ -204,11 +205,12 @@ li.moment:last-child {
   background-image: url(../images/plane.png);
 }
 
-.friend.dot img {
-  display: inline-block;
+.friend.dot > div {
   width: 22px;
-  -webkit-border-radius: 14px;
+  height: 22px;
+  background-size: cover;
   position: absolute;
+  -webkit-border-radius: 13px;
 }
 
 .ambient.text {
