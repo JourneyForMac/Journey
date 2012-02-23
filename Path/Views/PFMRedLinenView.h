@@ -2,5 +2,4 @@
 #import "PFMView.h"
 
 @interface PFMRedLinenView : PFMView
-
 @end

@@ -3,8 +3,8 @@
 @implementation PFMView
 
 @synthesize
-  drawRectBlock=_drawRectBlock
-, backgroundColor=_backgroundColor
+  backgroundColor=_backgroundColor
+, drawRectBlock=_drawRectBlock
 ;
 
 - (void)drawRect:(NSRect)rect {

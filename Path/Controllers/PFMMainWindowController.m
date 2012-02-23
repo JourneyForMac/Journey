@@ -11,7 +11,7 @@
 @implementation PFMMainWindowController
 
 @synthesize
-  toolbarViewWrapper=toolbarViewWrapper
+  toolbarViewWrapper=_toolbarViewWrapper
 , momentListViewWrapper=_momentListViewWrapper
 , titleBarView=_titleBarView
 , toolbarViewController=_toolbarViewController

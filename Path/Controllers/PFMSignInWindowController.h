@@ -3,7 +3,14 @@
 
 @interface PFMSignInWindowController : NSWindowController <
   PFMUserSignInDelegate
->
+> {
+  NSButton *_signInButton;
+  NSTextField *_emailField;
+  NSTextField *_passwordField;
+  NSProgressIndicator *_spinner;
+  NSTextField *_emailLabel;
+  NSTextField *_passwordLabel;
+}
 
 - (IBAction)didClickOnSignInButton:(id)sender;
 

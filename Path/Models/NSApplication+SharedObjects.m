@@ -3,9 +3,9 @@
 #import "Application.h"
 
 static PFMUser *_sharedUser = nil;
-static NSMutableDictionary * _sharedLocations = nil;
-static NSMutableDictionary * _sharedPlaces = nil;
-static NSMutableDictionary * _sharedUsers = nil;
+static NSMutableDictionary *_sharedLocations = nil;
+static NSMutableDictionary *_sharedPlaces = nil;
+static NSMutableDictionary *_sharedUsers = nil;
 @implementation NSApplication (SharedObjects)
 
 - (PFMUser *)sharedUser {

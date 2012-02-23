@@ -1,12 +1,6 @@
 #import "PFMThemedWindow.h"
 #import "PFMRedLinenView.h"
 
-@interface PFMThemedWindow ()
-
-@property (nonatomic, retain) PFMRedLinenView *redLinenView;
-
-@end
-
 @implementation PFMThemedWindow
 
 @synthesize

@@ -7,7 +7,29 @@
 
 @class PFMPhoto;
 
-@interface PFMUser : PFMModel
+@interface PFMUser : PFMModel {
+  NSString *_oid;
+
+  NSString *_email;
+  NSString *_password;
+
+  BOOL _signingIn;
+  BOOL _signedIn;
+  BOOL _fetchingMoments;
+
+  NSString *_firstName;
+  NSString *_lastName;
+  NSMutableArray  *_fetchedMoments;
+
+  PFMPhoto *_coverPhoto;
+  PFMPhoto *_profilePhoto;
+
+  NSMutableDictionary *_allMomentIds;
+  NSMutableArray      *_allMoments;
+
+  __weak id<PFMUserSignInDelegate> _signInDelegate;
+  __weak id<PFMUserMomentsDelegate> _momentsDelegate;
+}
 
 @property(nonatomic, copy) NSString *oid;
 
@@ -22,11 +44,11 @@
 @property(nonatomic, copy) NSString *lastName;
 @property(nonatomic, retain) NSMutableArray  *fetchedMoments;
 
-@property(nonatomic, retain) PFMPhoto * coverPhoto;
-@property(nonatomic, retain) PFMPhoto * profilePhoto;
+@property(nonatomic, retain) PFMPhoto *coverPhoto;
+@property(nonatomic, retain) PFMPhoto *profilePhoto;
 
-@property(nonatomic, retain) NSMutableDictionary * allMomentIds;
-@property(nonatomic, retain) NSMutableArray      * allMoments;
+@property(nonatomic, retain) NSMutableDictionary *allMomentIds;
+@property(nonatomic, retain) NSMutableArray      *allMoments;
 
 @property(nonatomic) __weak id<PFMUserSignInDelegate> signInDelegate;
 @property(nonatomic) __weak id<PFMUserMomentsDelegate> momentsDelegate;
@@ -41,8 +63,8 @@
 - (void)loadCredentials;
 - (void)deleteCredentials;
 
-- (NSDictionary *) toHash;
-- (NSString *) JSONRepresentation;
+- (NSDictionary *)toHash;
+- (NSString *)JSONRepresentation;
 
 @end
 

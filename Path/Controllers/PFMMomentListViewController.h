@@ -4,7 +4,9 @@
 
 @interface PFMMomentListViewController : NSViewController <
   PFMUserMomentsDelegate
->
+> {
+  WebView *_webView;
+}
 
 @property (nonatomic, retain) IBOutlet WebView *webView;
 
