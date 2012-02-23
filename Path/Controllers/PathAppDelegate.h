@@ -16,5 +16,6 @@
 
 - (IBAction)signOut:(id)sender;
 - (IBAction)toggleWindowDisplay:(id)sender;
+- (IBAction)quitApp:(id)sender;
 
 @end

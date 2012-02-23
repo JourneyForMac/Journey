@@ -106,6 +106,10 @@
 //  }
 //}
 
+- (void)hideWindow {
+  [self.window orderOut:self];
+}
+
 #pragma mark - NSWindowDelegate
 
 - (BOOL)windowShouldClose:(id)sender {
@@ -113,8 +117,5 @@
   return NO;
 }
 
-- (void)hideWindow {
-  [self.window orderOut:self];
-}
 
 @end

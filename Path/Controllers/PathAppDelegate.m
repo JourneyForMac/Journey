@@ -37,7 +37,10 @@
   } else {
     [self.mainWindowController showWindow:self];
   }
+}
 
+- (IBAction)quitApp:(id)sender {
+  [(NSApplication *)NSApp terminate:nil];
 }
 
 -(void)awakeFromNib{
