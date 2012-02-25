@@ -58,6 +58,7 @@
 		E9FD376014E40C80007F90AF /* PathAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FD375114E40C80007F90AF /* PathAppDelegate.m */; };
 		E9FD376214E40C80007F90AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9FD375614E40C80007F90AF /* InfoPlist.strings */; };
 		E9FD376414E40C80007F90AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FD375B14E40C80007F90AF /* main.m */; };
+		E9FE51B214F8DB0800500C1C /* libPods-test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FE51A114F8D6A100500C1C /* libPods-test.a */; };
 		F449978514E6215000306056 /* moments_feed.json in Resources */ = {isa = PBXBuildFile; fileRef = F449978414E6215000306056 /* moments_feed.json */; };
 		F449978914E6295C00306056 /* PFMMoment.m in Sources */ = {isa = PBXBuildFile; fileRef = F449978814E6295C00306056 /* PFMMoment.m */; };
 		F44997A214E6571F00306056 /* PFMPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = F44997A114E6571F00306056 /* PFMPhoto.m */; };
@@ -91,6 +92,7 @@
 		E91CCEF414E4655300DA6E96 /* PFMMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMMainWindowController.h; sourceTree = "<group>"; };
 		E91CCEF514E4655400DA6E96 /* PFMMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMMainWindowController.m; sourceTree = "<group>"; };
 		E91CCEFA14E4695600DA6E96 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		E933945F14F8D40D00078772 /* Pods-test.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Pods-test.xcconfig"; path = "Pods/Pods-test.xcconfig"; sourceTree = "<group>"; };
 		E93EC9A214F52ADC0060DB49 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		E954C6BD14E40A5700DF093C /* Journey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E954C6C114E40A5700DF093C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -160,6 +162,7 @@
 		E9FD375B14E40C80007F90AF /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E9FD375C14E40C80007F90AF /* Journey-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Journey-Info.plist"; sourceTree = "<group>"; };
 		E9FD375D14E40C80007F90AF /* Journey-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Journey-Prefix.pch"; sourceTree = "<group>"; };
+		E9FE51A114F8D6A100500C1C /* libPods-test.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-test.a"; path = "../../Library/Developer/Xcode/DerivedData/Journey-gicjnhowhxtsfjaysjxvfgsgxlof/Build/Products/Debug/libPods-test.a"; sourceTree = "<group>"; };
 		EAEC0C9312904ABA8CE686A2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F449978414E6215000306056 /* moments_feed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = moments_feed.json; sourceTree = "<group>"; };
 		F449978714E6295C00306056 /* PFMMoment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMMoment.h; sourceTree = "<group>"; };
@@ -199,6 +202,7 @@
 				E9ADC80314E40FD300E39527 /* Security.framework in Frameworks */,
 				E954C6E014E40A5800DF093C /* SenTestingKit.framework in Frameworks */,
 				E954C6E114E40A5800DF093C /* Cocoa.framework in Frameworks */,
+				E9FE51B214F8DB0800500C1C /* libPods-test.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +228,7 @@
 				E954C6C014E40A5700DF093C /* Frameworks */,
 				E954C6BE14E40A5700DF093C /* Products */,
 				3762FDED24BF40BDAF87D96A /* Pods.xcconfig */,
+				E933945F14F8D40D00078772 /* Pods-test.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -245,6 +250,7 @@
 				E954C6DF14E40A5800DF093C /* SenTestingKit.framework */,
 				E954C6C314E40A5700DF093C /* Other Frameworks */,
 				EAEC0C9312904ABA8CE686A2 /* libPods.a */,
+				E9FE51A114F8D6A100500C1C /* libPods-test.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -678,7 +684,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -698,7 +704,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -741,7 +747,7 @@
 		};
 		E954C6F314E40A5800DF093C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3762FDED24BF40BDAF87D96A /* Pods.xcconfig */;
+			baseConfigurationReference = E933945F14F8D40D00078772 /* Pods-test.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Journey.app/Contents/MacOS/Journey";
 				DSTROOT = /tmp/xcodeproj.dst;
@@ -751,16 +757,21 @@
 				GCC_PREFIX_HEADER = "Journey/Support/Journey-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "JourneyTests/Support/JourneyTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/Journey-gicjnhowhxtsfjaysjxvfgsgxlof/Build/Products/Debug\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TEST_HOST = "$(BUNDLE_LOADER)";
+				USER_HEADER_SEARCH_PATHS = "\"$(PODS_ROOT)/Headers\" \"$(PODS_ROOT)/Headers/ASIHTTPRequest\" \"$(PODS_ROOT)/Headers/ConciseKit\" \"$(PODS_ROOT)/Headers/SBJson\" \"$(PODS_ROOT)/Headers/SSKeychain\"";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
 		E954C6F414E40A5800DF093C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3762FDED24BF40BDAF87D96A /* Pods.xcconfig */;
+			baseConfigurationReference = E933945F14F8D40D00078772 /* Pods-test.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Journey.app/Contents/MacOS/Journey";
 				DSTROOT = /tmp/xcodeproj.dst;
@@ -770,9 +781,14 @@
 				GCC_PREFIX_HEADER = "Journey/Support/Journey-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "JourneyTests/Support/JourneyTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/Journey-gicjnhowhxtsfjaysjxvfgsgxlof/Build/Products/Debug\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TEST_HOST = "$(BUNDLE_LOADER)";
+				USER_HEADER_SEARCH_PATHS = "\"$(PODS_ROOT)/Headers\" \"$(PODS_ROOT)/Headers/ASIHTTPRequest\" \"$(PODS_ROOT)/Headers/ConciseKit\" \"$(PODS_ROOT)/Headers/SBJson\" \"$(PODS_ROOT)/Headers/SSKeychain\"";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;

@@ -9,7 +9,7 @@ static NSMutableArray *requests = nil;
 + (NSMutableArray *)requests {
   @synchronized(self) {
     if(!requests) {
-      requests = [NSMutableArray array];
+      requests = [NSMutableArray new];
     }
   }
   return requests;
