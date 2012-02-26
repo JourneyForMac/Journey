@@ -7,4 +7,5 @@
 
 #define kPathAPIHost                  @"https://api.path.com"
 #define kPathDefaultsEmailKey         @"user_email"
-#define kPathKeychainServiceName      @"Path For Mac"
+#define kPathKeychainServiceName      @"Journey"
+#define kMomentsAPIPath               @"/3/moment/feed/home"

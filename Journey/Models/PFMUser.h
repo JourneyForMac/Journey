@@ -1,7 +1,5 @@
 #import "PFMModel.h"
 
-#define kMomentsAPIPath  @"/3/moment/feed/home"
-
 @protocol PFMUserSignInDelegate;
 @protocol PFMUserMomentsDelegate;
 
