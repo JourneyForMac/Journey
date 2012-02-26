@@ -14,6 +14,7 @@
 , spinner=_spinner
 , emailLabel=_emailLabel
 , passwordLabel=_passwordLabel
+, sharedUserController=_sharedUserController
 ;
 
 - (id)init {

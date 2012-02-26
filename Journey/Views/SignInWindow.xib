@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1070</int>
-		<string key="IBDocument.SystemVersion">11D50b</string>
+		<string key="IBDocument.SystemVersion">11D50</string>
 		<string key="IBDocument.InterfaceBuilderVersion">2177</string>
 		<string key="IBDocument.AppKitVersion">1138.32</string>
 		<string key="IBDocument.HIToolboxVersion">568.00</string>
@@ -60,7 +60,7 @@
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<object class="NSView" key="NSWindowView" id="1006">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -69,6 +69,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{86, 12}, {92, 32}}</string>
 							<reference key="NSSuperview" ref="1006"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="505547145"/>
 							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 							<string key="NSReuseIdentifierKey">_NS:687</string>
@@ -114,6 +115,7 @@
 							</object>
 							<string key="NSFrame">{{17, 124}, {286, 286}}</string>
 							<reference key="NSSuperview" ref="1006"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="709011843"/>
 							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 							<string key="NSReuseIdentifierKey">_NS:2141</string>
@@ -139,6 +141,7 @@
 							<object class="NSPSMatrix" key="NSDrawMatrix"/>
 							<string key="NSFrame">{{180, 21}, {16, 16}}</string>
 							<reference key="NSSuperview" ref="1006"/>
+							<reference key="NSWindow"/>
 							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 							<string key="NSReuseIdentifierKey">_NS:3891</string>
 							<int key="NSpiFlags">28938</int>
@@ -149,6 +152,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{17, 53}, {68, 17}}</string>
 							<reference key="NSSuperview" ref="1006"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="542936199"/>
 							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 							<string key="NSReuseIdentifierKey">_NS:3944</string>
@@ -180,6 +184,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{18, 84}, {67, 17}}</string>
 							<reference key="NSSuperview" ref="1006"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="224861825"/>
 							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 							<string key="NSReuseIdentifierKey">_NS:3944</string>
@@ -200,6 +205,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{92, 81}, {209, 22}}</string>
 							<reference key="NSSuperview" ref="1006"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="122949451"/>
 							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 							<string key="NSReuseIdentifierKey">_NS:903</string>
@@ -237,6 +243,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{92, 50}, {209, 22}}</string>
 							<reference key="NSSuperview" ref="1006"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="21134887"/>
 							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 							<string key="NSReuseIdentifierKey">_NS:3279</string>
@@ -259,6 +266,8 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{320, 427}</string>
+					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="1067665084"/>
 					<int key="NSViewLayerContentsRedrawPolicy">2</int>
 				</object>
@@ -325,6 +334,14 @@
 						<reference key="destination" ref="709011843"/>
 					</object>
 					<int key="connectionID">181</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">sharedUserController</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="735602253"/>
+					</object>
+					<int key="connectionID">189</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -792,7 +809,7 @@
 				<reference key="dict.values" ref="1002"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">188</int>
+			<int key="maxID">189</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -819,6 +836,7 @@
 							<string>emailLabel</string>
 							<string>passwordField</string>
 							<string>passwordLabel</string>
+							<string>sharedUserController</string>
 							<string>signInButton</string>
 							<string>spinner</string>
 						</object>
@@ -828,6 +846,7 @@
 							<string>NSTextField</string>
 							<string>NSTextField</string>
 							<string>NSTextField</string>
+							<string>NSObjectController</string>
 							<string>NSButton</string>
 							<string>NSProgressIndicator</string>
 						</object>
@@ -840,6 +859,7 @@
 							<string>emailLabel</string>
 							<string>passwordField</string>
 							<string>passwordLabel</string>
+							<string>sharedUserController</string>
 							<string>signInButton</string>
 							<string>spinner</string>
 						</object>
@@ -860,6 +880,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">passwordLabel</string>
 								<string key="candidateClassName">NSTextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">sharedUserController</string>
+								<string key="candidateClassName">NSObjectController</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">signInButton</string>

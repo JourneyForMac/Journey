@@ -9,8 +9,10 @@
 @synthesize
   signInWindowController=_signInWindowController
 , mainWindowController=_mainWindowController
+, mainMenu=_mainMenu
 , statusMenu=_statusMenu
 , statusItem=_statusItem
+, sharedUserController=_sharedUserController
 ;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
