@@ -15,6 +15,8 @@
 		E954C6C214E40A5700DF093C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E954C6C114E40A5700DF093C /* Cocoa.framework */; };
 		E954C6E014E40A5800DF093C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E954C6DF14E40A5800DF093C /* SenTestingKit.framework */; };
 		E954C6E114E40A5800DF093C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E954C6C114E40A5700DF093C /* Cocoa.framework */; };
+		E95FB1B314FA3B3300B2DF1A /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = E95FB1AF14FA3B2900B2DF1A /* LICENSE.md */; };
+		E95FB1B414FA3B3600B2DF1A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E95FB1B114FA3B2900B2DF1A /* README.md */; };
 		E96080EB14E4D1A100127E58 /* PFMHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E96080EA14E4D1A100127E58 /* PFMHelper.m */; };
 		E960810014E4DFA100127E58 /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E96080FF14E4DFA100127E58 /* TestHelper.m */; };
 		E960810614E5476B00127E58 /* PFMView.m in Sources */ = {isa = PBXBuildFile; fileRef = E960810514E5476B00127E58 /* PFMView.m */; };
@@ -101,6 +103,9 @@
 		E954C6C614E40A5700DF093C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E954C6DE14E40A5800DF093C /* JourneyTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JourneyTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E954C6DF14E40A5800DF093C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		E95FB1AF14FA3B2900B2DF1A /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.md; sourceTree = "<group>"; };
+		E95FB1B014FA3B2900B2DF1A /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		E95FB1B114FA3B2900B2DF1A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		E96080E914E4D1A100127E58 /* PFMHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMHelper.h; sourceTree = "<group>"; };
 		E96080EA14E4D1A100127E58 /* PFMHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMHelper.m; sourceTree = "<group>"; };
 		E96080FF14E4DFA100127E58 /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
@@ -223,6 +228,9 @@
 		E954C6B214E40A5700DF093C = {
 			isa = PBXGroup;
 			children = (
+				E95FB1B114FA3B2900B2DF1A /* README.md */,
+				E95FB1AF14FA3B2900B2DF1A /* LICENSE.md */,
+				E95FB1B014FA3B2900B2DF1A /* Podfile */,
 				E9FD374E14E40C80007F90AF /* Journey */,
 				E954C6E414E40A5800DF093C /* JourneyTests */,
 				E954C6C014E40A5700DF093C /* Frameworks */,
@@ -545,6 +553,8 @@
 				E9C75DC214F6A44600F564A0 /* StatusItemIcon.png in Resources */,
 				E9C75DC314F6A44600F564A0 /* StatusItemIconHighlighted.png in Resources */,
 				E9C75DC514F6A5C700F564A0 /* StatusItemIconSelected.png in Resources */,
+				E95FB1B314FA3B3300B2DF1A /* LICENSE.md in Resources */,
+				E95FB1B414FA3B3600B2DF1A /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
