@@ -27,7 +27,8 @@ describe(@"-signIn", ^{
   __block id mockSignInDelegate;
 
   before(^{
-    request = [user signIn];
+    [user signIn];
+    request = [ASIHTTPRequest mostRecentRequest];
     mockRequest = [OCMockObject partialMockForObject:request];
     mockSignInDelegate = [OCMockObject mockForProtocol:@protocol(PFMUserSignInDelegate)];
   });
@@ -229,7 +230,8 @@ describe(@"-fetchMomentsNewerThan: (non-null Date)", ^{
   __block id mockMomentsDelegate;
 
   before(^{
-    request = [user fetchMomentsNewerThan:1328809735.59837];
+    [user fetchMomentsNewerThan:1328809735.59837];
+    request = [ASIHTTPRequest mostRecentRequest];
     mockRequest = [OCMockObject partialMockForObject:request];
     mockMomentsDelegate = [OCMockObject mockForProtocol:@protocol(PFMUserMomentsDelegate)];
     // There are already moments loaded as part of the user
@@ -286,7 +288,8 @@ describe(@"-fetchMomentsOlderThan: (non-null Date)", ^{
   __block id mockMomentsDelegate;
 
   before(^{
-    request = [user fetchMomentsOlderThan:1328778313.41825];
+    [user fetchMomentsOlderThan:1328778313.41825];
+    request = [ASIHTTPRequest mostRecentRequest];
     mockRequest = [OCMockObject partialMockForObject:request];
     mockMomentsDelegate = [OCMockObject mockForProtocol:@protocol(PFMUserMomentsDelegate)];
     [user parseMomentsJSON:loadStringFixture(@"moments_feed.json") insertAtTop:YES];
@@ -342,7 +345,8 @@ describe(@"-fetchMomentsNewerThan:/-fetchMomentsOlderThan: (with nil date)", ^{
   __block id mockMomentsDelegate;
 
   before(^{
-    request = [user fetchMomentsNewerThan:0.0];
+    [user fetchMomentsNewerThan:0.0];
+    request = [ASIHTTPRequest mostRecentRequest];
     mockRequest = [OCMockObject partialMockForObject:request];
     mockMomentsDelegate = [OCMockObject mockForProtocol:@protocol(PFMUserMomentsDelegate)];
   });
