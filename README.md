@@ -5,6 +5,12 @@ Developed purely for **educational purposes only** by
 [@getdenso](http://getdenso.com/) at the 2nd Anideo hackathon in Sunny
 Singapore.
 
+### BUILD INSTRUCTIONS
+
+This project requires [Cocoapods](http://github.com/CocoaPods/CocoaPods).
+
+Do `pod install Journey.xcodeproj` to download and install project dependencies, and then open `Journey.xcworkspace`.
+
 ### TODO
 
 1. Add missing specs.
