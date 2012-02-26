@@ -18,3 +18,5 @@ Copyright (c) 2012 [Anideo](http://www.anideo.com/) and [DecisiveBits](http://ww
 
 Different licenses may apply to other software that this project depends on, please check [LICENSE.md](https://github.com/JourneyForMac/Journey/blob/master/LICENSE.md) for their licenses.
 
+Includes icons from [Glyphicons](http://glyphicons.com/).
+
