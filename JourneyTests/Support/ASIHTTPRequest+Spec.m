@@ -15,7 +15,6 @@ static NSMutableArray *requests = nil;
   return requests;
 }
 
-
 + (void)resetRequests {
   [[self requests] removeAllObjects];
 }
@@ -63,6 +62,11 @@ static NSMutableArray *requests = nil;
 - (void)startAsynchronous {
   self.started = YES;
   self.asynchronous = YES;
+  [[[self class] requests] addObject:self];
+}
+
+- (void)start {
+  self.started = YES;
   [[[self class] requests] addObject:self];
 }
 

@@ -51,19 +51,21 @@
   [user fetchMomentsOlderThan:lastMoment.createdAt];
 }
 
-#pragma mark - PFMUserMomentsDelegate
-
-- (void)didFetchMoments:(NSArray *)moments
-                  atTop:(BOOL)atTop {
+- (NSString *)makeTemplateJSON:(NSArray *)moments {
   PFMUser *user = [NSApp sharedUser];
-  NSString * javascriptToExecute = nil;
-
   NSDictionary *dict = $dict([moments $map:^id (id moment) {
-                               return [(PFMMoment *)moment toHash];
-                             }], @"moments",
+    return [(PFMMoment *)moment toHash];
+  }], @"moments",
                              [user.coverPhoto iOSHighResURL], @"coverPhoto",
                              [user.profilePhoto iOSHighResURL], @"profilePhoto");
-  NSString *json = [dict JSONRepresentation];
+  return [dict JSONRepresentation];
+}
+
+#pragma mark - PFMUserMomentsDelegate
+
+- (void)didFetchMoments:(NSArray *)moments atTop:(BOOL)atTop {
+  NSString *javascriptToExecute = nil;
+  NSString *json = [self makeTemplateJSON:moments];
   //  NSLog(@">> %@", json);
   if([moments count] > 0) {
     if (atTop) {

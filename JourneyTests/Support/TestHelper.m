@@ -9,3 +9,10 @@ void resetUserDefaultsAndKeychain(void) {
     [SSKeychain deletePasswordForService:kPathKeychainServiceName account:account];
   }
 }
+
+@implementation TestHelper
+
++ (void)initialize {
+}
+
+@end

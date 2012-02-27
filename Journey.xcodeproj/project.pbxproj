@@ -17,6 +17,9 @@
 		E954C6E114E40A5800DF093C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E954C6C114E40A5700DF093C /* Cocoa.framework */; };
 		E95FB1B314FA3B3300B2DF1A /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = E95FB1AF14FA3B2900B2DF1A /* LICENSE.md */; };
 		E95FB1B414FA3B3600B2DF1A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E95FB1B114FA3B2900B2DF1A /* README.md */; };
+		E95FB1C514FB812000B2DF1A /* WebView+Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = E95FB1C414FB812000B2DF1A /* WebView+Spec.m */; };
+		E95FB1C714FB872700B2DF1A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91CCEFA14E4695600DA6E96 /* WebKit.framework */; };
+		E95FB1CD14FBDD1800B2DF1A /* EXPMatchers+toMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = E95FB1CC14FBDD1800B2DF1A /* EXPMatchers+toMatch.m */; };
 		E96080EB14E4D1A100127E58 /* PFMHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E96080EA14E4D1A100127E58 /* PFMHelper.m */; };
 		E960810014E4DFA100127E58 /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E96080FF14E4DFA100127E58 /* TestHelper.m */; };
 		E960810614E5476B00127E58 /* PFMView.m in Sources */ = {isa = PBXBuildFile; fileRef = E960810514E5476B00127E58 /* PFMView.m */; };
@@ -106,6 +109,10 @@
 		E95FB1AF14FA3B2900B2DF1A /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.md; sourceTree = "<group>"; };
 		E95FB1B014FA3B2900B2DF1A /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		E95FB1B114FA3B2900B2DF1A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		E95FB1C314FB812000B2DF1A /* WebView+Spec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WebView+Spec.h"; sourceTree = "<group>"; };
+		E95FB1C414FB812000B2DF1A /* WebView+Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WebView+Spec.m"; sourceTree = "<group>"; };
+		E95FB1CB14FBDD1800B2DF1A /* EXPMatchers+toMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EXPMatchers+toMatch.h"; sourceTree = "<group>"; };
+		E95FB1CC14FBDD1800B2DF1A /* EXPMatchers+toMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EXPMatchers+toMatch.m"; sourceTree = "<group>"; };
 		E96080E914E4D1A100127E58 /* PFMHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMHelper.h; sourceTree = "<group>"; };
 		E96080EA14E4D1A100127E58 /* PFMHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMHelper.m; sourceTree = "<group>"; };
 		E96080FF14E4DFA100127E58 /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
@@ -204,6 +211,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E95FB1C714FB872700B2DF1A /* WebKit.framework in Frameworks */,
 				E9ADC80314E40FD300E39527 /* Security.framework in Frameworks */,
 				E954C6E014E40A5800DF093C /* SenTestingKit.framework in Frameworks */,
 				E954C6E114E40A5800DF093C /* Cocoa.framework in Frameworks */,
@@ -357,6 +365,10 @@
 				E91CCED914E4413100DA6E96 /* ASIHTTPRequest+Spec.m */,
 				E9ADC81F14E4222F00E39527 /* TestHelper.h */,
 				E96080FF14E4DFA100127E58 /* TestHelper.m */,
+				E95FB1C314FB812000B2DF1A /* WebView+Spec.h */,
+				E95FB1C414FB812000B2DF1A /* WebView+Spec.m */,
+				E95FB1CB14FBDD1800B2DF1A /* EXPMatchers+toMatch.h */,
+				E95FB1CC14FBDD1800B2DF1A /* EXPMatchers+toMatch.m */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -649,6 +661,8 @@
 				F4DB598E14E7FEBF009E92E8 /* PFMCommentSpec.m in Sources */,
 				F4DB599114E80A6E009E92E8 /* PFMLocationSpec.m in Sources */,
 				F4DB599314E80D12009E92E8 /* PFMPlaceSpec.m in Sources */,
+				E95FB1C514FB812000B2DF1A /* WebView+Spec.m in Sources */,
+				E95FB1CD14FBDD1800B2DF1A /* EXPMatchers+toMatch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

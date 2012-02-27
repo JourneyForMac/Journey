@@ -13,5 +13,6 @@
 - (void)refreshFeed;
 - (void)loadOldMoments;
 - (NSInteger)webViewScrollTop;
+- (NSString *)makeTemplateJSON:(NSArray *)moments;
 
 @end
