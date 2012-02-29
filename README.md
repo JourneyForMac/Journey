@@ -5,6 +5,15 @@ Developed purely for **educational purposes only** by
 [@getdenso](http://getdenso.com/) at the 2nd Anideo hackathon in Sunny
 Singapore.
 
+### SCREENSHOT
+
+![Screenshot](https://github.com/petejkim/stuff/raw/master/images/journey-screenshot.png)
+
+
+### DOWNLOAD
+
+[Download v0.1.0](https://github.com/downloads/JourneyForMac/Journey/Journey%200.1.0.dmg)
+
 ### BUILD INSTRUCTIONS
 
 This project requires [Cocoapods](http://github.com/CocoaPods/CocoaPods).
