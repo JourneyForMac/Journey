@@ -5,7 +5,7 @@ dependency 'ConciseKit',     '~> 0.1.1'
 dependency 'SSKeychain',     '~> 0.1.2'
 dependency 'SBJson',         '~> 3.0.4'
 
-target :test, exclusive: true do
+target :test, :exclusive => true do
   dependency 'Specta',       '~> 0.1.4'
   dependency 'Expecta',      '~> 0.1.3'
   dependency 'OCMock',       '~> 1.77.1'

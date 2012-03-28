@@ -1,9 +1,8 @@
 # Journey - the Unofficial Path Client for Mac OS X
 
 Developed purely for **educational purposes only** by
-[@raingrove](http://www.raingrove.com/) and
-[@getdenso](http://getdenso.com/) at the 2nd Anideo hackathon in Sunny
-Singapore.
+[@raingrove](http://twitter.com/raingrove) and the
+[@getdenso](http://getdenso.com/) team ([@iamclovin](http://twitter.com/iamclovin), [@ajhit406](http://twitter.com/ajhit406), and [@ntluan](http://twitter.com/ntluan)) at the 2nd Anideo hackathon in Sunny Singapore.
 
 ### SCREENSHOT
 
